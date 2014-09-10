@@ -7,40 +7,111 @@
 //
 
 #import "AppDelegate.h"
+#import "LDRGatekeeper.h"
+#import "UICKeyChainStore.h"
+#import "SVProgressHUD.h"
+#import "MTMigration.h"
+#import "TSMessage.h"
+#import <Crashlytics/Crashlytics.h>
+#import "PocketAPI.h"
+#import "HTBHatenaBookmarkManager.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+	[MTMigration applicationUpdateBlock:^{
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:FirstLaunchKey];
+		NSString *versionNum = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+		NSString *buildNum = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
+		if (![versionNum isEqualToString:@"1.0.0"]) {
+			[TSMessage showNotificationInViewController:self.window.rootViewController title:@"ryyder is updated" subtitle:[NSString stringWithFormat:@"New version %@", [NSString stringWithFormat:@"Version %@.%@", versionNum, buildNum]] type:TSMessageNotificationTypeSuccess duration:10 canBeDismissedByUser:YES];
+		}
+	}];
+	[MTMigration migrateToVersion:@"1.0.0" block:^{
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:SyncAtLaunchKey];
+	}];
+	
+	[Crashlytics startWithAPIKey:(NSString *)CrashlyticsAPIKey];
+#ifdef DEBUG
+	[[Crashlytics sharedInstance] setDebugMode:YES];
+#endif
+	
+	[[HTBHatenaBookmarkManager sharedManager] setConsumerKey:HatenaOAuthConsumerKey consumerSecret:HatenaOAuthConsumerSecret];
+	[[PocketAPI sharedAPI] setURLScheme:URLScheme];
+	[[PocketAPI sharedAPI] setConsumerKey:PocketConsumerKey];
+	
+	[SVProgressHUD setBackgroundColor:[UIColor darkGrayColor]];
+	[SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+	
+	LDRGatekeeper *gatekeeper = [LDRGatekeeper sharedInstance];
+#ifdef DEBUG
+	gatekeeper.debugMode = YES;
+#endif
+	[gatekeeper initializeBlock:^(M2DAPIRequest *request, NSDictionary *params) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[SVProgressHUD show];
+		});
+	}];
+	[gatekeeper finalizeBlock:^(M2DAPIRequest *request) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[SVProgressHUD dismiss];
+		});
+	}];
+	
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		[self updateBadgeNumber:^(NSInteger count) {
+		}];
+	});
+	
+	[[NSNotificationCenter defaultCenter] addObserverForName:LDRArticleItemReadFlagNotificationYES object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+		if ([[NSUserDefaults standardUserDefaults] boolForKey:ShowBadgeKey]) {
+			[UIApplication sharedApplication].applicationIconBadgeNumber--;
+		}
+	}];
+	
     return YES;
 }
-							
-- (void)applicationWillResignActive:(UIApplication *)application
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL*)url
 {
-	// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-	// Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+	if([[PocketAPI sharedAPI] handleOpenURL:url]) {
+		return YES;
+	}
+	
+	return NO;
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler
 {
-	// Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-	// If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+	[self updateBadgeNumber:^(NSInteger count) {
+	}];
+	completionHandler(UIBackgroundFetchResultNewData);
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-	// Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
+#pragma mark - 
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
+- (void)updateBadgeNumber:(void (^)(NSInteger count))completionHandler
 {
-	// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+	LDRGatekeeper *g = [LDRGatekeeper new];
+	[g getUnreadCountWithCompletionHandler:^(NSString *result, NSError *error) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			NSInteger count = [result integerValue];
+			if ([[NSUserDefaults standardUserDefaults] boolForKey:ShowBadgeKey]) {
+				[UIApplication sharedApplication].applicationIconBadgeNumber = count;
+			}
+			if ([[NSUserDefaults standardUserDefaults] boolForKey:ShowNotificationKey] && count > 0) {
+				UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+				NSString *body = [NSString stringWithFormat:(count == 1 ? @"There is %ld unread content available." : @"There are %ld unread contents available."), (long)count];
+				localNotification.alertBody = body;
+				localNotification.soundName = UILocalNotificationDefaultSoundName;
+				localNotification.alertAction = @"Open";
+				[[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+			}
+			completionHandler(count);
+		});
+	}];
 }
 
 @end

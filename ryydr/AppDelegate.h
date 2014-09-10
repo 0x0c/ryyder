@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (void)updateBadgeNumber:(void (^)(NSInteger count))completionHandler;
+
 @end
