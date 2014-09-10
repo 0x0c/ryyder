@@ -17,3 +17,8 @@
 	#import "Constant.h"
 	#import "Key.h"
 #endif
+
+//NSLog()の無効化
+#ifndef DEBUG
+	#define NSLog(...)
+#endif
