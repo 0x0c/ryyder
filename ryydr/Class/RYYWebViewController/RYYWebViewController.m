@@ -51,7 +51,7 @@ static const NSString *JS_GET_TITLE= @"var elements=document.getElementsByTagNam
     progressProxy_.progressDelegate = self;
     CGFloat progressBarHeight = 3.0f;
     CGRect navigaitonBarBounds = self.navigationController.navigationBar.bounds;
-    progressView_ = [[NJKWebViewProgressView alloc] initWithFrame:CGRectMake(0, navigaitonBarBounds.size.height - 1.5, navigaitonBarBounds.size.width, progressBarHeight)];
+    progressView_ = [[NJKWebViewProgressView alloc] initWithFrame:CGRectMake(0, navigaitonBarBounds.size.height - progressBarHeight, navigaitonBarBounds.size.width, progressBarHeight)];
 	[progressView_ setProgress:0];
 }
 

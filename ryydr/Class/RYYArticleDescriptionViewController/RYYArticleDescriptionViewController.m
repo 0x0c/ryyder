@@ -27,6 +27,8 @@
 
 @end
 
+static CGFloat kIconButtonSize = 27;
+
 @implementation RYYArticleDescriptionViewController
 
 - (void)viewDidLoad
@@ -37,27 +39,31 @@
 	webView.delegate = self;
 	[self loadHTML];
 	
-	FAKFontAwesome *pin = [FAKFontAwesome dotCircleOIconWithSize:25];
+	FAKFontAwesome *pin = [FAKFontAwesome dotCircleOIconWithSize:kIconButtonSize - 2];
 	UIBarButtonItem *pinButtonItem = [[UIBarButtonItem alloc] initWithImage:[pin imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[pin imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(pin)];
-	FAKFontAwesome *link = [FAKFontAwesome linkIconWithSize:25];
+	FAKFontAwesome *link = [FAKFontAwesome linkIconWithSize:kIconButtonSize - 2];
 	UIBarButtonItem *linkButtonItem = [[UIBarButtonItem alloc] initWithImage:[link imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[link imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(openLink)];
 	
-	FAKFontAwesome *up = [FAKFontAwesome angleUpIconWithSize:25];
-	FAKFontAwesome *down = [FAKFontAwesome angleDownIconWithSize:25];
+	FAKFontAwesome *up = [FAKFontAwesome angleUpIconWithSize:kIconButtonSize];
+	FAKFontAwesome *down = [FAKFontAwesome angleDownIconWithSize:kIconButtonSize];
 	upButtonItem = [[UIBarButtonItem alloc] initWithImage:[up imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[up imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(up)];
 	downButtonItem = [[UIBarButtonItem alloc] initWithImage:[down imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[down imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(down)];
 	upButtonItem.enabled = (_article.previous != nil);
 	downButtonItem.enabled = (_article.next != nil);
 	
-	up = [FAKFontAwesome angleDoubleUpIconWithSize:25];
-	down = [FAKFontAwesome angleDoubleDownIconWithSize:25];
+	up = [FAKFontAwesome angleDoubleUpIconWithSize:kIconButtonSize];
+	down = [FAKFontAwesome angleDoubleDownIconWithSize:kIconButtonSize];
 	doubleUpButtonItem = [[UIBarButtonItem alloc] initWithImage:[up imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[up imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(doubleUp)];
 	doubleDownButtonItem = [[UIBarButtonItem alloc] initWithImage:[down imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[down imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(doubleDown)];
 	doubleUpButtonItem.enabled = (self.article.parent.parent.previousFeed != nil);
 	doubleDownButtonItem.enabled = (self.article.parent.parent.nextFeed != nil);
 	
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-	[self setToolbarItems:@[pinButtonItem, linkButtonItem, flexibleSpace, doubleUpButtonItem, doubleDownButtonItem, upButtonItem, downButtonItem] animated:YES];
+	UIBarButtonItem *fixedSectionSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+	fixedSectionSpace.width = 10;
+	UIBarButtonItem *fixedButtonSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+	fixedButtonSpace.width = 4;
+	[self setToolbarItems:@[fixedButtonSpace, pinButtonItem, fixedButtonSpace, linkButtonItem, flexibleSpace, doubleUpButtonItem, fixedButtonSpace, doubleDownButtonItem, fixedSectionSpace, upButtonItem, fixedButtonSpace, downButtonItem, fixedButtonSpace] animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="gT6-sH-18l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="gT6-sH-18l">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <development version="5100" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
-        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--ryyder-->
@@ -21,6 +20,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
+                        <barButtonItem width="4" style="plain" systemItem="fixedSpace" id="yoy-8j-rgh"/>
                         <barButtonItem systemItem="refresh" id="A8R-ER-4Vo">
                             <connections>
                                 <action selector="refreshButtonPressed:" destination="jo9-Yr-wkH" id="9Hg-gU-6Vf"/>
@@ -38,6 +38,7 @@
                                 <segue destination="9NG-NT-0oP" kind="modal" id="WBg-L0-sTO"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem width="4" style="plain" systemItem="fixedSpace" id="dwW-EP-g3K"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="ryyder" id="VAm-N1-VfT"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
@@ -431,9 +432,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4">
-            <size key="portraitSize" width="320" height="568"/>
-            <size key="landscapeSize" width="568" height="320"/>
-        </simulatedScreenMetrics>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>

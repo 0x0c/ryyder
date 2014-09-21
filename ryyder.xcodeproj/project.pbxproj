@@ -1078,7 +1078,7 @@
 				INFOPLIST_FILE = "ryydr/ryyder-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = ryyder;
-				PROVISIONING_PROFILE = "18264b46-dcf4-40e2-ba49-baeb7d2a975d";
+				PROVISIONING_PROFILE = "e6d99221-774f-4b60-9a26-2b7d527adec1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

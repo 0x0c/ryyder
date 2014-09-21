@@ -51,7 +51,7 @@
 #endif
 	[gatekeeper initializeBlock:^(M2DAPIRequest *request, NSDictionary *params) {
 		dispatch_async(dispatch_get_main_queue(), ^{
-			[SVProgressHUD show];
+			[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
 		});
 	}];
 	[gatekeeper finalizeBlock:^(M2DAPIRequest *request) {
@@ -68,6 +68,11 @@
 	[[NSNotificationCenter defaultCenter] addObserverForName:LDRArticleItemReadFlagNotificationYES object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
 		if ([[NSUserDefaults standardUserDefaults] boolForKey:ShowBadgeKey]) {
 			[UIApplication sharedApplication].applicationIconBadgeNumber--;
+		}
+	}];
+	[[NSNotificationCenter defaultCenter] addObserverForName:LDRArticleItemReadFlagNotificationNO object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+		if ([[NSUserDefaults standardUserDefaults] boolForKey:ShowBadgeKey]) {
+			[UIApplication sharedApplication].applicationIconBadgeNumber++;
 		}
 	}];
 	

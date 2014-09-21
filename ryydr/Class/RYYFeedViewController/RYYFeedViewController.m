@@ -29,21 +29,14 @@
 
 @implementation RYYFeedViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+static CGFloat kIconButtonSize = 27;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	[self.navigationController setToolbarHidden:NO animated:NO];
-	settingButtonItem.image = [[FAKFontAwesome gearIconWithSize:25] imageWithSize:CGSizeMake(25, 25)];
-	pinButtonItem.image = [[FAKFontAwesome dotCircleOIconWithSize:25] imageWithSize:CGSizeMake(25, 25)];
+	settingButtonItem.image = [[FAKFontAwesome gearIconWithSize:kIconButtonSize] imageWithSize:CGSizeMake(25, 25)];
+	pinButtonItem.image = [[FAKFontAwesome dotCircleOIconWithSize:kIconButtonSize] imageWithSize:CGSizeMake(25, 25)];
 
 	UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
 	[refreshControl addTarget:self action:@selector(sync) forControlEvents:UIControlEventValueChanged];
@@ -235,9 +228,17 @@
 		[sharedGatekeeper getFeedsWithUnreadArticle:YES completionHandler:^(id result, NSError *error) {
 			[bself.refreshControl endRefreshing];
 			if (error) {
-				dispatch_async(dispatch_get_main_queue(), ^{
-					[TSMessage showNotificationWithTitle:@"Error" subtitle:error.localizedDescription type:TSMessageNotificationTypeError];
-				});
+				[[LDRGatekeeper sharedInstance] loginWithCompetionHandler:^(NSError *error) {
+					dispatch_async(dispatch_get_main_queue(), ^{
+						if (error) {
+							[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
+							[TSMessage showNotificationWithTitle:@"Error" subtitle:error.localizedDescription type:TSMessageNotificationTypeError];
+						}
+						else {
+							[self sync];
+						}
+					});
+				}];
 			}
 			else {
 				feeds = [result copy];

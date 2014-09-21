@@ -24,19 +24,25 @@
 
 @implementation RYYArticleTableViewController
 
+static CGFloat kIconButtonSize = 27;
+
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
 	
-	FAKFontAwesome *up = [FAKFontAwesome angleUpIconWithSize:25];
-	FAKFontAwesome *down = [FAKFontAwesome angleDownIconWithSize:25];
+	FAKFontAwesome *up = [FAKFontAwesome angleUpIconWithSize:kIconButtonSize];
+	FAKFontAwesome *down = [FAKFontAwesome angleDownIconWithSize:kIconButtonSize];
 	upButtonItem = [[UIBarButtonItem alloc] initWithImage:[up imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[up imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(up)];
 	downButtonItem = [[UIBarButtonItem alloc] initWithImage:[down imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[down imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(down)];
-	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-	
 	FAKFontAwesome *mark = [FAKFontAwesome circleThinIconWithSize:20];
 	UIBarButtonItem *markAsRead = [[UIBarButtonItem alloc] initWithImage:[mark imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[mark imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(markAsRead)];
-	[self setToolbarItems:@[markAsRead, flexibleSpace, upButtonItem, downButtonItem] animated:animated];
+	
+	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	UIBarButtonItem *fixedSectionSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+	fixedSectionSpace.width = 10;
+	UIBarButtonItem *fixedButtonSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+	fixedButtonSpace.width = 4;
+	[self setToolbarItems:@[fixedButtonSpace, markAsRead, flexibleSpace, upButtonItem, fixedButtonSpace, downButtonItem, fixedButtonSpace] animated:animated];
 	
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:ShowTipsKey] == YES && [[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadTipsAlreadyShowKey] == NO) {
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:MarkAsReadTipsAlreadyShowKey];
