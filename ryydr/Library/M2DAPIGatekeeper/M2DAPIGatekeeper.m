@@ -39,6 +39,18 @@ typedef NS_ENUM(NSUInteger, M2DAPIGatekeeperErrorCode) {
 	return sharedInstance;
 }
 
++ (void)setNetworkActivityIndicatorVisible:(BOOL)setVisible
+{
+	static NSInteger connectionCount = 0;
+	if (setVisible) {
+		connectionCount++;
+	}
+	else {
+		connectionCount--;
+	}
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:(connectionCount > 0)];
+}
+
 - (NSString *)sendRequestWithURL:(NSURL *)url method:(NSString *)method parametors:(NSDictionary *)params success:(void (^)(M2DAPIRequest *request, id parsedObject))successBlock failed:(void (^)(M2DAPIRequest *request, NSError *error))failureBlock asynchronous:(BOOL)flag
 {
 	M2DAPIRequest *req = nil;
@@ -116,11 +128,13 @@ typedef NS_ENUM(NSUInteger, M2DAPIGatekeeperErrorCode) {
 		}
 	};
 	
+	[[self class] setNetworkActivityIndicatorVisible:YES];
 	NSString *identifier = nil;
 	if (request.willSendAsynchronous) {
 		M2DURLConnectionOperation *op = [[M2DURLConnectionOperation alloc] initWithRequest:request completeBlock:^(NSURLResponse *response, NSData *data, NSError *error) {
 			f(response, data, error);
 			[identifiers_ removeObject:identifier];
+			[[self class] setNetworkActivityIndicatorVisible:NO];
 		}];
 		if (request.progressBlock) {
 			[op setProgressBlock:request.progressBlock];
@@ -136,6 +150,7 @@ typedef NS_ENUM(NSUInteger, M2DAPIGatekeeperErrorCode) {
 		NSURLResponse *response = nil;
 		NSData *data = [NSURLConnection sendSynchronousRequest:(NSURLRequest *)request returningResponse:&response error:&error];
 		f(response, data, error);
+		[[self class] setNetworkActivityIndicatorVisible:NO];
 	}
 	
 	if (_debugMode) {
