@@ -159,12 +159,12 @@ NSString *const kLDRItemsBody = @"body";
 - (void)setRead:(BOOL)read
 {
 	if (_read == NO && read == YES) {
-		[[NSNotificationCenter defaultCenter] postNotificationName:read == YES ? LDRArticleItemReadFlagNotificationYES : LDRArticleItemReadFlagNotificationNO object:nil];
 		self.parent.parent.unreadCount--;
 	}
 	else if (_read == YES && read == NO){
 		self.parent.parent.unreadCount++;
 	}
+	[[NSNotificationCenter defaultCenter] postNotificationName:read == YES ? LDRArticleItemReadFlagNotificationYES : LDRArticleItemReadFlagNotificationNO object:nil];
 	_read = read;
 }
 
