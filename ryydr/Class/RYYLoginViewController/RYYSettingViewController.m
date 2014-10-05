@@ -76,7 +76,7 @@
 	
 	NSString *versionNum = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
 	NSString *buildNum = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
-	versionStringLabel.text = [NSString stringWithFormat:@"Version %@.%@", versionNum, buildNum];
+	versionStringLabel.text = [NSString stringWithFormat:@"Version %@(%@)", versionNum, buildNum];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
