@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <WebKit/WebKit.h>
 
 @class M2DWebViewController;
+
+typedef NS_ENUM(NSUInteger, M2DWebViewType) {
+	M2DWebViewTypeUIKit,
+	M2DWebViewTypeWebKit,
+};
 
 @protocol M2DWebViewControllerDelegate <NSObject>
 @optional
@@ -17,20 +23,21 @@
 
 @end
 
-@interface M2DWebViewController : UIViewController <UIWebViewDelegate>
+@interface M2DWebViewController : UIViewController <WKNavigationDelegate, UIWebViewDelegate>
 {
 	NSURL *url_;
-	UIWebView *webView_;
 	UIBarButtonItem *goForwardButton_;
 	UIBarButtonItem *goBackButton_;
 	UIBarButtonItem *actionButton_;
+	id webView_;
+	M2DWebViewType type_;
 }
 
 @property (assign, nonatomic) id <M2DWebViewControllerDelegate>delegate;
 @property (assign, nonatomic) BOOL smoothScroll;
-@property (nonatomic, readonly) UIWebView *webView;
+@property (nonatomic, readonly) id webView;
 
-- (instancetype)initWithURL:(NSURL *)url;
+- (instancetype)initWithURL:(NSURL *)url type:(M2DWebViewType)type;
 - (void)goForward:(id)sender;
 - (void)goBack:(id)sender;
 - (void)refresh:(id)sender;

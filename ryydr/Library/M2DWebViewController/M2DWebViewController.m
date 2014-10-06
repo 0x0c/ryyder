@@ -8,7 +8,6 @@
 
 #import "M2DWebViewController.h"
 
-
 @interface M2DWebViewController ()
 
 @end
@@ -17,11 +16,12 @@
 
 @synthesize webView = webView_;
 
-- (id)initWithURL:(NSURL *)url
+- (id)initWithURL:(NSURL *)url type:(M2DWebViewType)type
 {
-	self = [super initWithNibName:@"M2DWebViewController" bundle:nil];
+	self = [super init];
 	if (self) {
 		url_ = [url copy];
+		type_ = type;
 	}
 	
 	return self;
@@ -35,8 +35,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	webView_.delegate = self;
-	[webView_ loadRequest:[NSURLRequest requestWithURL:url_]];
+	
+	if (type_ == M2DWebViewTypeUIKit) {
+		webView_ = [[UIWebView alloc] initWithFrame:self.view.bounds];
+		((UIWebView *)webView_).delegate = self;
+		[(UIWebView *)webView_ loadRequest:[NSURLRequest requestWithURL:url_]];
+	}
+	else if (type_ == M2DWebViewTypeWebKit) {
+		webView_ = [[WKWebView alloc] initWithFrame:self.view.bounds];
+		((WKWebView *)webView_).navigationDelegate = self;
+		[(WKWebView *)webView_ loadRequest:[NSURLRequest requestWithURL:url_]];
+	}
+	
+	[self.view addSubview:webView_];
 	
 	goBackButton_ = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:[self getFilePath:@"M2DWebViewController_left.png"]] style:UIBarButtonItemStylePlain target:self action:@selector(goBack:)];
 	goForwardButton_ = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:[self getFilePath:@"M2DWebViewController_right.png"]] style:UIBarButtonItemStylePlain target:self action:@selector(goForward:)];
@@ -56,14 +67,83 @@
 	[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	[self.navigationController setToolbarHidden:NO animated:YES];
+}
+
 - (void)setSmoothScroll:(BOOL)smoothScroll
 {
+	UIWebView *webView = webView_;
 	if (smoothScroll) {
-		webView_.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
+		webView.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
 	}
 	else {
-		webView_.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
+		webView.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
 	}
+}
+
+#pragma mark - WKWebViewDelegate
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
+{
+	if ([webView_ canGoBack]) {
+		goBackButton_.enabled = YES;
+	}
+	else {
+		goBackButton_.enabled = NO;
+	}
+	
+	if ([webView_ canGoForward]) {
+		goForwardButton_.enabled = YES;
+	}
+	else {
+		goForwardButton_.enabled = NO;
+	}
+	
+	url_ = [webView.URL copy];
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	NSMutableArray *items = [[self.navigationController.toolbar items] mutableCopy];
+	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh:)];
+	[items replaceObjectAtIndex:5 withObject:refreshButton];
+	[self.navigationController.toolbar setItems:items];
+}
+
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation
+{
+	if ([webView_ canGoBack]) {
+		goBackButton_.enabled = YES;
+	}
+	else {
+		goBackButton_.enabled = NO;
+	}
+	
+	if ([webView_ canGoForward]) {
+		goForwardButton_.enabled = YES;
+	}
+	else {
+		goForwardButton_.enabled = NO;
+	}
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	
+	NSMutableArray *items = [[self.navigationController.toolbar items] mutableCopy];
+	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(stop:)];
+	[items replaceObjectAtIndex:5 withObject:refreshButton];
+	[self.navigationController.toolbar setItems:items];
+}
+
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error
+{
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	NSMutableArray *items = [[self.navigationController.toolbar items] mutableCopy];
+	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh:)];
+	[items replaceObjectAtIndex:5 withObject:refreshButton];
+	[self.navigationController.toolbar setItems:items];
 }
 
 #pragma mark - UIWebViewDelegate
@@ -108,7 +188,7 @@
 	else {
 		goForwardButton_.enabled = NO;
 	}
-
+	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
 	NSMutableArray *items = [[self.navigationController.toolbar items] mutableCopy];
@@ -131,25 +211,29 @@
 
 - (void)goForward:(id)sender
 {
-	[webView_ goForward];
+	UIWebView *webView = webView_;
+	[webView goForward];
 }
 
 - (void)goBack:(id)sender
 {
-	[webView_ goBack];
+	UIWebView *webView = webView_;
+	[webView goBack];
 }
 
 - (void)refresh:(id)sender
 {
-	[webView_ reload];
+	UIWebView *webView = webView_;
+	[webView reload];
 }
 
 - (void)stop:(id)sender
 {
-	[webView_ stopLoading];
+	UIWebView *webView = webView_;
+	[webView stopLoading];
 }
 
-- (IBAction)doAction:(id)sender
+- (void)doAction:(id)sender
 {
 	if ([self.delegate respondsToSelector:@selector(webViewControllerActionButtonPressed:)]) {
 		[self.delegate webViewControllerActionButtonPressed:self];
@@ -158,7 +242,8 @@
 
 - (void)loadURL:(NSURL *)url
 {
-	[webView_ loadRequest:[NSURLRequest requestWithURL:url]];
+	UIWebView *webView = webView_;
+	[webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (NSString *)getFilePath:(NSString *)filename
