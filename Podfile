@@ -10,8 +10,11 @@ pod 'Evernote-SDK-iOS'
 pod 'CTFeedback'
 pod 'MTMigration'
 pod 'TSMessages'
+pod 'JVFloatLabeledTextField'
+pod 'NXOAuth2Client', '~> 1.2.6'
+
 
 post_install do | installer |
-	require 'fileutils'
-	FileUtils.cp_r('Pods/Pods-acknowledgements.plist', 'ryydr/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
+  require 'fileutils'
+  FileUtils.cp_r('Pods/Target Support Files/Pods/Pods-Acknowledgements.plist', 'ryydr/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
 end

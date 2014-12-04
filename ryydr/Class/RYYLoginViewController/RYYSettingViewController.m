@@ -12,6 +12,8 @@
 #import "TSMessage.h"
 #import "SVProgressHUD.h"
 #import "LDRGatekeeper.h"
+#import "JVFloatLabeledTextField.h"
+#import "RYYFeedlyAuthWebViewController.h"
 
 @interface RYYSettingViewController ()
 {
@@ -23,8 +25,8 @@
 	IBOutlet UISwitch *notificationSwitch;
 	
 	IBOutlet UIButton *loginButton;
-	IBOutlet UITextField *usernameTextField;
-	IBOutlet UITextField *passwordTextField;
+	IBOutlet JVFloatLabeledTextField *usernameTextField;
+	IBOutlet JVFloatLabeledTextField *passwordTextField;
 	IBOutlet UILabel *versionStringLabel;
 	
 	UITextField *activeTextField;
@@ -146,6 +148,21 @@
 - (void)login
 {
 	fixed = YES;
+//	RYYFeedlyAuthWebViewController *viewController = [[RYYFeedlyAuthWebViewController alloc] init];
+//	viewController.successBlocks = ^(RYYFeedlyAuthWebViewController *webView, NXOAuth2Account *account) {
+//		[TSMessage showNotificationInViewController:self title:@"Login Success" subtitle:@"Application will automatically sync at launch." type:TSMessageNotificationTypeSuccess];
+//		[webView dismissViewControllerAnimated:YES completion:^{
+//		}];
+//	};
+//	viewController.failuerBlocks = ^(RYYFeedlyAuthWebViewController *webView) {
+//		[TSMessage showNotificationInViewController:self title:@"Login failed" subtitle:@"Please check your username or password." type:TSMessageNotificationTypeError];
+//		[webView dismissViewControllerAnimated:YES completion:^{
+//		}];
+//	};
+//	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+//	[self presentViewController:navigationController animated:YES completion:^{
+//	}];
+	
 	[activeTextField resignFirstResponder];
 	if (usernameTextField.text.length == 0 || passwordTextField.text.length == 0) {
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please input your account information." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
