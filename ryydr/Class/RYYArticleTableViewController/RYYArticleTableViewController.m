@@ -153,7 +153,7 @@ static CGFloat kIconButtonSize = 27;
 		item.read = YES;
 	}
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:DirectAccessKey]) {
-		RYYWebViewController *vc = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:item.link]];
+		RYYWebViewController *vc = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:item.link] type:M2DWebViewTypeWebKit];
 		vc.article = item;
 		viewController = vc;
 	}
@@ -177,6 +177,7 @@ static CGFloat kIconButtonSize = 27;
 {
 	if (self.feed.previousFeed) {
 		self.feed = self.feed.previousFeed;
+		[self.tableView scrollsToTop];
 	}
 }
 
@@ -184,6 +185,7 @@ static CGFloat kIconButtonSize = 27;
 {
 	if (self.feed.nextFeed) {
 		self.feed = self.feed.nextFeed;
+		[self.tableView scrollsToTop];
 	}
 }
 
@@ -203,7 +205,7 @@ static CGFloat kIconButtonSize = 27;
 		case UIGestureRecognizerStateBegan: {
 			UIView *view = gesture.view;
 			LDRArticleItem *item = _feed.data.items[view.tag];
-			RYYWebViewController *viewController = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:item.link]];
+			RYYWebViewController *viewController = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:item.link] type:M2DWebViewTypeWebKit];
 			viewController.article = item;
 			if ([[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadImmediatelyKey]) {
 				item.read = YES;
