@@ -64,6 +64,27 @@ static CGFloat kIconButtonSize = 27;
 	downButtonItem.enabled = (self.feed.nextFeed != nil);
 	
 	[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+	
+	static NSInteger FlexibleSpaceTag = 200;
+	NSInteger alignment = [[NSUserDefaults standardUserDefaults] integerForKey:UserInterfaceAlignmentKey];
+	UIBarButtonItem *flexibleSpace2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	flexibleSpace.tag = FlexibleSpaceTag;
+	NSMutableArray *toolbarItems = [self.toolbarItems mutableCopy];
+	UIBarButtonItem *firstButtonItem = [toolbarItems firstObject];
+	UIBarButtonItem *lastButtonItem = [toolbarItems lastObject];
+	if (firstButtonItem.tag == FlexibleSpaceTag) {
+		[toolbarItems removeObject:firstButtonItem];
+	}
+	if (lastButtonItem.tag == FlexibleSpaceTag) {
+		[toolbarItems removeObject:lastButtonItem];
+	}
+	if (alignment == 0) {
+		[toolbarItems insertObject:flexibleSpace2 atIndex:toolbarItems.count];
+	}
+	else if (alignment == 2) {
+		[toolbarItems insertObject:flexibleSpace2 atIndex:0];
+	}
+	self.toolbarItems = toolbarItems;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -153,7 +174,7 @@ static CGFloat kIconButtonSize = 27;
 		item.read = YES;
 	}
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:DirectAccessKey]) {
-		RYYWebViewController *vc = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:item.link] type:M2DWebViewTypeWebKit];
+		RYYWebViewController *vc = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:item.link] type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
 		vc.article = item;
 		viewController = vc;
 	}
@@ -205,7 +226,7 @@ static CGFloat kIconButtonSize = 27;
 		case UIGestureRecognizerStateBegan: {
 			UIView *view = gesture.view;
 			LDRArticleItem *item = _feed.data.items[view.tag];
-			RYYWebViewController *viewController = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:item.link] type:M2DWebViewTypeWebKit];
+			RYYWebViewController *viewController = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:item.link] type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
 			viewController.article = item;
 			if ([[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadImmediatelyKey]) {
 				item.read = YES;

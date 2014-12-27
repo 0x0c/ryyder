@@ -115,7 +115,7 @@ static NSString *const LDRPassword = @"Password";
 		M2DAPIRequest *r2 = [[M2DAPIRequest POSTRequest:[NSURL URLWithString:(NSString *)GetAPIKeyAPI]] parametors:@{}];
 		[[r2 whenSucceeded:^(M2DAPIRequest *request, id parsedObject) {
 			NSHTTPCookieStorage *s = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-			NSString *apiKey = [s m2d_valueForName:@"reader_sid" domain:@".reader.livedoor.com"];
+			NSString *apiKey = [s m2d_valueForName:@"ucd" domain:@".livedoor.com"];
 			NSString *ldsuid = [s m2d_valueForName:@"ldsuid" domain:@"member.livedoor.com"];
 			NSString *LRC = [s m2d_valueForName:@".LRC" domain:@".livedoor.com"];
 			NSString *LH = [s m2d_valueForName:@".LH" domain:@".livedoor.com"];

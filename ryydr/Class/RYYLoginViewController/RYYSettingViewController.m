@@ -28,6 +28,7 @@
 	IBOutlet JVFloatLabeledTextField *usernameTextField;
 	IBOutlet JVFloatLabeledTextField *passwordTextField;
 	IBOutlet UILabel *versionStringLabel;
+	__weak IBOutlet UISegmentedControl *userInterfaceAlignmentSegmentedControl;
 	
 	UITextField *activeTextField;
 	
@@ -76,6 +77,8 @@
 	passwordTextField.delegate = self;
 	passwordTextField.text = gatekeeper.password;
 	
+	userInterfaceAlignmentSegmentedControl.selectedSegmentIndex = [[NSUserDefaults standardUserDefaults] integerForKey:UserInterfaceAlignmentKey];
+	
 	NSString *versionNum = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
 	NSString *buildNum = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
 	versionStringLabel.text = [NSString stringWithFormat:@"Version %@(%@)", versionNum, buildNum];
@@ -97,7 +100,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (indexPath.section == 4 && indexPath.row == 0) {
+	if (indexPath.section == 5 && indexPath.row == 0) {
 		[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 		CTFeedbackViewController *feedbackViewController = [CTFeedbackViewController controllerWithTopics:CTFeedbackViewController.defaultTopics localizedTopics:CTFeedbackViewController.defaultLocalizedTopics];
 		feedbackViewController.toRecipients = @[@"akira.matsuda@me.com"];
@@ -218,6 +221,12 @@
 		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:MarkAsReadTipsAlreadyShowKey];
 		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:PinnedListTipsAlreadyShowKey];
 	}
+}
+- (IBAction)userInterfaceAlignmentSegmentedControlDidValueChanged:(id)sender
+{
+	UISegmentedControl *control = sender;
+	[[NSUserDefaults standardUserDefaults] setInteger:control.selectedSegmentIndex forKey:UserInterfaceAlignmentKey];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

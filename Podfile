@@ -1,6 +1,5 @@
 platform :ios, '7.0'
 pod 'FontAwesomeKit', '~> 2.1.0'
-pod 'SVProgressHUD', :head
 pod 'UICKeyChainStore'
 pod 'LKBadgeView', :git => 'https://github.com/lakesoft/LKBadgeView.git'
 pod 'CMPopTipView'
@@ -12,7 +11,9 @@ pod 'MTMigration'
 pod 'TSMessages'
 pod 'JVFloatLabeledTextField'
 pod 'NXOAuth2Client', '~> 1.2.6'
-
+pod 'M2DWebViewController'
+pod 'SVProgressHUD'
+pod 'TUSafariActivity', '~> 1.0.1'
 
 post_install do | installer |
   require 'fileutils'

@@ -13,6 +13,6 @@
 
 @property (nonatomic, copy) FBDialogAppCallCompletionHandler handler;
 
-- (instancetype)initWithHandler:(FBDialogAppCallCompletionHandler)handler;
+- (instancetype)initWithCompletionHandler:(FBDialogAppCallCompletionHandler)handler;
 
 @end

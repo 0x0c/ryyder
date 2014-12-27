@@ -13,7 +13,6 @@
 #import "RYYSettingViewController.h"
 #import "FAKFontAwesome.h"
 #import "LDRGatekeeper.h"
-#import "SVProgressHUD.h"
 #import "LKBadgeView.h"
 #import "CMPopTipView.h"
 
@@ -37,7 +36,7 @@ static CGFloat kIconButtonSize = 27;
 	[self.navigationController setToolbarHidden:NO animated:NO];
 	settingButtonItem.image = [[FAKFontAwesome gearIconWithSize:kIconButtonSize] imageWithSize:CGSizeMake(25, 25)];
 	pinButtonItem.image = [[FAKFontAwesome dotCircleOIconWithSize:kIconButtonSize] imageWithSize:CGSizeMake(25, 25)];
-
+	
 	UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
 	[refreshControl addTarget:self action:@selector(sync) forControlEvents:UIControlEventValueChanged];
 	self.refreshControl = refreshControl;
@@ -87,6 +86,27 @@ static CGFloat kIconButtonSize = 27;
 			[pop presentPointingAtBarButtonItem:pinButtonItem animated:YES];
 		});
 	}
+	
+	static NSInteger FlexibleSpaceTag = 200;
+	NSInteger alignment = [[NSUserDefaults standardUserDefaults] integerForKey:UserInterfaceAlignmentKey];
+	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	flexibleSpace.tag = FlexibleSpaceTag;
+	NSMutableArray *toolbarItems = [self.toolbarItems mutableCopy];
+	UIBarButtonItem *firstButtonItem = [toolbarItems firstObject];
+	UIBarButtonItem *lastButtonItem = [toolbarItems lastObject];
+	if (firstButtonItem.tag == FlexibleSpaceTag) {
+		[toolbarItems removeObject:firstButtonItem];
+	}
+	if (lastButtonItem.tag == FlexibleSpaceTag) {
+		[toolbarItems removeObject:lastButtonItem];
+	}
+	if (alignment == 0) {
+		[toolbarItems insertObject:flexibleSpace atIndex:toolbarItems.count];
+	}
+	else if (alignment == 2) {
+		[toolbarItems insertObject:flexibleSpace atIndex:0];
+	}
+	self.toolbarItems = toolbarItems;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -112,11 +132,11 @@ static CGFloat kIconButtonSize = 27;
 		badgeView.tag = 1;
 		badgeView.font = [UIFont systemFontOfSize:12];
 		badgeView.badgeColor = self.view.tintColor;
+		
 		UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(38, 0, 10, 20)];
 		FAKFontAwesome *font = [FAKFontAwesome chevronRightIconWithSize:10];
 		[font addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor]];
 		[arrowImageView setImage:[font imageWithSize:CGSizeMake(10, 20)]];
-		
 		UIView *baseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(badgeView.frame) + CGRectGetWidth(arrowImageView.frame), 20)];
 		[baseView addSubview:badgeView];
 		[baseView addSubview:arrowImageView];

@@ -36,16 +36,22 @@
 {
     [super viewDidLoad];
 	
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_8_0
+	type_ = M2DWebViewTypeUIKit;
+#endif
+	
 	if (type_ == M2DWebViewTypeUIKit) {
 		webView_ = [[UIWebView alloc] initWithFrame:self.view.bounds];
 		((UIWebView *)webView_).delegate = self;
 		[(UIWebView *)webView_ loadRequest:[NSURLRequest requestWithURL:url_]];
 	}
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
 	else if (type_ == M2DWebViewTypeWebKit) {
 		webView_ = [[WKWebView alloc] initWithFrame:self.view.bounds];
 		((WKWebView *)webView_).navigationDelegate = self;
 		[(WKWebView *)webView_ loadRequest:[NSURLRequest requestWithURL:url_]];
 	}
+#endif
 	
 	[self.view addSubview:webView_];
 	

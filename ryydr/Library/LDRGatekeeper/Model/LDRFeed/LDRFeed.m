@@ -65,13 +65,13 @@ NSString *const kLDRFeedPublic = @"public";
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
             self.folder = [self objectOrNilForKey:kLDRFeedFolder fromDictionary:dict];
             self.modifiedOn = [[self objectOrNilForKey:kLDRFeedModifiedOn fromDictionary:dict] doubleValue];
-            self.subscribersCount = [[self objectOrNilForKey:kLDRFeedSubscribersCount fromDictionary:dict] unsignedIntegerValue];
+            self.subscribersCount = [[self objectOrNilForKey:kLDRFeedSubscribersCount fromDictionary:dict] integerValue];
             self.link = [self objectOrNilForKey:kLDRFeedLink fromDictionary:dict];
             self.tags = [self objectOrNilForKey:kLDRFeedTags fromDictionary:dict];
             self.unreadCount = [[self objectOrNilForKey:kLDRFeedUnreadCount fromDictionary:dict] integerValue];
             self.title = [self objectOrNilForKey:kLDRFeedTitle fromDictionary:dict];
             self.feedlink = [self objectOrNilForKey:kLDRFeedFeedlink fromDictionary:dict];
-            self.subscribeIdentifier = [self objectOrNilForKey:kLDRFeedSubscribeId fromDictionary:dict];
+            self.subscribeIdentifier = [NSNumber numberWithInteger:[[self objectOrNilForKey:kLDRFeedSubscribeId fromDictionary:dict] integerValue]];
             self.icon = [self objectOrNilForKey:kLDRFeedIcon fromDictionary:dict];
             self.rate = [[self objectOrNilForKey:kLDRFeedRate fromDictionary:dict] doubleValue];
             self.publicProperty = [[self objectOrNilForKey:kLDRFeedPublic fromDictionary:dict] doubleValue];

@@ -66,6 +66,31 @@ static CGFloat kIconButtonSize = 27;
 	[self setToolbarItems:@[fixedButtonSpace, pinButtonItem, fixedButtonSpace, linkButtonItem, flexibleSpace, doubleUpButtonItem, fixedButtonSpace, doubleDownButtonItem, fixedSectionSpace, upButtonItem, fixedButtonSpace, downButtonItem, fixedButtonSpace] animated:YES];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	static NSInteger FlexibleSpaceTag = 200;
+	NSInteger alignment = [[NSUserDefaults standardUserDefaults] integerForKey:UserInterfaceAlignmentKey];
+	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	flexibleSpace.tag = FlexibleSpaceTag;
+	NSMutableArray *toolbarItems = [self.toolbarItems mutableCopy];
+	UIBarButtonItem *firstButtonItem = [toolbarItems firstObject];
+	UIBarButtonItem *lastButtonItem = [toolbarItems lastObject];
+	if (firstButtonItem.tag == FlexibleSpaceTag) {
+		[toolbarItems removeObject:firstButtonItem];
+	}
+	if (lastButtonItem.tag == FlexibleSpaceTag) {
+		[toolbarItems removeObject:lastButtonItem];
+	}
+	if (alignment == 0) {
+		[toolbarItems insertObject:flexibleSpace atIndex:toolbarItems.count];
+	}
+	else if (alignment == 2) {
+		[toolbarItems insertObject:flexibleSpace atIndex:0];
+	}
+	self.toolbarItems = toolbarItems;
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
@@ -94,7 +119,7 @@ static CGFloat kIconButtonSize = 27;
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
 	if (navigationType == UIWebViewNavigationTypeLinkClicked) {
-		RYYWebViewController *viewController = [[RYYWebViewController alloc] initWithURL:request.URL];
+		RYYWebViewController *viewController = [[RYYWebViewController alloc] initWithURL:request.URL type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
 		viewController.article = self.article;
 		[self.navigationController pushViewController:viewController animated:YES];
 		return NO;
@@ -125,7 +150,7 @@ static CGFloat kIconButtonSize = 27;
 
 - (void)openLink
 {
-	RYYWebViewController *viewController = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:self.article.link]];
+	RYYWebViewController *viewController = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:self.article.link] type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
 	viewController.article = self.article;
 	[self.navigationController pushViewController:viewController animated:YES];
 }

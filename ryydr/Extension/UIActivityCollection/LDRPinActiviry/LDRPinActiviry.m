@@ -26,6 +26,17 @@
 	return @"com.akira.matsuda.activity.ldr.list";
 }
 
+- (instancetype)initWithTitle:(NSString *)title url:(NSURL *)url
+{
+	self = [super init];
+	if (self) {
+		self.title = title;
+		self.url = url;
+	}
+	
+	return self;
+}
+
 - (NSString *)activityType
 {
 	return [[self class] activityType];
@@ -53,17 +64,8 @@
 - (void)prepareWithActivityItems:(NSArray *)activityItems
 {
 	LDRPinnedArticle *article = [LDRPinnedArticle new];
-	for (id activityItem in activityItems) {
-		if ([activityItem isKindOfClass:[NSURL class]]) {
-			article.link = [activityItem absoluteString];
-		}
-		else if ([activityItem isKindOfClass:[NSString class]]) {
-			article.title = activityItem;
-		}
-		else {
-			continue;
-		}
-	}
+	article.title = self.title;
+	article.link = [self.url absoluteString];
 	__weak typeof(self) bself = self;
 	[self.gatekeeper addPinnedArticle:article completionHandler:^(NSError *error) {
 		if (bself.completionHandler) {

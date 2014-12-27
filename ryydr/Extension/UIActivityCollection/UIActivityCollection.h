@@ -18,5 +18,6 @@
 #import "FacebookMessengerActivity.h"
 #import "LDRPinActiviry.h"
 #import "LDRMarkAsReadActivity.h"
+#import "TUSafariActivity.h"
 
 #endif

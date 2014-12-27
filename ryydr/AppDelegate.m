@@ -12,9 +12,10 @@
 #import "SVProgressHUD.h"
 #import "MTMigration.h"
 #import "TSMessage.h"
-#import <Crashlytics/Crashlytics.h>
 #import "PocketAPI.h"
 #import "HTBHatenaBookmarkManager.h"
+#import <Crashlytics/Crashlytics.h>
+#import "NXOAuth2.h"
 
 @implementation AppDelegate
 
@@ -26,13 +27,16 @@
 		NSString *versionNum = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
 		NSString *buildNum = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
 		if (![versionNum isEqualToString:@"1.0.0"]) {
-			[TSMessage showNotificationInViewController:self.window.rootViewController title:@"ryyder is updated" subtitle:[NSString stringWithFormat:@"New version %@", [NSString stringWithFormat:@"Version %@.%@", versionNum, buildNum]] type:TSMessageNotificationTypeSuccess duration:10 canBeDismissedByUser:YES];
+			[TSMessage showNotificationInViewController:self.window.rootViewController title:@"ryyder is updated" subtitle:[NSString stringWithFormat:@"New version %@", [NSString stringWithFormat:@"Version %@(%@)", versionNum, buildNum]] type:TSMessageNotificationTypeSuccess duration:10 canBeDismissedByUser:YES];
 		}
 	}];
 	[MTMigration migrateToVersion:@"1.0.0" block:^{
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:SyncAtLaunchKey];
 	}];
-	
+	[MTMigration migrateToVersion:@"1.0.4" block:^{
+		[[NSUserDefaults standardUserDefaults] setInteger:1 forKey:UserInterfaceAlignmentKey];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+	}];
 	[Crashlytics startWithAPIKey:(NSString *)CrashlyticsAPIKey];
 #ifdef DEBUG
 	[[Crashlytics sharedInstance] setDebugMode:YES];
@@ -51,7 +55,7 @@
 #endif
 	[gatekeeper initializeBlock:^(M2DAPIRequest *request, NSDictionary *params) {
 		dispatch_async(dispatch_get_main_queue(), ^{
-			[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+			[SVProgressHUD show];
 		});
 	}];
 	[gatekeeper finalizeBlock:^(M2DAPIRequest *request) {
@@ -75,6 +79,16 @@
 			[UIApplication sharedApplication].applicationIconBadgeNumber++;
 		}
 	}];
+	
+//	NSString *authUrl = [kOauth2ClientBaseUrl stringByAppendingString:kOauth2ClientAuthUrl];
+//	NSString *tokenUrl = [kOauth2ClientBaseUrl stringByAppendingString:kOauth2ClientTokenUrl];
+//	[[NXOAuth2AccountStore sharedStore] setClientID:kOauth2ClientClientId secret:kOauth2ClientClientSecret
+//											  scope:[NSSet setWithObjects:kOauth2ClientScopeUrl, nil]
+//								   authorizationURL:[NSURL URLWithString:authUrl]
+//										   tokenURL:[NSURL URLWithString:tokenUrl]
+//										redirectURL:[NSURL URLWithString:kOauth2ClientRedirectUrl]
+//									  keyChainGroup:@"com.akira.matsuda.ryyder"
+//									 forAccountType:kOauth2ClientAccountType];
 	
     return YES;
 }
@@ -105,6 +119,9 @@
 			NSInteger count = [result integerValue];
 			if ([[NSUserDefaults standardUserDefaults] boolForKey:ShowBadgeKey]) {
 				[UIApplication sharedApplication].applicationIconBadgeNumber = count;
+			}
+			else {
+				[UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 			}
 			if ([[NSUserDefaults standardUserDefaults] boolForKey:ShowNotificationKey] && count > 0) {
 				UILocalNotification *localNotification = [[UILocalNotification alloc] init];

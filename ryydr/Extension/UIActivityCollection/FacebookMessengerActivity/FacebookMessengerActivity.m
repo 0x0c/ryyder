@@ -15,7 +15,7 @@
 	return UIActivityCategoryAction;
 }
 
-- (instancetype)initWithHandler:(FBDialogAppCallCompletionHandler)handler
+- (instancetype)initWithCompletionHandler:(FBDialogAppCallCompletionHandler)handler
 {
 	self = [super init];
 	if (self) {

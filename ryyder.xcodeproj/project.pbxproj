@@ -10,8 +10,6 @@
 		145440B537BD4423A57EEA92 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 704BB35AEACE4A6EA0EE13C5 /* libPods.a */; };
 		E947DD8419A3E2EE00F08164 /* RYYArticleDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DD8319A3E2EE00F08164 /* RYYArticleDescriptionViewController.m */; };
 		E947DD8819A436C800F08164 /* RYYPinnedArticleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DD8719A436C800F08164 /* RYYPinnedArticleTableViewController.m */; };
-		E947DD9219A4499900F08164 /* M2DWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DD8B19A4499900F08164 /* M2DWebViewController.m */; };
-		E947DD9319A4499900F08164 /* M2DWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E947DD8C19A4499900F08164 /* M2DWebViewController.xib */; };
 		E947DDD619A44F0A00F08164 /* EvernoteActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DD9D19A44F0A00F08164 /* EvernoteActivity.m */; };
 		E947DDD719A44F0A00F08164 /* EvernoteActivity-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E947DD9F19A44F0A00F08164 /* EvernoteActivity-ipad.png */; };
 		E947DDD819A44F0A00F08164 /* EvernoteActivity.png in Resources */ = {isa = PBXBuildFile; fileRef = E947DDA019A44F0A00F08164 /* EvernoteActivity.png */; };
@@ -45,7 +43,6 @@
 		E947DDF519A44F0A00F08164 /* Readability-activity-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = E947DDD019A44F0A00F08164 /* Readability-activity-iPhone.png */; };
 		E947DDF619A44F0A00F08164 /* Readability-activity-iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E947DDD119A44F0A00F08164 /* Readability-activity-iPhone@2x.png */; };
 		E947DDF719A44F0A00F08164 /* ReadabilityActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DDD319A44F0A00F08164 /* ReadabilityActivity.m */; };
-		E947DDF819A44F0A00F08164 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E947DDD419A44F0A00F08164 /* README.md */; };
 		E947DDFA19A452D600F08164 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E947DDF919A452D600F08164 /* FacebookSDK.framework */; };
 		E947DDFE19A4532000F08164 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E947DDFD19A4532000F08164 /* Security.framework */; };
 		E947DE0019A4532800F08164 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E947DDFF19A4532800F08164 /* MobileCoreServices.framework */; };
@@ -79,9 +76,12 @@
 		E954C71B19A33BCE00F5334C /* LDRChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C71619A33BCE00F5334C /* LDRChannel.m */; };
 		E954C71C19A33BCE00F5334C /* LDRArticleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C71819A33BCE00F5334C /* LDRArticleItem.m */; };
 		E954C71F19A3DC3100F5334C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E954C71E19A3DC3100F5334C /* Settings.bundle */; };
-		E954C7C819A44A0000F5334C /* M2DWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E954C7C719A44A0000F5334C /* M2DWebViewController.bundle */; };
 		E954C7CC19A44A9F00F5334C /* RYYWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C7CB19A44A9F00F5334C /* RYYWebViewController.m */; };
 		E97BECED19A47A850016517A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E97BECEC19A47A850016517A /* Crashlytics.framework */; };
+		E99C94F119E2EAA200BFE9E8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99C94F019E2EAA200BFE9E8 /* WebKit.framework */; };
+		E99C94FE19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = E99C94FD19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m */; };
+		E99C950219E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E99C950119E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.m */; };
+		E99C950619E30DC500BFE9E8 /* RYYFeedlyTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E99C950519E30DC500BFE9E8 /* RYYFeedlyTestViewController.m */; };
 		E9F7586219A61AF800E2BB61 /* LDRPinnedArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F7586119A61AF800E2BB61 /* LDRPinnedArticle.m */; };
 		E9F7586719A62EF700E2BB61 /* LDRPinActiviry.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F7586619A62EF700E2BB61 /* LDRPinActiviry.m */; };
 		E9F7586A19A62EFD00E2BB61 /* LDRMarkAsReadActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F7586919A62EFD00E2BB61 /* LDRMarkAsReadActivity.m */; };
@@ -98,15 +98,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08165281137B4D09BACFE4BF /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		09DF257F97C0A06B75F23287 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		704BB35AEACE4A6EA0EE13C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACB7823C77C55E96F1B11794 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E947DD8219A3E2EE00F08164 /* RYYArticleDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYArticleDescriptionViewController.h; sourceTree = "<group>"; };
 		E947DD8319A3E2EE00F08164 /* RYYArticleDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYArticleDescriptionViewController.m; sourceTree = "<group>"; };
 		E947DD8619A436C800F08164 /* RYYPinnedArticleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYPinnedArticleTableViewController.h; sourceTree = "<group>"; };
 		E947DD8719A436C800F08164 /* RYYPinnedArticleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYPinnedArticleTableViewController.m; sourceTree = "<group>"; };
-		E947DD8A19A4499900F08164 /* M2DWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M2DWebViewController.h; sourceTree = "<group>"; };
-		E947DD8B19A4499900F08164 /* M2DWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M2DWebViewController.m; sourceTree = "<group>"; };
-		E947DD8C19A4499900F08164 /* M2DWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = M2DWebViewController.xib; sourceTree = "<group>"; };
 		E947DD9819A44D3700F08164 /* Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Key.h; sourceTree = "<group>"; };
 		E947DD9C19A44F0A00F08164 /* EvernoteActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteActivity.h; sourceTree = "<group>"; };
 		E947DD9D19A44F0A00F08164 /* EvernoteActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvernoteActivity.m; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 		E947DDD119A44F0A00F08164 /* Readability-activity-iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Readability-activity-iPhone@2x.png"; sourceTree = "<group>"; };
 		E947DDD219A44F0A00F08164 /* ReadabilityActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadabilityActivity.h; sourceTree = "<group>"; };
 		E947DDD319A44F0A00F08164 /* ReadabilityActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadabilityActivity.m; sourceTree = "<group>"; };
-		E947DDD419A44F0A00F08164 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E947DDD519A44F0A00F08164 /* UIActivityCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActivityCollection.h; sourceTree = "<group>"; };
 		E947DDF919A452D600F08164 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		E947DDFD19A4532000F08164 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -209,10 +206,16 @@
 		E954C71819A33BCE00F5334C /* LDRArticleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDRArticleItem.m; sourceTree = "<group>"; };
 		E954C71D19A33BE000F5334C /* LDRDataModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDRDataModels.h; sourceTree = "<group>"; };
 		E954C71E19A3DC3100F5334C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		E954C7C719A44A0000F5334C /* M2DWebViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = M2DWebViewController.bundle; sourceTree = "<group>"; };
 		E954C7CA19A44A9F00F5334C /* RYYWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYWebViewController.h; sourceTree = "<group>"; };
 		E954C7CB19A44A9F00F5334C /* RYYWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYWebViewController.m; sourceTree = "<group>"; };
 		E97BECEC19A47A850016517A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		E99C94F019E2EAA200BFE9E8 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		E99C94FC19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYFeedlyAPIGatekeeper.h; sourceTree = "<group>"; };
+		E99C94FD19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYFeedlyAPIGatekeeper.m; sourceTree = "<group>"; };
+		E99C950019E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYFeedlyAuthWebViewController.h; sourceTree = "<group>"; };
+		E99C950119E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYFeedlyAuthWebViewController.m; sourceTree = "<group>"; };
+		E99C950419E30DC500BFE9E8 /* RYYFeedlyTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYFeedlyTestViewController.h; sourceTree = "<group>"; };
+		E99C950519E30DC500BFE9E8 /* RYYFeedlyTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYFeedlyTestViewController.m; sourceTree = "<group>"; };
 		E9F7586019A61AF800E2BB61 /* LDRPinnedArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDRPinnedArticle.h; sourceTree = "<group>"; };
 		E9F7586119A61AF800E2BB61 /* LDRPinnedArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDRPinnedArticle.m; sourceTree = "<group>"; };
 		E9F7586519A62EF700E2BB61 /* LDRPinActiviry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDRPinActiviry.h; sourceTree = "<group>"; };
@@ -226,6 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E99C94F119E2EAA200BFE9E8 /* WebKit.framework in Frameworks */,
 				E947DE0219A4532E00F08164 /* libxml2.dylib in Frameworks */,
 				E947DE0019A4532800F08164 /* MobileCoreServices.framework in Frameworks */,
 				E947DDFE19A4532000F08164 /* Security.framework in Frameworks */,
@@ -251,6 +255,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D530B36A9A339C8E970C9236 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ACB7823C77C55E96F1B11794 /* Pods.debug.xcconfig */,
+				09DF257F97C0A06B75F23287 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E947DD8519A436BA00F08164 /* RYYPinnedArticleTableViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,17 +271,6 @@
 				E947DD8719A436C800F08164 /* RYYPinnedArticleTableViewController.m */,
 			);
 			path = RYYPinnedArticleTableViewController;
-			sourceTree = "<group>";
-		};
-		E947DD8919A4499900F08164 /* M2DWebViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E947DD8A19A4499900F08164 /* M2DWebViewController.h */,
-				E947DD8B19A4499900F08164 /* M2DWebViewController.m */,
-				E947DD8C19A4499900F08164 /* M2DWebViewController.xib */,
-				E954C7C719A44A0000F5334C /* M2DWebViewController.bundle */,
-			);
-			path = M2DWebViewController;
 			sourceTree = "<group>";
 		};
 		E947DD9919A44F0A00F08164 /* Extension */ = {
@@ -417,7 +419,6 @@
 				E947DDD119A44F0A00F08164 /* Readability-activity-iPhone@2x.png */,
 				E947DDD219A44F0A00F08164 /* ReadabilityActivity.h */,
 				E947DDD319A44F0A00F08164 /* ReadabilityActivity.m */,
-				E947DDD419A44F0A00F08164 /* README.md */,
 			);
 			path = Readability;
 			sourceTree = "<group>";
@@ -429,7 +430,7 @@
 				E954C4E519A2D17A00F5334C /* ryyderTests */,
 				E954C4BC19A2D17A00F5334C /* Frameworks */,
 				E954C4BB19A2D17A00F5334C /* Products */,
-				08165281137B4D09BACFE4BF /* Pods.xcconfig */,
+				D530B36A9A339C8E970C9236 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -445,6 +446,7 @@
 		E954C4BC19A2D17A00F5334C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E99C94F019E2EAA200BFE9E8 /* WebKit.framework */,
 				E97BECEC19A47A850016517A /* Crashlytics.framework */,
 				E947DE0119A4532E00F08164 /* libxml2.dylib */,
 				E947DDFF19A4532800F08164 /* MobileCoreServices.framework */,
@@ -511,7 +513,7 @@
 		E954C4F519A2D19A00F5334C /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				E947DD8919A4499900F08164 /* M2DWebViewController */,
+				E99C94FB19E300F500BFE9E8 /* RYYFeedlyAPIGatekeeper */,
 				E954C4F619A2D19A00F5334C /* LDRGatekeeper */,
 				E954C4FA19A2D19A00F5334C /* M2DAPIGatekeeper */,
 				E954C4FD19A2D19A00F5334C /* M2DAPIRequest */,
@@ -591,6 +593,8 @@
 		E954C51819A2D21300F5334C /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				E99C950319E30DBC00BFE9E8 /* RYYFeedlyTestViewController */,
+				E99C94FF19E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController */,
 				E954C7C919A44A9300F5334C /* RYYWebViewController */,
 				E947DD8519A436BA00F08164 /* RYYPinnedArticleTableViewController */,
 				E954C51919A2D3D500F5334C /* RYYArticleDescriptionViewController */,
@@ -680,6 +684,33 @@
 				E954C7CB19A44A9F00F5334C /* RYYWebViewController.m */,
 			);
 			path = RYYWebViewController;
+			sourceTree = "<group>";
+		};
+		E99C94FB19E300F500BFE9E8 /* RYYFeedlyAPIGatekeeper */ = {
+			isa = PBXGroup;
+			children = (
+				E99C94FC19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.h */,
+				E99C94FD19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m */,
+			);
+			path = RYYFeedlyAPIGatekeeper;
+			sourceTree = "<group>";
+		};
+		E99C94FF19E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E99C950019E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.h */,
+				E99C950119E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.m */,
+			);
+			path = RYYFeedlyAuthWebViewController;
+			sourceTree = "<group>";
+		};
+		E99C950319E30DBC00BFE9E8 /* RYYFeedlyTestViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E99C950419E30DC500BFE9E8 /* RYYFeedlyTestViewController.h */,
+				E99C950519E30DC500BFE9E8 /* RYYFeedlyTestViewController.m */,
+			);
+			path = RYYFeedlyTestViewController;
 			sourceTree = "<group>";
 		};
 		E9F7585F19A61AF800E2BB61 /* LDRPinnedArticle */ = {
@@ -826,8 +857,6 @@
 				E947DDE319A44F0A00F08164 /* InstapaperActivity~iphone.png in Resources */,
 				E947DDDA19A44F0A00F08164 /* EvernoteActivity@2x.png in Resources */,
 				E947DDE219A44F0A00F08164 /* InstapaperActivity~ipad.png in Resources */,
-				E947DD9319A4499900F08164 /* M2DWebViewController.xib in Resources */,
-				E954C7C819A44A0000F5334C /* M2DWebViewController.bundle in Resources */,
 				E947DDF619A44F0A00F08164 /* Readability-activity-iPhone@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -870,7 +899,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E9BB15BB19A479E30024F1F4 /* Run Script */ = {
@@ -904,6 +933,7 @@
 				E954C51319A2D19A00F5334C /* NSMutableURLRequest+M2DHTTPMethod.m in Sources */,
 				E947DD8819A436C800F08164 /* RYYPinnedArticleTableViewController.m in Sources */,
 				E954C52019A2D6B400F5334C /* RYYSettingViewController.m in Sources */,
+				E99C950219E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.m in Sources */,
 				E947DD8419A3E2EE00F08164 /* RYYArticleDescriptionViewController.m in Sources */,
 				E954C70F19A3388300F5334C /* RYYArticleTableViewController.m in Sources */,
 				E954C50E19A2D19A00F5334C /* M2DAPIGatekeeper.m in Sources */,
@@ -918,12 +948,12 @@
 				E947DDF019A44F0A00F08164 /* PocketAPILogin.m in Sources */,
 				E954C7CC19A44A9F00F5334C /* RYYWebViewController.m in Sources */,
 				E954C71919A33BCE00F5334C /* LDRAds.m in Sources */,
-				E947DDF819A44F0A00F08164 /* README.md in Sources */,
-				E947DD9219A4499900F08164 /* M2DWebViewController.m in Sources */,
 				E954C52419A2E06300F5334C /* RYYFeedViewController.m in Sources */,
 				E954C51219A2D19A00F5334C /* NSMutableURLRequest+M2DFileUpload.m in Sources */,
 				E947DDE419A44F0A00F08164 /* InstapaperActivity.m in Sources */,
 				E954C71A19A33BCE00F5334C /* LDRArticleData.m in Sources */,
+				E99C950619E30DC500BFE9E8 /* RYYFeedlyTestViewController.m in Sources */,
+				E99C94FE19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m in Sources */,
 				E954C52A19A2F9CE00F5334C /* LDRFeed.m in Sources */,
 				E947DDE519A44F0A00F08164 /* LINEActivity.m in Sources */,
 				E954C71C19A33BCE00F5334C /* LDRArticleItem.m in Sources */,
@@ -1049,12 +1079,12 @@
 		};
 		E954C4F019A2D17A00F5334C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08165281137B4D09BACFE4BF /* Pods.xcconfig */;
+			baseConfigurationReference = ACB7823C77C55E96F1B11794 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Akira Matsuda (F7D88ZNBFM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Akira Matsuda (F7D88ZNBFM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Akira/Documents/FacebookSDK,
@@ -1062,35 +1092,24 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ryydr/ryyder-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/AFNetworking\"",
-					"\"${PODS_ROOT}/Headers/CMPopTipView\"",
-					"\"${PODS_ROOT}/Headers/FontAwesomeKit\"",
-					"\"${PODS_ROOT}/Headers/HatenaBookmarkSDK\"",
-					"\"${PODS_ROOT}/Headers/LKBadgeView\"",
-					"\"${PODS_ROOT}/Headers/NJKWebViewProgress\"",
-					"\"${PODS_ROOT}/Headers/SFHFKeychainUtils\"",
-					"\"${PODS_ROOT}/Headers/SVProgressHUD\"",
-					"\"${PODS_ROOT}/Headers/UICKeyChainStore\"",
-					"${SDKROOT}/usr/include/libxml2",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "ryydr/ryyder-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = ryyder;
-				PROVISIONING_PROFILE = "e6d99221-774f-4b60-9a26-2b7d527adec1";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		E954C4F119A2D17A00F5334C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08165281137B4D09BACFE4BF /* Pods.xcconfig */;
+			baseConfigurationReference = 09DF257F97C0A06B75F23287 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Akira Matsuda (3VC35JGS33)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Akira Matsuda (3VC35JGS33)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Akira/Documents/FacebookSDK,
@@ -1098,23 +1117,12 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ryydr/ryyder-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/AFNetworking\"",
-					"\"${PODS_ROOT}/Headers/CMPopTipView\"",
-					"\"${PODS_ROOT}/Headers/FontAwesomeKit\"",
-					"\"${PODS_ROOT}/Headers/HatenaBookmarkSDK\"",
-					"\"${PODS_ROOT}/Headers/LKBadgeView\"",
-					"\"${PODS_ROOT}/Headers/NJKWebViewProgress\"",
-					"\"${PODS_ROOT}/Headers/SFHFKeychainUtils\"",
-					"\"${PODS_ROOT}/Headers/SVProgressHUD\"",
-					"\"${PODS_ROOT}/Headers/UICKeyChainStore\"",
-					"${SDKROOT}/usr/include/libxml2",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "ryydr/ryyder-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = ryyder;
-				PROVISIONING_PROFILE = "47b00eef-5d97-42eb-86a4-50aaff7406d7";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

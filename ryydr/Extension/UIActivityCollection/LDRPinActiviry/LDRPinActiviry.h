@@ -11,6 +11,10 @@
 
 @interface LDRPinActiviry : UIActivity
 
+- (instancetype)initWithTitle:(NSString *)title url:(NSURL *)url;
+
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSURL *url;
 @property (nonatomic, strong) LDRGatekeeper *gatekeeper;
 @property (nonatomic, copy) void (^completionHandler)(NSError *error);
 
