@@ -15,6 +15,7 @@
 #import "LDRGatekeeper.h"
 #import "LKBadgeView.h"
 #import "CMPopTipView.h"
+#import "GLDTween.h"
 
 @interface RYYFeedViewController ()
 {
@@ -147,12 +148,23 @@ static CGFloat kIconButtonSize = 27;
 	
 	cell.tag = indexPath.row;
 	
+	LKBadgeView *badgeView = (LKBadgeView *)[cell.accessoryView viewWithTag:1];
 	LDRFeed *feed = feeds[indexPath.row];
 	if (feed.fetched == NO) {
 		cell.textLabel.textColor = [UIColor lightGrayColor];
-//		[feed fetch:^(NSError *error) {
-//			[self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//		}];
+		badgeView.alpha = 0;
+
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+			[GLDTween addTween:badgeView withParams:@{@"duration":@0,
+													  @"x":@25}];
+			[GLDTween addTween:badgeView withParams:@{@"duration":@0.5,
+													  @"delay":@0.2,
+													  @"easing":GLDEasingOutQuint,
+													  @"x":@0}];
+			[GLDTween addTween:badgeView withParams:@{@"duration":@0.4,
+													  @"delay":@0.2,
+													  @"alpha":@1.0}];
+		});
 	}
 	else {
 		cell.textLabel.textColor = [UIColor blackColor];
@@ -161,9 +173,11 @@ static CGFloat kIconButtonSize = 27;
 	cell.textLabel.text = feed.title;
 	
 	UIColor *cellBackgroundColor = self.view.tintColor;
-	LKBadgeView *badgeView = (LKBadgeView *)[cell.accessoryView viewWithTag:1];
 	if (feed.unreadCount == 0) {
 		cellBackgroundColor = [UIColor lightGrayColor];
+		badgeView.alpha = 0;
+		[GLDTween addTween:badgeView withParams:@{@"duration":@0.4,
+												  @"alpha":@1.0}];
 	}
 	
 	badgeView.badgeColor = cellBackgroundColor;
