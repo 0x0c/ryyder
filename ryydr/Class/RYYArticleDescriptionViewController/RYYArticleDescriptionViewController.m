@@ -66,6 +66,7 @@ static CGFloat kIconButtonSize = 27;
 	UIBarButtonItem *fixedButtonSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
 	fixedButtonSpace.width = 4;
 	[self setToolbarItems:@[fixedButtonSpace, pinButtonItem, fixedButtonSpace, linkButtonItem, flexibleSpace, doubleUpButtonItem, fixedButtonSpace, doubleDownButtonItem, fixedSectionSpace, upButtonItem, fixedButtonSpace, downButtonItem, fixedButtonSpace] animated:YES];
+	[self.navigationController setToolbarHidden:NO animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -91,7 +92,6 @@ static CGFloat kIconButtonSize = 27;
 		[toolbarItems insertObject:flexibleSpace atIndex:0];
 	}
 	self.toolbarItems = toolbarItems;
-	[self.navigationController setToolbarHidden:NO];
 	
 	upButtonItem.enabled = (_article.previous != nil);
 	downButtonItem.enabled = (_article.next != nil);
@@ -99,6 +99,8 @@ static CGFloat kIconButtonSize = 27;
 	linkButtonItem.enabled = (_article.link != nil);
 	doubleUpButtonItem.enabled = (self.article.parent.parent.previousFeed != nil);
 	doubleDownButtonItem.enabled = (self.article.parent.parent.nextFeed != nil);
+	
+	self.title = [NSString stringWithFormat:@"%ld / %ld", (long)_article.index + 1, (long)[_article.parent.items count]];
 }
 
 - (void)viewDidAppear:(BOOL)animated

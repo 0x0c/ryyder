@@ -57,20 +57,25 @@
 
 #pragma mark - UISplitViewControllerDelegate
 
+- (UISplitViewControllerDisplayMode)targetDisplayModeForActionInSplitViewController:(UISplitViewController *)svc
+{
+	return UISplitViewControllerDisplayModeAllVisible;
+}
+
 - (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController
 {
 	BOOL result = YES;
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
 		id secondaryVisibleViewController = ((UINavigationController *)secondaryViewController).visibleViewController;
 		id primaryVisibleViewController = ((UINavigationController *)primaryViewController).visibleViewController;
-		if ([secondaryVisibleViewController isKindOfClass:[RYYWebViewController class]]) {
-			result = NO;
-		}
 		if ([secondaryVisibleViewController isKindOfClass:[RYYArticleDescriptionViewController class]]) {
 			result = ((RYYArticleDescriptionViewController *)secondaryVisibleViewController).article == nil;
 		}
-		if ([primaryVisibleViewController isKindOfClass:[RYYFeedViewController class]]) {
+		else if ([primaryVisibleViewController isKindOfClass:[RYYFeedViewController class]]) {
 			result = YES;
+		}
+		if ([secondaryVisibleViewController isKindOfClass:[RYYWebViewController class]]) {
+			result = NO;
 		}
 	}
 	
@@ -79,12 +84,20 @@
 
 - (UIViewController *)splitViewController:(UISplitViewController *)splitViewController separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)primaryViewController
 {
-	UIViewController *viewController = [[splitViewController.viewControllers lastObject] topViewController];
+	UIViewController *viewController = nil;
+	UIViewController *visibleViewController = ((UINavigationController *)[splitViewController.viewControllers lastObject]).visibleViewController;
 	id primaryVisibleViewController = ((UINavigationController *)primaryViewController).visibleViewController;
 	if ([primaryVisibleViewController isKindOfClass:[RYYFeedViewController class]] || [primaryVisibleViewController isKindOfClass:[RYYArticleTableViewController class]]) {
 		RYYArticleDescriptionViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RYYArticleDescriptionViewController"];
 		UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-		[vc.navigationController setToolbarHidden:NO];
+		viewController = navigationController;
+	}
+	else if ([visibleViewController isKindOfClass:[RYYArticleDescriptionViewController class]] || [visibleViewController isKindOfClass:[RYYWebViewController class]]) {
+		[(UINavigationController *)primaryViewController popViewControllerAnimated:NO];
+		UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:visibleViewController];
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+			[visibleViewController.navigationController setToolbarHidden:NO animated:YES];
+		});
 		viewController = navigationController;
 	}
 	

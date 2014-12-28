@@ -203,6 +203,7 @@ static CGFloat kIconButtonSize = 27;
 			webViewController.article = item;
 			[articleDescriptionViewController.navigationController pushViewController:webViewController animated:NO];
 		}
+		[self.tableView reloadData];
 	}
 }
 
