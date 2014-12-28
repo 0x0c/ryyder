@@ -567,7 +567,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7eJ-Jp-Xnk"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="webView" destination="oGe-fq-WmP" id="0CP-PT-y0B"/>
                     </connections>

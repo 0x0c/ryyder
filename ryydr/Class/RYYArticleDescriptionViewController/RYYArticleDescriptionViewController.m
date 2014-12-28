@@ -8,7 +8,9 @@
 
 #import "RYYArticleDescriptionViewController.h"
 #import "RYYArticleTableViewController.h"
+#import "RYYFeedViewController.h"
 #import "RYYWebViewController.h"
+#import "RYYSplitViewController.h"
 #import "FAKFontAwesome.h"
 #import "LDRGatekeeper.h"
 #import "SVProgressHUD.h"
@@ -57,8 +59,6 @@ static CGFloat kIconButtonSize = 27;
 	down = [FAKFontAwesome angleDoubleDownIconWithSize:kIconButtonSize];
 	doubleUpButtonItem = [[UIBarButtonItem alloc] initWithImage:[up imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[up imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(doubleUp)];
 	doubleDownButtonItem = [[UIBarButtonItem alloc] initWithImage:[down imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[down imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(doubleDown)];
-	doubleUpButtonItem.enabled = (self.article.parent.parent.previousFeed != nil);
-	doubleDownButtonItem.enabled = (self.article.parent.parent.nextFeed != nil);
 	
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 	UIBarButtonItem *fixedSectionSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
@@ -91,6 +91,14 @@ static CGFloat kIconButtonSize = 27;
 		[toolbarItems insertObject:flexibleSpace atIndex:0];
 	}
 	self.toolbarItems = toolbarItems;
+	[self.navigationController setToolbarHidden:NO];
+	
+	upButtonItem.enabled = (_article.previous != nil);
+	downButtonItem.enabled = (_article.next != nil);
+	pinButtonItem.enabled = (_article.link != nil);
+	linkButtonItem.enabled = (_article.link != nil);
+	doubleUpButtonItem.enabled = (self.article.parent.parent.previousFeed != nil);
+	doubleDownButtonItem.enabled = (self.article.parent.parent.nextFeed != nil);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -110,6 +118,8 @@ static CGFloat kIconButtonSize = 27;
 	downButtonItem.enabled = (_article.next != nil);
 	pinButtonItem.enabled = (_article.link != nil);
 	linkButtonItem.enabled = (_article.link != nil);
+	doubleUpButtonItem.enabled = (self.article.parent.parent.previousFeed != nil);
+	doubleDownButtonItem.enabled = (self.article.parent.parent.nextFeed != nil);
 	
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadImmediatelyKey]) {
 		self.article.read = YES;
@@ -164,12 +174,26 @@ static CGFloat kIconButtonSize = 27;
 	if (self.article.previous) {
 		self.article = self.article.previous;
 	}
+	
+	RYYSplitViewController *splitViewController = (RYYSplitViewController *)[[UIApplication sharedApplication].delegate window].rootViewController;
+	UINavigationController *masterViewController = [splitViewController performSelector:@selector(masterViewController)];
+	if ([masterViewController.visibleViewController isKindOfClass:[RYYArticleTableViewController class]] || [masterViewController.visibleViewController isKindOfClass:[RYYFeedViewController class]]) {
+		RYYArticleTableViewController *tableViewController = (RYYArticleTableViewController *)masterViewController.visibleViewController;
+		[tableViewController.tableView reloadData];
+	}
 }
 
 - (void)down
 {
 	if (self.article.next) {
 		self.article = self.article.next;
+	}
+	
+	RYYSplitViewController *splitViewController = (RYYSplitViewController *)[[UIApplication sharedApplication].delegate window].rootViewController;
+	UINavigationController *masterViewController = [splitViewController performSelector:@selector(masterViewController)];
+	if ([masterViewController.visibleViewController isKindOfClass:[RYYArticleTableViewController class]] || [masterViewController.visibleViewController isKindOfClass:[RYYFeedViewController class]]) {
+		RYYArticleTableViewController *tableViewController = (RYYArticleTableViewController *)masterViewController.visibleViewController;
+		[tableViewController.tableView reloadData];
 	}
 }
 
@@ -178,7 +202,18 @@ static CGFloat kIconButtonSize = 27;
 	self.article = self.article.parent.parent.previousFeed.data.items.lastObject;
 	doubleUpButtonItem.enabled = (self.article.parent.parent.previousFeed != nil);
 	doubleDownButtonItem.enabled = (self.article.parent.parent.nextFeed != nil);
-	[(RYYArticleTableViewController *)self.navigationController.viewControllers[self.navigationController.viewControllers.count - 2] performSelector:@selector(up) withObject:nil];
+	
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone && UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+		[(RYYArticleTableViewController *)self.navigationController.viewControllers[self.navigationController.viewControllers.count - 2] up];
+	}
+	else {
+		RYYSplitViewController *splitViewController = (RYYSplitViewController *)[[UIApplication sharedApplication].delegate window].rootViewController;
+		UINavigationController *masterViewController = [splitViewController performSelector:@selector(masterViewController)];
+		if ([masterViewController.visibleViewController isKindOfClass:[RYYArticleTableViewController class]] || [masterViewController.visibleViewController isKindOfClass:[RYYFeedViewController class]]) {
+			RYYArticleTableViewController *tableViewController = (RYYArticleTableViewController *)masterViewController.visibleViewController;
+			[tableViewController.tableView reloadData];
+		}
+	}
 }
 
 - (void)doubleDown
@@ -186,7 +221,17 @@ static CGFloat kIconButtonSize = 27;
 	self.article = self.article.parent.parent.nextFeed.data.items[0];
 	doubleUpButtonItem.enabled = (self.article.parent.parent.previousFeed != nil);
 	doubleDownButtonItem.enabled = (self.article.parent.parent.nextFeed != nil);
-	[(RYYArticleTableViewController *)self.navigationController.viewControllers[self.navigationController.viewControllers.count - 2] performSelector:@selector(down) withObject:nil];
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone && UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+		[(RYYArticleTableViewController *)self.navigationController.viewControllers[self.navigationController.viewControllers.count - 2] down];
+	}
+	else {
+		RYYSplitViewController *splitViewController = (RYYSplitViewController *)[[UIApplication sharedApplication].delegate window].rootViewController;
+		UINavigationController *masterViewController = [splitViewController performSelector:@selector(masterViewController)];
+		if ([masterViewController.visibleViewController isKindOfClass:[RYYArticleTableViewController class]] || [masterViewController.visibleViewController isKindOfClass:[RYYFeedViewController class]]) {
+			RYYArticleTableViewController *tableViewController = (RYYArticleTableViewController *)masterViewController.visibleViewController;
+			[tableViewController.tableView reloadData];
+		}
+	}
 }
 
 - (void)loadHTML

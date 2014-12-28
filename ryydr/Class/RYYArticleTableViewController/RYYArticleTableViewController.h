@@ -13,4 +13,7 @@
 
 @property (nonatomic, strong) LDRFeed *feed;
 
+- (void)up;
+- (void)down;
+
 @end

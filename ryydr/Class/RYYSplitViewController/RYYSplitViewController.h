@@ -10,4 +10,7 @@
 
 @interface RYYSplitViewController : UISplitViewController
 
+//@property (nonatomic, readonly) UIViewController *masterViewController;
+//@property (nonatomic, readonly) UIViewController *detailViewController;
+
 @end

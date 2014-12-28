@@ -40,6 +40,21 @@
 }
 */
 
+//- (UIViewController *)masterViewController
+//{
+//	return self.viewControllers.lastObject;;
+//}
+//
+//- (UIViewController *)detailViewController
+//{
+//	UIViewController *viewController = nil;
+//	if (self.viewControllers.count > 1) {
+//		viewController = self.viewControllers.lastObject;
+//	}
+//	
+//	return viewController;
+//}
+
 #pragma mark - UISplitViewControllerDelegate
 
 - (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController
@@ -66,18 +81,17 @@
 {
 	UIViewController *viewController = [[splitViewController.viewControllers lastObject] topViewController];
 	id primaryVisibleViewController = ((UINavigationController *)primaryViewController).visibleViewController;
-	if ([primaryVisibleViewController isKindOfClass:[RYYFeedViewController class]]) {
+	if ([primaryVisibleViewController isKindOfClass:[RYYFeedViewController class]] || [primaryVisibleViewController isKindOfClass:[RYYArticleTableViewController class]]) {
 		RYYArticleDescriptionViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RYYArticleDescriptionViewController"];
 		UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+		[vc.navigationController setToolbarHidden:NO];
 		viewController = navigationController;
 	}
 	
 	return viewController;
 }
 
-- (BOOL)splitViewController:(UISplitViewController*)svc
-   shouldHideViewController:(UIViewController *)vc
-			  inOrientation:(UIInterfaceOrientation)orientation
+- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation
 {
 	return NO;
 }

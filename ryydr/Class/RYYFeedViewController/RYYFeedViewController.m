@@ -296,7 +296,7 @@ static CGFloat kIconButtonSize = 27;
 	}];
 	
 	UIApplication *application = [UIApplication sharedApplication];
-	UISplitViewController *splitViewController = (UISplitViewController*)[application.delegate window].rootViewController;
+	UISplitViewController *splitViewController = (UISplitViewController *)[application.delegate window].rootViewController;
 	[[[splitViewController.viewControllers lastObject] topViewController].navigationController popToRootViewControllerAnimated:NO];
 	id viewController = [[splitViewController.viewControllers lastObject] topViewController];
 	if ([viewController isKindOfClass:[RYYArticleDescriptionViewController class]]) {
