@@ -15,6 +15,7 @@ pod 'M2DWebViewController'
 pod 'SVProgressHUD'
 pod 'TUSafariActivity', '~> 1.0.1'
 pod 'GLDTween', '~> 0.0.2'
+pod 'UIDeviceUtil', '~> 1.0.2'
 
 post_install do | installer |
   require 'fileutils'

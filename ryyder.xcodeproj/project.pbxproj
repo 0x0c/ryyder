@@ -77,6 +77,8 @@
 		E954C71C19A33BCE00F5334C /* LDRArticleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C71819A33BCE00F5334C /* LDRArticleItem.m */; };
 		E954C71F19A3DC3100F5334C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E954C71E19A3DC3100F5334C /* Settings.bundle */; };
 		E954C7CC19A44A9F00F5334C /* RYYWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C7CB19A44A9F00F5334C /* RYYWebViewController.m */; };
+		E9630D9F1A506314004DD380 /* RYYSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9630D9E1A506314004DD380 /* RYYSplitViewController.m */; };
+		E96F01491A5055D100B2E93E /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F01471A5055D100B2E93E /* Main_iPad.storyboard */; };
 		E97BECED19A47A850016517A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E97BECEC19A47A850016517A /* Crashlytics.framework */; };
 		E99C94F119E2EAA200BFE9E8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99C94F019E2EAA200BFE9E8 /* WebKit.framework */; };
 		E99C94FE19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = E99C94FD19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m */; };
@@ -208,6 +210,9 @@
 		E954C71E19A3DC3100F5334C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		E954C7CA19A44A9F00F5334C /* RYYWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYWebViewController.h; sourceTree = "<group>"; };
 		E954C7CB19A44A9F00F5334C /* RYYWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYWebViewController.m; sourceTree = "<group>"; };
+		E9630D9D1A506314004DD380 /* RYYSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYSplitViewController.h; sourceTree = "<group>"; };
+		E9630D9E1A506314004DD380 /* RYYSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYSplitViewController.m; sourceTree = "<group>"; };
+		E96F01481A5055D100B2E93E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		E97BECEC19A47A850016517A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		E99C94F019E2EAA200BFE9E8 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E99C94FC19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYFeedlyAPIGatekeeper.h; sourceTree = "<group>"; };
@@ -472,6 +477,7 @@
 				E954C51819A2D21300F5334C /* Class */,
 				E954C4F519A2D19A00F5334C /* Library */,
 				E954C4CF19A2D17A00F5334C /* Main.storyboard */,
+				E96F01471A5055D100B2E93E /* Main_iPad.storyboard */,
 				E954C4D819A2D17A00F5334C /* Images.xcassets */,
 				E954C4C419A2D17A00F5334C /* Supporting Files */,
 			);
@@ -593,6 +599,7 @@
 		E954C51819A2D21300F5334C /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				E9630D9C1A50630B004DD380 /* RYYSplitViewController */,
 				E99C950319E30DBC00BFE9E8 /* RYYFeedlyTestViewController */,
 				E99C94FF19E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController */,
 				E954C7C919A44A9300F5334C /* RYYWebViewController */,
@@ -684,6 +691,15 @@
 				E954C7CB19A44A9F00F5334C /* RYYWebViewController.m */,
 			);
 			path = RYYWebViewController;
+			sourceTree = "<group>";
+		};
+		E9630D9C1A50630B004DD380 /* RYYSplitViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E9630D9D1A506314004DD380 /* RYYSplitViewController.h */,
+				E9630D9E1A506314004DD380 /* RYYSplitViewController.m */,
+			);
+			path = RYYSplitViewController;
 			sourceTree = "<group>";
 		};
 		E99C94FB19E300F500BFE9E8 /* RYYFeedlyAPIGatekeeper */ = {
@@ -856,6 +872,7 @@
 				E954C4D119A2D17A00F5334C /* Main.storyboard in Resources */,
 				E947DDE319A44F0A00F08164 /* InstapaperActivity~iphone.png in Resources */,
 				E947DDDA19A44F0A00F08164 /* EvernoteActivity@2x.png in Resources */,
+				E96F01491A5055D100B2E93E /* Main_iPad.storyboard in Resources */,
 				E947DDE219A44F0A00F08164 /* InstapaperActivity~ipad.png in Resources */,
 				E947DDF619A44F0A00F08164 /* Readability-activity-iPhone@2x.png in Resources */,
 			);
@@ -925,6 +942,7 @@
 			files = (
 				E9F7586A19A62EFD00E2BB61 /* LDRMarkAsReadActivity.m in Sources */,
 				E954C50F19A2D19A00F5334C /* M2DAPIRequest.m in Sources */,
+				E9630D9F1A506314004DD380 /* RYYSplitViewController.m in Sources */,
 				E947DDF119A44F0A00F08164 /* PocketAPIOperation.m in Sources */,
 				E947DDEF19A44F0A00F08164 /* PocketAPI.m in Sources */,
 				E947DDF719A44F0A00F08164 /* ReadabilityActivity.m in Sources */,
@@ -1002,6 +1020,14 @@
 				E954C4E919A2D17A00F5334C /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E96F01471A5055D100B2E93E /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E96F01481A5055D100B2E93E /* Base */,
+			);
+			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

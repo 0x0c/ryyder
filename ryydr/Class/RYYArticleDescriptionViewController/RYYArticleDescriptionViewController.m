@@ -187,8 +187,14 @@ static CGFloat kIconButtonSize = 27;
 
 - (void)loadHTML
 {
-	NSString *htmlString = [NSString stringWithFormat:RYYArticleDescriptionHTMLFormat, self.article.title, self.article.parent.parent.title, self.article.link, self.article.title, self.article.author, self.article.category, self.article.body, self.article.link, [@(self.article.createdOn) stringValue]];
-	[webView loadHTMLString:htmlString baseURL:[NSURL URLWithString:self.article.link]];
+	if (self.article) {
+		NSString *htmlString = [NSString stringWithFormat:RYYArticleDescriptionHTMLFormat, self.article.title, self.article.parent.parent.title, self.article.link, self.article.title, self.article.author, self.article.category, self.article.body, self.article.link, [@(self.article.createdOn) stringValue]];
+		[webView loadHTMLString:htmlString baseURL:[NSURL URLWithString:self.article.link]];
+	}
+	else {
+		NSString *htmlString = [NSString stringWithFormat:RYYArticleDescriptionHTMLFormat, @"", @"", @"", @"", @"", @"", @"", @"", [@(self.article.createdOn) stringValue]];
+		[webView loadHTMLString:htmlString baseURL:[NSURL URLWithString:self.article.link]];
+	}
 }
 
 @end

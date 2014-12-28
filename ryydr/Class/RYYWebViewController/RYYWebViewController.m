@@ -125,8 +125,10 @@ static NSString *const JS_GET_TITLE= @"var elements=document.getElementsByTagNam
 		//	[activities addObject:evernote];
 		
 		[activities addObject:[TUSafariActivity new]];
-		
 		UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[pageTitle, url] applicationActivities:activities];
+		if ([[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] != NSOrderedAscending) {
+			activityViewController.popoverPresentationController.barButtonItem = bself.toolbarItems[bself.toolbarItems.count - 2];
+		}
 		[bself presentViewController:activityViewController animated:YES completion:^{
 		}];
 	};

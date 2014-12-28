@@ -21,7 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+	// Override point for customization after application launch.
 	[MTMigration applicationUpdateBlock:^{
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:FirstLaunchKey];
 		NSString *versionNum = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
@@ -37,6 +37,8 @@
 		[[NSUserDefaults standardUserDefaults] setInteger:1 forKey:UserInterfaceAlignmentKey];
 		[[NSUserDefaults standardUserDefaults] synchronize];
 	}];
+	application.applicationIconBadgeNumber = 0;
+	
 	[Crashlytics startWithAPIKey:(NSString *)CrashlyticsAPIKey];
 #ifdef DEBUG
 	[[Crashlytics sharedInstance] setDebugMode:YES];

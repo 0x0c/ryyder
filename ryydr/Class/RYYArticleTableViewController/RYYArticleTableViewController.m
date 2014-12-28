@@ -13,6 +13,7 @@
 #import "FAKFontAwesome.h"
 #import "LDRGatekeeper.h"
 #import "CMPopTipView.h"
+#import "UIDeviceUtil.h"
 
 @interface RYYArticleTableViewController ()
 {
@@ -63,7 +64,9 @@ static CGFloat kIconButtonSize = 27;
 	upButtonItem.enabled = (self.feed.previousFeed != nil);
 	downButtonItem.enabled = (self.feed.nextFeed != nil);
 	
-	[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+		[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+	}
 	
 	static NSInteger FlexibleSpaceTag = 200;
 	NSInteger alignment = [[NSUserDefaults standardUserDefaults] integerForKey:UserInterfaceAlignmentKey];
@@ -168,23 +171,39 @@ static CGFloat kIconButtonSize = 27;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	id viewController = nil;
 	LDRArticleItem *item = _feed.data.items[indexPath.row];
-	if ([[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadImmediatelyKey]) {
-		item.read = YES;
-	}
-	if ([[NSUserDefaults standardUserDefaults] boolForKey:DirectAccessKey]) {
-		RYYWebViewController *vc = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:item.link] type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
-		vc.article = item;
-		viewController = vc;
+	NSURL *url = [NSURL URLWithString:item.link];
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone && UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+		id viewController = nil;
+		if ([[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadImmediatelyKey]) {
+			item.read = YES;
+		}
+		if ([[NSUserDefaults standardUserDefaults] boolForKey:DirectAccessKey]) {
+			RYYWebViewController *vc = [[RYYWebViewController alloc] initWithURL:url type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
+			vc.article = item;
+			viewController = vc;
+		}
+		else {
+			RYYArticleDescriptionViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RYYArticleDescriptionViewController"];
+			vc.article = item;
+			viewController = vc;
+		}
+		
+		[self.navigationController pushViewController:viewController animated:YES];
 	}
 	else {
-		RYYArticleDescriptionViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RYYArticleDescriptionViewController"];
-		vc.article = item;
-		viewController = vc;
+		UIApplication *application = [UIApplication sharedApplication];
+		UISplitViewController *splitViewController = (UISplitViewController*)[application.delegate window].rootViewController;
+		[[[splitViewController.viewControllers lastObject] topViewController].navigationController popToRootViewControllerAnimated:NO];
+		
+		RYYArticleDescriptionViewController *articleDescriptionViewController = (RYYArticleDescriptionViewController *)[[splitViewController.viewControllers lastObject] topViewController];
+		articleDescriptionViewController.article = item;
+		if ([[NSUserDefaults standardUserDefaults] boolForKey:DirectAccessKey]) {
+			RYYWebViewController *webViewController = [[RYYWebViewController alloc] initWithURL:url type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
+			webViewController.article = item;
+			[articleDescriptionViewController.navigationController pushViewController:webViewController animated:NO];
+		}
 	}
-	
-	[self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
