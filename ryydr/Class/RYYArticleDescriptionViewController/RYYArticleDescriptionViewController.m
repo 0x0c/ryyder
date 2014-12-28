@@ -23,6 +23,8 @@
 	
 	UIBarButtonItem *doubleUpButtonItem;
 	UIBarButtonItem *doubleDownButtonItem;
+	UIBarButtonItem *pinButtonItem;
+	UIBarButtonItem *linkButtonItem;
 }
 
 @end
@@ -40,9 +42,9 @@ static CGFloat kIconButtonSize = 27;
 	[self loadHTML];
 	
 	FAKFontAwesome *pin = [FAKFontAwesome dotCircleOIconWithSize:kIconButtonSize - 2];
-	UIBarButtonItem *pinButtonItem = [[UIBarButtonItem alloc] initWithImage:[pin imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[pin imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(pin)];
+	pinButtonItem = [[UIBarButtonItem alloc] initWithImage:[pin imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[pin imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(pin)];
 	FAKFontAwesome *link = [FAKFontAwesome linkIconWithSize:kIconButtonSize - 2];
-	UIBarButtonItem *linkButtonItem = [[UIBarButtonItem alloc] initWithImage:[link imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[link imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(openLink)];
+	linkButtonItem = [[UIBarButtonItem alloc] initWithImage:[link imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[link imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(openLink)];
 	
 	FAKFontAwesome *up = [FAKFontAwesome angleUpIconWithSize:kIconButtonSize];
 	FAKFontAwesome *down = [FAKFontAwesome angleDownIconWithSize:kIconButtonSize];
@@ -106,6 +108,8 @@ static CGFloat kIconButtonSize = 27;
 	
 	upButtonItem.enabled = (_article.previous != nil);
 	downButtonItem.enabled = (_article.next != nil);
+	pinButtonItem.enabled = (_article.link != nil);
+	linkButtonItem.enabled = (_article.link != nil);
 	
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadImmediatelyKey]) {
 		self.article.read = YES;

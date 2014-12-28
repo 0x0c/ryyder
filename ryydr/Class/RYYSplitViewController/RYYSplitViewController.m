@@ -45,16 +45,18 @@
 - (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController
 {
 	BOOL result = YES;
-	id secondaryVisibleViewController = ((UINavigationController *)secondaryViewController).visibleViewController;
-	id primaryVisibleViewController = ((UINavigationController *)primaryViewController).visibleViewController;
-	if ([secondaryVisibleViewController isKindOfClass:[RYYWebViewController class]]) {
-		result = NO;
-	}
-	if ([secondaryVisibleViewController isKindOfClass:[RYYArticleDescriptionViewController class]]) {
-		result = ((RYYArticleDescriptionViewController *)secondaryVisibleViewController).article == nil;
-	}
-	if ([primaryVisibleViewController isKindOfClass:[RYYFeedViewController class]]) {
-		result = YES;
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+		id secondaryVisibleViewController = ((UINavigationController *)secondaryViewController).visibleViewController;
+		id primaryVisibleViewController = ((UINavigationController *)primaryViewController).visibleViewController;
+		if ([secondaryVisibleViewController isKindOfClass:[RYYWebViewController class]]) {
+			result = NO;
+		}
+		if ([secondaryVisibleViewController isKindOfClass:[RYYArticleDescriptionViewController class]]) {
+			result = ((RYYArticleDescriptionViewController *)secondaryVisibleViewController).article == nil;
+		}
+		if ([primaryVisibleViewController isKindOfClass:[RYYFeedViewController class]]) {
+			result = YES;
+		}
 	}
 	
 	return result;
@@ -71,6 +73,13 @@
 	}
 	
 	return viewController;
+}
+
+- (BOOL)splitViewController:(UISplitViewController*)svc
+   shouldHideViewController:(UIViewController *)vc
+			  inOrientation:(UIInterfaceOrientation)orientation
+{
+	return NO;
 }
 
 @end

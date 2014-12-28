@@ -9,6 +9,7 @@
 #import "RYYFeedViewController.h"
 #import "AppDelegate.h"
 #import "TSMessage.h"
+#import "RYYArticleDescriptionViewController.h"
 #import "RYYArticleTableViewController.h"
 #import "RYYSettingViewController.h"
 #import "FAKFontAwesome.h"
@@ -293,6 +294,15 @@ static CGFloat kIconButtonSize = 27;
 //			}
 		}];
 	}];
+	
+	UIApplication *application = [UIApplication sharedApplication];
+	UISplitViewController *splitViewController = (UISplitViewController*)[application.delegate window].rootViewController;
+	[[[splitViewController.viewControllers lastObject] topViewController].navigationController popToRootViewControllerAnimated:NO];
+	id viewController = [[splitViewController.viewControllers lastObject] topViewController];
+	if ([viewController isKindOfClass:[RYYArticleDescriptionViewController class]]) {
+		RYYArticleDescriptionViewController *articleDescriptionViewController = (RYYArticleDescriptionViewController *)[[splitViewController.viewControllers lastObject] topViewController];
+		articleDescriptionViewController.article = nil;
+	}
 }
 
 - (IBAction)refreshButtonPressed:(id)sender
