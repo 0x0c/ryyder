@@ -175,9 +175,6 @@ static CGFloat kIconButtonSize = 27;
 	UIColor *cellBackgroundColor = self.view.tintColor;
 	if (feed.unreadCount == 0) {
 		cellBackgroundColor = [UIColor lightGrayColor];
-		badgeView.alpha = 0;
-		[GLDTween addTween:badgeView withParams:@{@"duration":@0.4,
-												  @"alpha":@1.0}];
 	}
 	
 	badgeView.badgeColor = cellBackgroundColor;
