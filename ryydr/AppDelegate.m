@@ -22,6 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// Override point for customization after application launch.
+	[self registerForRemoteNotification];
 	[MTMigration applicationUpdateBlock:^{
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:FirstLaunchKey];
 		NSString *versionNum = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
@@ -111,7 +112,24 @@
 	completionHandler(UIBackgroundFetchResultNewData);
 }
 
-#pragma mark - 
+- (void)registerForRemoteNotification
+{
+	if ([[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] != NSOrderedAscending) {
+		UIUserNotificationType types = UIUserNotificationTypeSound | UIUserNotificationTypeBadge | UIUserNotificationTypeAlert;
+		UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+		[[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+	}
+	else {
+		[[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+	}
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+	[application registerForRemoteNotifications];
+}
+
+#pragma mark -
 
 - (void)updateBadgeNumber:(void (^)(NSInteger count))completionHandler
 {
