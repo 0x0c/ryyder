@@ -25,7 +25,7 @@ static NSOperationQueue *globalConnectionQueue;
 //		globalConnectionQueue = dispatch_queue_create("M2DURLConnectionOperationGlobalConnectionQueue", NULL);
 		globalConnectionQueue = [[NSOperationQueue alloc] init];
 	});
-	
+
 	return globalConnectionQueue;
 }
 
@@ -35,7 +35,7 @@ static NSOperationQueue *globalConnectionQueue;
 	if (self) {
 		_identifier = [[NSProcessInfo processInfo] globallyUniqueString];
 	}
-	
+
 	return self;
 }
 
@@ -45,7 +45,7 @@ static NSOperationQueue *globalConnectionQueue;
 	if (self) {
 		_request = [request copy];
 	}
-	
+
 	return self;
 }
 
@@ -55,7 +55,7 @@ static NSOperationQueue *globalConnectionQueue;
 	if (self) {
 		completeBlock_ = [completeBlock copy];
 	}
-	
+
 	return self;
 }
 
@@ -126,7 +126,7 @@ static NSOperationQueue *globalConnectionQueue;
 	completeBlock_ = [completeBlock copy];
 	connection_ = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stop) name:_identifier object:nil];
-	
+
 	executing_ = YES;
 	[[[self class] globalConnectionQueue] addOperationWithBlock:^{
 		[connection_ start];
@@ -134,7 +134,7 @@ static NSOperationQueue *globalConnectionQueue;
 			[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
 		} while (executing_);
 	}];
-	
+
 	return _identifier;
 }
 

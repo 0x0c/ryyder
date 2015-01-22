@@ -39,19 +39,19 @@
 		[[NSUserDefaults standardUserDefaults] synchronize];
 	}];
 	application.applicationIconBadgeNumber = 0;
-	
+
 	[Crashlytics startWithAPIKey:(NSString *)CrashlyticsAPIKey];
 #ifdef DEBUG
 	[[Crashlytics sharedInstance] setDebugMode:YES];
 #endif
-	
+
 	[[HTBHatenaBookmarkManager sharedManager] setConsumerKey:HatenaOAuthConsumerKey consumerSecret:HatenaOAuthConsumerSecret];
 	[[PocketAPI sharedAPI] setURLScheme:URLScheme];
 	[[PocketAPI sharedAPI] setConsumerKey:PocketConsumerKey];
-	
+
 	[SVProgressHUD setBackgroundColor:[UIColor darkGrayColor]];
 	[SVProgressHUD setForegroundColor:[UIColor whiteColor]];
-	
+
 	LDRGatekeeper *gatekeeper = [LDRGatekeeper sharedInstance];
 #ifdef DEBUG
 	gatekeeper.debugMode = YES;
@@ -66,12 +66,12 @@
 			[SVProgressHUD dismiss];
 		});
 	}];
-	
+
 	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 		[self updateBadgeNumber:^(NSInteger count) {
 		}];
 	});
-	
+
 	[[NSNotificationCenter defaultCenter] addObserverForName:LDRArticleItemReadFlagNotificationYES object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
 		if ([[NSUserDefaults standardUserDefaults] boolForKey:ShowBadgeKey]) {
 			[UIApplication sharedApplication].applicationIconBadgeNumber--;
@@ -82,32 +82,32 @@
 			[UIApplication sharedApplication].applicationIconBadgeNumber++;
 		}
 	}];
-	
-//	NSString *authUrl = [kOauth2ClientBaseUrl stringByAppendingString:kOauth2ClientAuthUrl];
-//	NSString *tokenUrl = [kOauth2ClientBaseUrl stringByAppendingString:kOauth2ClientTokenUrl];
-//	[[NXOAuth2AccountStore sharedStore] setClientID:kOauth2ClientClientId secret:kOauth2ClientClientSecret
-//											  scope:[NSSet setWithObjects:kOauth2ClientScopeUrl, nil]
-//								   authorizationURL:[NSURL URLWithString:authUrl]
-//										   tokenURL:[NSURL URLWithString:tokenUrl]
-//										redirectURL:[NSURL URLWithString:kOauth2ClientRedirectUrl]
-//									  keyChainGroup:@"com.akira.matsuda.ryyder"
-//									 forAccountType:kOauth2ClientAccountType];
-	
-    return YES;
+
+	//	NSString *authUrl = [kOauth2ClientBaseUrl stringByAppendingString:kOauth2ClientAuthUrl];
+	//	NSString *tokenUrl = [kOauth2ClientBaseUrl stringByAppendingString:kOauth2ClientTokenUrl];
+	//	[[NXOAuth2AccountStore sharedStore] setClientID:kOauth2ClientClientId secret:kOauth2ClientClientSecret
+	//											  scope:[NSSet setWithObjects:kOauth2ClientScopeUrl, nil]
+	//								   authorizationURL:[NSURL URLWithString:authUrl]
+	//										   tokenURL:[NSURL URLWithString:tokenUrl]
+	//										redirectURL:[NSURL URLWithString:kOauth2ClientRedirectUrl]
+	//									  keyChainGroup:@"com.akira.matsuda.ryyder"
+	//									 forAccountType:kOauth2ClientAccountType];
+
+	return YES;
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL*)url
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-	if([[PocketAPI sharedAPI] handleOpenURL:url]) {
+	if ([[PocketAPI sharedAPI] handleOpenURL:url]) {
 		return YES;
 	}
-	
+
 	return NO;
 }
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler
 {
-	[self updateBadgeNumber:^(NSInteger count) {
+	[self updateBadgeNumber:^(NSInteger count){
 	}];
 	completionHandler(UIBackgroundFetchResultNewData);
 }

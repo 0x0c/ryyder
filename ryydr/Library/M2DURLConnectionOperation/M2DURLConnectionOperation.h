@@ -16,8 +16,7 @@
 
 @end
 
-@interface M2DURLConnectionOperation : NSObject <NSURLConnectionDataDelegate>
-{
+@interface M2DURLConnectionOperation : NSObject <NSURLConnectionDataDelegate> {
 	void (^completeBlock_)(NSURLResponse *response, NSData *data, NSError *error);
 	void (^progressBlock_)(CGFloat progress);
 	CGFloat dataLength_;

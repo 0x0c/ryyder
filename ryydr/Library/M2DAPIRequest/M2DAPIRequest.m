@@ -10,8 +10,7 @@
 #import "M2DNSURLConnectionExtension.h"
 #import "M2DNSURLConnectionExtensionConstant.h"
 
-@interface M2DAPIRequest ()
-{
+@interface M2DAPIRequest () {
 	BOOL (^resultConditionBlock_)(NSURLResponse *response, id parsedObject);
 	void (^successBlock_)(M2DAPIRequest *request, id parsedObject);
 	void (^failureBlock_)(M2DAPIRequest *request, NSError *error);
@@ -38,7 +37,7 @@
 {
 	M2DAPIRequest *request = [M2DAPIRequest requestWithURL:url];
 	[request setHTTPMethod:M2DHTTPMethodGET];
-	
+
 	return request;
 }
 
@@ -46,7 +45,7 @@
 {
 	M2DAPIRequest *request = [M2DAPIRequest requestWithURL:url];
 	[request setHTTPMethod:M2DHTTPMethodPOST];
-	
+
 	return request;
 }
 
@@ -72,7 +71,7 @@
 		successBlock_ = [successBlock copy];
 		failureBlock_ = [failureBlock copy];
 	}
-	
+
 	return self;
 }
 

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+static NSString *const RYYFeedViewControllerNeedToRefreshNotification = @"RYYFeedViewControllerNeedToRefreshNotification";
+
 @interface RYYFeedViewController : UITableViewController
 
 - (void)sync;

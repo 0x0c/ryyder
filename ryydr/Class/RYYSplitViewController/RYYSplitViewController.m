@@ -20,14 +20,15 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+	[super viewDidLoad];
+	// Do any additional setup after loading the view.
 	self.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)didReceiveMemoryWarning
+{
+	[super didReceiveMemoryWarning];
+	// Dispose of any resources that can be recreated.
 }
 
 /*
@@ -51,7 +52,7 @@
 //	if (self.viewControllers.count > 1) {
 //		viewController = self.viewControllers.lastObject;
 //	}
-//	
+//
 //	return viewController;
 //}
 
@@ -78,7 +79,7 @@
 			result = NO;
 		}
 	}
-	
+
 	return result;
 }
 
@@ -100,7 +101,7 @@
 		});
 		viewController = navigationController;
 	}
-	
+
 	return viewController;
 }
 

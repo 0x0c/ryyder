@@ -14,10 +14,9 @@
 #import "NJKWebViewProgress.h"
 #import "NJKWebViewProgressView.h"
 
-static NSString *const JS_GET_TITLE= @"var elements=document.getElementsByTagName(\'title\');elements[0].innerText";
+static NSString *const JS_GET_TITLE = @"var elements=document.getElementsByTagName(\'title\');elements[0].innerText";
 
-@interface RYYWebViewController () <NJKWebViewProgressDelegate>
-{
+@interface RYYWebViewController () <NJKWebViewProgressDelegate> {
 	NJKWebViewProgress *progressProxy_;
 	NJKWebViewProgressView *progressView_;
 }
@@ -33,23 +32,23 @@ static NSString *const JS_GET_TITLE= @"var elements=document.getElementsByTagNam
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-	
+	[super viewDidLoad];
+	// Do any additional setup after loading the view.
+
 	((WKWebView *)webView_).scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
-	
+
 	CGFloat progressBarHeight = 3.0f;
 	CGRect navigaitonBarBounds = self.navigationController.navigationBar.bounds;
 	progressView_ = [[NJKWebViewProgressView alloc] initWithFrame:CGRectMake(0, navigaitonBarBounds.size.height - progressBarHeight, navigaitonBarBounds.size.width, progressBarHeight)];
 	[progressView_ setProgress:0];
-	
+
 	if ([webView_ isKindOfClass:[UIWebView class]]) {
 		progressProxy_ = [[NJKWebViewProgress alloc] init];
 		((UIWebView *)webView_).delegate = progressProxy_;
 		progressProxy_.webViewProxyDelegate = self;
 		progressProxy_.progressDelegate = self;
 	}
-	
+
 	__weak typeof(self) bself = self;
 	self.actionButtonPressedHandler = ^(NSString *pageTitle, NSURL *url) {
 		void (^f)(NSError *e) = ^(NSError *error) {
@@ -139,7 +138,7 @@ static NSString *const JS_GET_TITLE= @"var elements=document.getElementsByTagNam
 	[super viewWillAppear:animated];
 	[self.navigationController setToolbarHidden:NO animated:YES];
 	[self.navigationController.navigationBar addSubview:progressView_];
-	
+
 	static NSInteger FlexibleSpaceTag = 200;
 	NSInteger alignment = [[NSUserDefaults standardUserDefaults] integerForKey:UserInterfaceAlignmentKey];
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -193,13 +192,13 @@ static NSString *const JS_GET_TITLE= @"var elements=document.getElementsByTagNam
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
 	[super webViewDidFinishLoad:webView];
-	
+
 	self.title = [webView stringByEvaluatingJavaScriptFromString:JS_GET_TITLE];
 }
 
 #pragma mark - NJKWebViewProgressDelegate
 
--(void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress
+- (void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress
 {
 	[progressView_ setProgress:progress animated:YES];
 }

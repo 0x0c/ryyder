@@ -13,11 +13,10 @@
 
 typedef NS_ENUM(NSUInteger, M2DAPIGatekeeperErrorCode) {
 	M2DAPIGatekeeperResultFailure = -1,
-    M2DAPIGatekeeperParseError = -2,
+	M2DAPIGatekeeperParseError = -2,
 };
 
-@interface M2DAPIGatekeeper ()
-{
+@interface M2DAPIGatekeeper () {
 	NSMutableArray *identifiers_;
 	NSOperationQueue *queue_;
 }
@@ -35,7 +34,7 @@ typedef NS_ENUM(NSUInteger, M2DAPIGatekeeperErrorCode) {
 	dispatch_once(&onceToken, ^{
 		sharedInstance = [[[self class] alloc] init];
 	});
-	
+
 	return sharedInstance;
 }
 
@@ -72,29 +71,29 @@ typedef NS_ENUM(NSUInteger, M2DAPIGatekeeperErrorCode) {
 	if (request.requestParametors) {
 		[request m2d_setParameter:request.requestParametors method:request.httpMethod];
 	}
-	
+
 	if (self.baseParameter) {
 		NSMutableDictionary *p = [request.requestParametors mutableCopy];
 		[p addEntriesFromDictionary:self.baseParameter];
 		[request parametors:p];
 	}
-	
+
 	if (request.resultConditionBlock == nil) {
 		request.resultConditionBlock = _resultConditionBlock;
 	}
 	if (request.parseBlock == nil) {
 		request.parseBlock = _parseBlock;
 	}
-	
+
 	if (request.initializeBlock) {
 		request.initializeBlock(request);
 	}
 	if (self.initializeBlock) {
 		self.initializeBlock(request, request.requestParametors);
 	}
-	
+
 	__block void (^finalizeBlock)(M2DAPIRequest *request, id parsedObject) = self.finalizeBlock;
-	void (^f)(NSURLResponse *response, NSData *data, NSError *error) = ^(NSURLResponse *response, NSData *data, NSError *error){
+	void (^f)(NSURLResponse *response, NSData *data, NSError *error) = ^(NSURLResponse *response, NSData *data, NSError *error) {
 		id parsedObject = nil;
 		if (error) {
 			request.failureBlock(request, error);
@@ -106,11 +105,13 @@ typedef NS_ENUM(NSUInteger, M2DAPIGatekeeperErrorCode) {
 			if (request.resultConditionBlock(response, parsedObject, &e2) && request.successBlock) {
 				request.successBlock(request, parsedObject);
 			}
-			else if (e) {
-				request.failureBlock(request, e);
-			}
-			else if	(request.failureBlock) {
-				request.failureBlock(request, e2);
+			if (request.failureBlock) {
+				if (e) {
+					request.failureBlock(request, e);
+				}
+				else if	(e2) {
+					request.failureBlock(request, e2);
+				}
 			}
 		}
 		
@@ -127,7 +128,7 @@ typedef NS_ENUM(NSUInteger, M2DAPIGatekeeperErrorCode) {
 			NSLog(@"raw result:[%@://%@%@]%@", response.URL.scheme, response.URL.host, response.URL.path, r);
 		}
 	};
-	
+
 	[[self class] setNetworkActivityIndicatorVisible:YES];
 	NSString *identifier = nil;
 	if (request.willSendAsynchronous) {
@@ -152,11 +153,11 @@ typedef NS_ENUM(NSUInteger, M2DAPIGatekeeperErrorCode) {
 		f(response, data, error);
 		[[self class] setNetworkActivityIndicatorVisible:NO];
 	}
-	
+
 	if (_debugMode) {
 		NSLog(@"post:[%@://%@%@]%@", request.URL.scheme, request.URL.host, request.URL.path, [request.requestParametors description]);
 	}
-	
+
 	return identifier;
 }
 
@@ -196,7 +197,7 @@ typedef NS_ENUM(NSUInteger, M2DAPIGatekeeperErrorCode) {
 			return parsedObject;
 		}];
 	}
-	
+
 	return self;
 }
 
@@ -226,7 +227,7 @@ typedef NS_ENUM(NSUInteger, M2DAPIGatekeeperErrorCode) {
 {
 	[M2DURLConnectionOperation globalStop:identifier];
 	if (self.didRequestIdentifierPopBlock) {
-		self.didRequestIdentifierPopBlock(@[identifier]);
+		self.didRequestIdentifierPopBlock(@[ identifier ]);
 	}
 }
 

@@ -12,24 +12,24 @@
 #import "FAKFontAwesome.h"
 #import "LDRGatekeeper.h"
 
-@interface RYYPinnedArticleTableViewController ()
-{
+@interface RYYPinnedArticleTableViewController () {
 	NSMutableArray *items;
 }
 @end
 
 @implementation RYYPinnedArticleTableViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+
 	UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
 	self.navigationItem.rightBarButtonItem = doneButton;
-	
+
 	UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
 	[refreshControl addTarget:self action:@selector(sync) forControlEvents:UIControlEventValueChanged];
 	self.refreshControl = refreshControl;
-	
+
 	[self sync];
 }
 
@@ -44,45 +44,45 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+	// Return the number of sections.
+	return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
+	// Return the number of rows in the section.
 	self.title = [NSString stringWithFormat:@"Pinned (%lu / 100)", (unsigned long)items.count];
-	
-    return items.count;
+
+	return items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	static NSString *CellIdentifier = @"Cell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	
+
 	if (cell == nil) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 		cell.textLabel.numberOfLines = 2;
 		cell.textLabel.font = [UIFont systemFontOfSize:15];
 		cell.detailTextLabel.textColor = self.view.tintColor;
-		
+
 		UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 10, 20)];
 		FAKFontAwesome *font = [FAKFontAwesome chevronRightIconWithSize:10];
 		[font addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor]];
 		[arrowImageView setImage:[font imageWithSize:CGSizeMake(10, 20)]];
-		
+
 		UIView *baseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(arrowImageView.frame), 20)];
 		[baseView addSubview:arrowImageView];
 		cell.accessoryView = baseView;
 	}
-	
+
 	cell.tag = indexPath.row;
-	
+
 	LDRPinnedArticle *article = items[indexPath.row];
 	cell.textLabel.text = article.title;
 	cell.detailTextLabel.text = article.link;
-	
+
 	return cell;
 }
 

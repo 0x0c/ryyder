@@ -18,8 +18,7 @@
 #import "CMPopTipView.h"
 #import "GLDTween.h"
 
-@interface RYYFeedViewController ()
-{
+@interface RYYFeedViewController () {
 	NSArray *feeds;
 	IBOutlet UIBarButtonItem *settingButtonItem;
 	IBOutlet UIBarButtonItem *pinButtonItem;
@@ -34,15 +33,15 @@ static CGFloat kIconButtonSize = 27;
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+	[super viewDidLoad];
 	[self.navigationController setToolbarHidden:NO animated:NO];
 	settingButtonItem.image = [[FAKFontAwesome gearIconWithSize:kIconButtonSize] imageWithSize:CGSizeMake(25, 25)];
 	pinButtonItem.image = [[FAKFontAwesome dotCircleOIconWithSize:kIconButtonSize] imageWithSize:CGSizeMake(25, 25)];
-	
+
 	UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
 	[refreshControl addTarget:self action:@selector(sync) forControlEvents:UIControlEventValueChanged];
 	self.refreshControl = refreshControl;
-	
+
 	if ([LDRGatekeeper sharedInstance].username.length == 0 && [LDRGatekeeper sharedInstance].password.length == 0) {
 		UINavigationController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RYYSettingViewControllerModal"];
 		[self presentViewController:viewController animated:YES completion:^{
@@ -55,7 +54,6 @@ static CGFloat kIconButtonSize = 27;
 				[TSMessage showNotificationWithTitle:@"Error" subtitle:error.localizedDescription type:TSMessageNotificationTypeError];
 			}
 			else {
-//				[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
 				[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
 				static dispatch_once_t onceToken;
 				dispatch_once(&onceToken, ^{
@@ -66,17 +64,19 @@ static CGFloat kIconButtonSize = 27;
 			}
 		}];
 	}
+
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sync) name:RYYFeedViewControllerNeedToRefreshNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
 	[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-	
+
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:ShowTipsKey] == YES && [[NSUserDefaults standardUserDefaults] boolForKey:PinnedListTipsAlreadyShowKey] == NO) {
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:PinnedListTipsAlreadyShowKey];
-		[[NSUserDefaults standardUserDefaults] setBool:!(YES && [[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadTipsAlreadyShowKey]) forKey:ShowTipsKey];
-		
+		[[NSUserDefaults standardUserDefaults] setBool:!(YES && [[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadTipsAlreadyShowKey])forKey:ShowTipsKey];
+
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 			CMPopTipView *pop = [[CMPopTipView alloc] initWithMessage:@"Pinned list"];
 			pop.hasShadow = NO;
@@ -88,7 +88,7 @@ static CGFloat kIconButtonSize = 27;
 			[pop presentPointingAtBarButtonItem:pinButtonItem animated:YES];
 		});
 	}
-	
+
 	static NSInteger FlexibleSpaceTag = 200;
 	NSInteger alignment = [[NSUserDefaults standardUserDefaults] integerForKey:UserInterfaceAlignmentKey];
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -121,20 +121,20 @@ static CGFloat kIconButtonSize = 27;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+	static NSString *CellIdentifier = @"Cell";
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
 	if (cell == nil) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 		cell.textLabel.numberOfLines = 2;
 		cell.textLabel.font = [UIFont systemFontOfSize:15];
 		cell.detailTextLabel.textColor = self.view.tintColor;
-		
+
 		LKBadgeView *badgeView = [[LKBadgeView alloc] initWithFrame:CGRectMake(0, 0, 35, 20)];
 		badgeView.tag = 1;
 		badgeView.font = [UIFont systemFontOfSize:12];
 		badgeView.badgeColor = self.view.tintColor;
-		
+
 		UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(38, 0, 10, 20)];
 		FAKFontAwesome *font = [FAKFontAwesome chevronRightIconWithSize:10];
 		[font addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor]];
@@ -143,12 +143,12 @@ static CGFloat kIconButtonSize = 27;
 		[baseView addSubview:badgeView];
 		[baseView addSubview:arrowImageView];
 		cell.accessoryView = baseView;
-		
-//		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unreadCountDidChange:) name:LDFeedUnreadCountDidChangeNotification object:nil];
+
+		//		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unreadCountDidChange:) name:LDFeedUnreadCountDidChangeNotification object:nil];
 	}
-	
+
 	cell.tag = indexPath.row;
-	
+
 	LKBadgeView *badgeView = (LKBadgeView *)[cell.accessoryView viewWithTag:1];
 	LDRFeed *feed = feeds[indexPath.row];
 	if (feed.fetched == NO) {
@@ -170,18 +170,18 @@ static CGFloat kIconButtonSize = 27;
 	else {
 		cell.textLabel.textColor = [UIColor blackColor];
 	}
-	
+
 	cell.textLabel.text = feed.title;
-	
+
 	UIColor *cellBackgroundColor = self.view.tintColor;
 	if (feed.unreadCount == 0) {
 		cellBackgroundColor = [UIColor lightGrayColor];
 	}
-	
+
 	badgeView.badgeColor = cellBackgroundColor;
 	badgeView.text = [@(feed.unreadCount) stringValue];
-	
-    return cell;
+
+	return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -200,14 +200,14 @@ static CGFloat kIconButtonSize = 27;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+	// Return the number of sections.
+	return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return feeds.count;
+	// Return the number of rows in the section.
+	return feeds.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -225,7 +225,7 @@ static CGFloat kIconButtonSize = 27;
 			}
 		}];
 	}];
-	
+
 	return 50;
 }
 
@@ -233,12 +233,10 @@ static CGFloat kIconButtonSize = 27;
 
 - (void)restore
 {
-	
 }
 
 - (void)save
 {
-	
 }
 
 - (void)sync
@@ -250,7 +248,7 @@ static CGFloat kIconButtonSize = 27;
 	LDRGatekeeper *gatekeeper = [LDRGatekeeper new];
 	gatekeeper.preparedSubscribeIdentifier = sharedGatekeeper.preparedSubscribeIdentifier;
 	[[gatekeeper parseBlock:sharedGatekeeper.parseBlock] resultConditionBlock:sharedGatekeeper.resultConditionBlock];
-	
+
 	NSOperationQueue *o = [NSOperationQueue currentQueue];
 	[o setMaxConcurrentOperationCount:1];
 	[o addOperationWithBlock:^{
@@ -294,7 +292,7 @@ static CGFloat kIconButtonSize = 27;
 //			}
 		}];
 	}];
-	
+
 	UIApplication *application = [UIApplication sharedApplication];
 	UISplitViewController *splitViewController = (UISplitViewController *)[application.delegate window].rootViewController;
 	[[[splitViewController.viewControllers lastObject] topViewController].navigationController popToRootViewControllerAnimated:NO];
@@ -323,7 +321,7 @@ static CGFloat kIconButtonSize = 27;
 	}];
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
 	UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-	
+
 	LKBadgeView *badgeView = (LKBadgeView *)[cell.accessoryView viewWithTag:1];
 	NSInteger count = [info[@"count"] integerValue];
 	if (count == 0) {

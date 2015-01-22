@@ -72,6 +72,9 @@ static NSString *const LDRPassword = @"Password";
 			return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:error];
 		}];
 		[self resultConditionBlock:^BOOL(NSURLResponse *response, id parsedObject, NSError *__autoreleasing *error) {
+			if ([[response.URL path] containsString:@"login"]) {
+				return YES;
+			}
 			return [(NSHTTPURLResponse *)response statusCode] == 200;
 		}];
 	}
@@ -105,12 +108,12 @@ static NSString *const LDRPassword = @"Password";
 	[UICKeyChainStore removeItemForKey:LDRPassword service:LDRServiceIdentifier];
 }
 
-- (void)loginWithUsername:(NSString *)identifier password:(NSString *)password competionHandler:(void (^)(NSError *error))handler
+- (void)loginWithUsername:(NSString *)username password:(NSString *)password competionHandler:(void (^)(NSError *error))handler
 {
-	[self setUsername:identifier];
+	[self setUsername:username];
 	[self setPassword:password];
 	__weak typeof(self) bself = self;
-	M2DAPIRequest *r = [[M2DAPIRequest POSTRequest:[NSURL URLWithString:LoginAPI]] parametors:@{@"livedoor_id":identifier,@"password":password}];
+	M2DAPIRequest *r = [[M2DAPIRequest POSTRequest:[NSURL URLWithString:LoginAPI]] parametors:@{@"livedoor_id":username,@"password":password}];
 	[[[r whenSucceeded:^(M2DAPIRequest *request, id parsedObject) {
 		M2DAPIRequest *r2 = [[M2DAPIRequest POSTRequest:[NSURL URLWithString:(NSString *)GetAPIKeyAPI]] parametors:@{}];
 		[[r2 whenSucceeded:^(M2DAPIRequest *request, id parsedObject) {
@@ -131,10 +134,13 @@ static NSString *const LDRPassword = @"Password";
 		}] asynchronousRequest];
 		[self sendRequest:r2];
 	}] whenFailed:^(M2DAPIRequest *request, NSError *error) {
-		dispatch_async(dispatch_get_main_queue(), ^{
-			handler(error);
-		});
+//		dispatch_async(dispatch_get_main_queue(), ^{
+//			handler(error);
+//		});
 	}] asynchronousRequest];
+	[r setResultConditionBlock:^BOOL(NSURLResponse *response, id parsedObject, NSError *__autoreleasing *error) {
+		return YES;
+	}];
 	[self sendRequest:r];
 }
 
