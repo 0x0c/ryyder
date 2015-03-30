@@ -51,7 +51,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 	// Return the number of rows in the section.
-	self.title = [NSString stringWithFormat:@"Pinned (%lu / 100)", (unsigned long)items.count];
+	self.title = [NSString stringWithFormat:NSLocalizedString(@"Pinned (%lu / 100)", nil), (unsigned long)items.count];
 
 	return items.count;
 }
@@ -109,7 +109,7 @@
 	LDRPinnedArticle *article = items[indexPath.row];
 	[[LDRGatekeeper sharedInstance] deletePinnedArticle:article completionHandler:^(NSError *error) {
 		if (error) {
-			[TSMessage showNotificationWithTitle:@"Error" subtitle:[NSString stringWithFormat:@"Could not delete pinned article.(%@)", error.localizedDescription] type:TSMessageNotificationTypeError];
+			[TSMessage showNotificationWithTitle:NSLocalizedString(@"Error", nil) subtitle:[NSString stringWithFormat:NSLocalizedString(@"Could not delete pinned article.(%@)", nil), error.localizedDescription] type:TSMessageNotificationTypeError];
 		}
 		else {
 			[items removeObjectAtIndex:indexPath.row];

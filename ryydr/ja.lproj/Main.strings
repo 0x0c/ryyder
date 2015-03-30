@@ -1,0 +1,93 @@
+
+/* Class = "UIButton"; normalTitle = "subscriptions"; ObjectID = "2IS-jq-4gH"; */
+"2IS-jq-4gH.normalTitle" = "subscriptions";
+
+/* Class = "UIButton"; normalTitle = "profile"; ObjectID = "3GF-sT-fSs"; */
+"3GF-sT-fSs.normalTitle" = "profile";
+
+/* Class = "UILabel"; text = "Version"; ObjectID = "ALV-cU-Xpj"; */
+"ALV-cU-Xpj.text" = "Version";
+
+/* Class = "UILabel"; text = "Show tips"; ObjectID = "CkJ-DL-en2"; */
+"CkJ-DL-en2.text" = "Show tips";
+
+/* Class = "UIButton"; normalTitle = "entry"; ObjectID = "E2I-mg-LJZ"; */
+"E2I-mg-LJZ.normalTitle" = "entry";
+
+/* Class = "UIBarButtonItem"; title = "pin"; ObjectID = "JAZ-8a-TkY"; */
+"JAZ-8a-TkY.title" = "pin";
+
+/* Class = "UITableViewSection"; headerTitle = "Others"; ObjectID = "JCF-2G-YiL"; */
+"JCF-2G-YiL.headerTitle" = "Others";
+
+/* Class = "UILabel"; text = "Direct access"; ObjectID = "LK5-wy-WMF"; */
+"LK5-wy-WMF.text" = "Direct access";
+
+/* Class = "UILabel"; text = "Show badge"; ObjectID = "Mdw-FS-ddN"; */
+"Mdw-FS-ddN.text" = "Show badge";
+
+/* Class = "UIButton"; normalTitle = "clear"; ObjectID = "P5A-7j-yfM"; */
+"P5A-7j-yfM.normalTitle" = "clear";
+
+/* Class = "UITableViewSection"; headerTitle = "Browsing"; ObjectID = "PO5-cX-rtv"; */
+"PO5-cX-rtv.headerTitle" = "Browsing";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "Sjb-l3-d6Z"; */
+"Sjb-l3-d6Z.normalTitle" = "Login";
+
+/* Class = "UINavigationItem"; title = "Pinned"; ObjectID = "ToP-te-jat"; */
+"ToP-te-jat.title" = "Pinned";
+
+/* Class = "UINavigationItem"; title = "ryyder"; ObjectID = "VAm-N1-VfT"; */
+"VAm-N1-VfT.title" = "ryyder";
+
+/* Class = "UITableViewSection"; headerTitle = "Option"; ObjectID = "ZAg-vI-e2c"; */
+"ZAg-vI-e2c.headerTitle" = "Option";
+
+/* Class = "UILabel"; text = "Mark immediately"; ObjectID = "ZZk-RT-Gci"; */
+"ZZk-RT-Gci.text" = "Mark immediately";
+
+/* Class = "UILabel"; text = "Support"; ObjectID = "aIE-FS-Now"; */
+"aIE-FS-Now.text" = "Support";
+
+/* Class = "UINavigationItem"; title = "Setting"; ObjectID = "cUT-XK-Cpl"; */
+"cUT-XK-Cpl.title" = "Setting";
+
+/* Class = "UIButton"; normalTitle = "opml"; ObjectID = "d3D-Ja-hI6"; */
+"d3D-Ja-hI6.normalTitle" = "opml";
+
+/* Class = "UITableViewSection"; headerTitle = "UserInterface Alignment"; ObjectID = "dG6-OY-RQ3"; */
+"dG6-OY-RQ3.headerTitle" = "UserInterface Alignment";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "eQE-n9-4kq"; */
+"eQE-n9-4kq.placeholder" = "Password";
+
+/* Class = "UITableViewSection"; headerTitle = "Mark as Read"; ObjectID = "emX-Kf-Rz5"; */
+"emX-Kf-Rz5.headerTitle" = "Mark as Read";
+
+/* Class = "UIBarButtonItem"; title = "setting"; ObjectID = "fNF-js-O67"; */
+"fNF-js-O67.title" = "setting";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "hSK-6f-Mhp"; */
+"hSK-6f-Mhp.placeholder" = "Username";
+
+/* Class = "UIButton"; normalTitle = "category"; ObjectID = "hyU-2g-rko"; */
+"hyU-2g-rko.normalTitle" = "category";
+
+/* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "iqw-U6-Jya"; */
+"iqw-U6-Jya.headerTitle" = "Account";
+
+/* Class = "UIButton"; normalTitle = "login"; ObjectID = "m0V-il-1wG"; */
+"m0V-il-1wG.normalTitle" = "login";
+
+/* Class = "UISegmentedControl"; rNI-Ds-Bw7.segmentTitles[0] = "Left"; ObjectID = "rNI-Ds-Bw7"; */
+"rNI-Ds-Bw7.segmentTitles[0]" = "Left";
+
+/* Class = "UISegmentedControl"; rNI-Ds-Bw7.segmentTitles[1] = "Default"; ObjectID = "rNI-Ds-Bw7"; */
+"rNI-Ds-Bw7.segmentTitles[1]" = "Default";
+
+/* Class = "UISegmentedControl"; rNI-Ds-Bw7.segmentTitles[2] = "Right"; ObjectID = "rNI-Ds-Bw7"; */
+"rNI-Ds-Bw7.segmentTitles[2]" = "Right";
+
+/* Class = "UIButton"; normalTitle = "marks"; ObjectID = "rxL-n2-HLT"; */
+"rxL-n2-HLT.normalTitle" = "marks";

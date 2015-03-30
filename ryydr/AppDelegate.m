@@ -28,7 +28,7 @@
 		NSString *versionNum = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
 		NSString *buildNum = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
 		if (![versionNum isEqualToString:@"1.0.0"]) {
-			[TSMessage showNotificationInViewController:self.window.rootViewController title:@"ryyder is updated" subtitle:[NSString stringWithFormat:@"New version %@", [NSString stringWithFormat:@"Version %@(%@)", versionNum, buildNum]] type:TSMessageNotificationTypeSuccess duration:10 canBeDismissedByUser:YES];
+			[TSMessage showNotificationInViewController:self.window.rootViewController title:NSLocalizedString(@"ryyder is updated", nil) subtitle:[NSString stringWithFormat:@"New version %@", [NSString stringWithFormat:@"Version %@(%@)", versionNum, buildNum]] type:TSMessageNotificationTypeSuccess duration:10 canBeDismissedByUser:YES];
 		}
 	}];
 	[MTMigration migrateToVersion:@"1.0.0" block:^{
@@ -145,10 +145,10 @@
 			}
 			if ([[NSUserDefaults standardUserDefaults] boolForKey:ShowNotificationKey] && count > 0) {
 				UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-				NSString *body = [NSString stringWithFormat:(count == 1 ? @"There is %ld unread content available." : @"There are %ld unread contents available."), (long)count];
+				NSString *body = [NSString stringWithFormat:(count == 1 ? NSLocalizedString(@"There is %ld unread content available.", nil) : NSLocalizedString(@"There are %ld unread contents available.", nil)), (long)count];
 				localNotification.alertBody = body;
 				localNotification.soundName = UILocalNotificationDefaultSoundName;
-				localNotification.alertAction = @"Open";
+				localNotification.alertAction = NSLocalizedString(@"Open", nil);
 				[[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 			}
 			completionHandler(count);

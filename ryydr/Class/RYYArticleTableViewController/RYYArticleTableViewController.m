@@ -49,7 +49,7 @@ static CGFloat kIconButtonSize = 27;
 		[[NSUserDefaults standardUserDefaults] setBool:!(YES && [[NSUserDefaults standardUserDefaults] boolForKey:PinnedListTipsAlreadyShowKey])forKey:ShowTipsKey];
 
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-			CMPopTipView *pop = [[CMPopTipView alloc] initWithMessage:@"Mark all as read"];
+			CMPopTipView *pop = [[CMPopTipView alloc] initWithMessage:NSLocalizedString(@"Mark all as read", nil)];
 			pop.hasShadow = NO;
 			pop.hasGradientBackground = NO;
 			pop.has3DStyle = NO;

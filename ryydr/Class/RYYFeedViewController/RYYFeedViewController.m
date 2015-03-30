@@ -51,7 +51,7 @@ static CGFloat kIconButtonSize = 27;
 		[[LDRGatekeeper sharedInstance] loginWithCompetionHandler:^(NSError *error) {
 			if (error) {
 				[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
-				[TSMessage showNotificationWithTitle:@"Error" subtitle:error.localizedDescription type:TSMessageNotificationTypeError];
+				[TSMessage showNotificationWithTitle:NSLocalizedString(@"Error", nil) subtitle:error.localizedDescription type:TSMessageNotificationTypeError];
 			}
 			else {
 				[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
@@ -78,7 +78,7 @@ static CGFloat kIconButtonSize = 27;
 		[[NSUserDefaults standardUserDefaults] setBool:!(YES && [[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadTipsAlreadyShowKey])forKey:ShowTipsKey];
 
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-			CMPopTipView *pop = [[CMPopTipView alloc] initWithMessage:@"Pinned list"];
+			CMPopTipView *pop = [[CMPopTipView alloc] initWithMessage:NSLocalizedString(@"Pinned list", nil)];
 			pop.hasShadow = NO;
 			pop.hasGradientBackground = NO;
 			pop.has3DStyle = NO;
@@ -262,7 +262,7 @@ static CGFloat kIconButtonSize = 27;
 					dispatch_async(dispatch_get_main_queue(), ^{
 						if (error) {
 							[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
-							[TSMessage showNotificationWithTitle:@"Error" subtitle:error.localizedDescription type:TSMessageNotificationTypeError];
+							[TSMessage showNotificationWithTitle:NSLocalizedString(@"Error", nil) subtitle:error.localizedDescription type:TSMessageNotificationTypeError];
 						}
 						else {
 							[self sync];
@@ -274,7 +274,7 @@ static CGFloat kIconButtonSize = 27;
 				feeds = [result copy];
 				if ([feeds count] == 0) {
 					dispatch_async(dispatch_get_main_queue(), ^{
-						[TSMessage showNotificationWithTitle:@"No results" subtitle:@"There are no new updates." type:TSMessageNotificationTypeMessage];
+						[TSMessage showNotificationWithTitle:NSLocalizedString(@"No results", nil) subtitle:NSLocalizedString(@"There are no new updates.", nil) type:TSMessageNotificationTypeMessage];
 					});
 				}
 				[bself.tableView reloadData];

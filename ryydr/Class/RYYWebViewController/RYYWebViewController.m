@@ -53,10 +53,10 @@ static NSString *const JS_GET_TITLE = @"var elements=document.getElementsByTagNa
 	self.actionButtonPressedHandler = ^(NSString *pageTitle, NSURL *url) {
 		void (^f)(NSError *e) = ^(NSError *error) {
 			if(error) {
-				[TSMessage showNotificationWithTitle:@"Error" subtitle:error.localizedDescription type:TSMessageNotificationTypeError];
+				[TSMessage showNotificationWithTitle:NSLocalizedString(@"Error", nil) subtitle:error.localizedDescription type:TSMessageNotificationTypeError];
 			}
 			else {
-				[TSMessage showNotificationWithTitle:@"Success" subtitle:@"Operation succeeded." type:TSMessageNotificationTypeSuccess];
+				[TSMessage showNotificationWithTitle:NSLocalizedString(@"Success", nil) subtitle:NSLocalizedString(@"Operation succeeded.", nil) type:TSMessageNotificationTypeSuccess];
 			}
 		};
 		NSMutableArray *activities = [[NSMutableArray alloc] init];
@@ -69,7 +69,7 @@ static NSString *const JS_GET_TITLE = @"var elements=document.getElementsByTagNa
 		gatekeeper.finalizeBlock = nil;
 		
 		void (^handler)(NSError *) = ^(NSError *error) {
-			[SVProgressHUD showSuccessWithStatus:@"Added"];
+			[SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Added", nil)];
 			dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 				[SVProgressHUD dismiss];
 			});

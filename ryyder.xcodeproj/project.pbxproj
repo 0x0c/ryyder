@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		145440B537BD4423A57EEA92 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 704BB35AEACE4A6EA0EE13C5 /* libPods.a */; };
+		E906B6BE1AC840250063F7DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E906B6C01AC840250063F7DE /* Localizable.strings */; };
 		E947DD8419A3E2EE00F08164 /* RYYArticleDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DD8319A3E2EE00F08164 /* RYYArticleDescriptionViewController.m */; };
 		E947DD8819A436C800F08164 /* RYYPinnedArticleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DD8719A436C800F08164 /* RYYPinnedArticleTableViewController.m */; };
 		E947DDD619A44F0A00F08164 /* EvernoteActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DD9D19A44F0A00F08164 /* EvernoteActivity.m */; };
@@ -103,6 +104,13 @@
 		09DF257F97C0A06B75F23287 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		704BB35AEACE4A6EA0EE13C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB7823C77C55E96F1B11794 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E906B6B81AC8400B0063F7DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		E906B6B91AC8400B0063F7DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main_iPad.strings; sourceTree = "<group>"; };
+		E906B6BA1AC8400C0063F7DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E906B6BB1AC8400C0063F7DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E906B6BF1AC840250063F7DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E906B6C11AC840260063F7DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E906B6C21AC840270063F7DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E947DD8219A3E2EE00F08164 /* RYYArticleDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYArticleDescriptionViewController.h; sourceTree = "<group>"; };
 		E947DD8319A3E2EE00F08164 /* RYYArticleDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYArticleDescriptionViewController.m; sourceTree = "<group>"; };
 		E947DD8619A436C800F08164 /* RYYPinnedArticleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYPinnedArticleTableViewController.h; sourceTree = "<group>"; };
@@ -493,6 +501,7 @@
 				E954C4C619A2D17A00F5334C /* InfoPlist.strings */,
 				E954C4C919A2D17A00F5334C /* main.m */,
 				E954C4CB19A2D17A00F5334C /* ryyder-Prefix.pch */,
+				E906B6C01AC840250063F7DE /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -829,6 +838,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = E954C4B119A2D17A00F5334C;
 			productRefGroup = E954C4BB19A2D17A00F5334C /* Products */;
@@ -871,6 +881,7 @@
 				E947DDF319A44F0A00F08164 /* Readability-activity-iPad.png in Resources */,
 				E954C4D119A2D17A00F5334C /* Main.storyboard in Resources */,
 				E947DDE319A44F0A00F08164 /* InstapaperActivity~iphone.png in Resources */,
+				E906B6BE1AC840250063F7DE /* Localizable.strings in Resources */,
 				E947DDDA19A44F0A00F08164 /* EvernoteActivity@2x.png in Resources */,
 				E96F01491A5055D100B2E93E /* Main_iPad.storyboard in Resources */,
 				E947DDE219A44F0A00F08164 /* InstapaperActivity~ipad.png in Resources */,
@@ -998,10 +1009,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		E906B6C01AC840250063F7DE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E906B6BF1AC840250063F7DE /* Base */,
+				E906B6C11AC840260063F7DE /* en */,
+				E906B6C21AC840270063F7DE /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E954C4C619A2D17A00F5334C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E954C4C719A2D17A00F5334C /* en */,
+				E906B6BA1AC8400C0063F7DE /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1010,6 +1032,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E954C4D019A2D17A00F5334C /* Base */,
+				E906B6B81AC8400B0063F7DE /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1018,6 +1041,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E954C4E919A2D17A00F5334C /* en */,
+				E906B6BB1AC8400C0063F7DE /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1026,6 +1050,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E96F01481A5055D100B2E93E /* Base */,
+				E906B6B91AC8400B0063F7DE /* ja */,
 			);
 			name = Main_iPad.storyboard;
 			sourceTree = "<group>";

@@ -177,7 +177,7 @@ static CGFloat kIconButtonSize = 27;
 	[[[gatekeeper parseBlock:sharedGatekeeper.parseBlock] resultConditionBlock:sharedGatekeeper.resultConditionBlock] initializeBlock:sharedGatekeeper.initializeBlock];
 	gatekeeper.finalizeBlock = nil;
 	[gatekeeper addPinnedArticle:article completionHandler:^(NSError *error) {
-		[SVProgressHUD showSuccessWithStatus:@"Added"];
+		[SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Added", nil)];
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 			[SVProgressHUD dismiss];
 		});

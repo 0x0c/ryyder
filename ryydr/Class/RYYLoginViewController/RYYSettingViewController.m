@@ -167,7 +167,7 @@
 
 	[activeTextField resignFirstResponder];
 	if (usernameTextField.text.length == 0 || passwordTextField.text.length == 0) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please input your account information." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"Please input your account information.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
 		[alert show];
 		return;
 	}
@@ -187,10 +187,10 @@
 	[gatekeeper loginWithUsername:usernameTextField.text password:passwordTextField.text competionHandler:^(NSError *error) {
 		dispatch_async(dispatch_get_main_queue(), ^{
 			if (error) {
-				[TSMessage showNotificationInViewController:self title:@"Login failed" subtitle:@"Please check your username or password." type:TSMessageNotificationTypeError];
+				[TSMessage showNotificationInViewController:self title:NSLocalizedString(@"Login failed", nil) subtitle:NSLocalizedString(@"Please check your username or password.", nil) type:TSMessageNotificationTypeError];
 			}
 			else {
-				[TSMessage showNotificationInViewController:self title:@"Login Success" subtitle:@"Application will automatically sync at launch." type:TSMessageNotificationTypeSuccess];
+				[TSMessage showNotificationInViewController:self title:NSLocalizedString(@"Login succeeded", nil) subtitle:NSLocalizedString(@"Application will automatically sync at launch.", nil) type:TSMessageNotificationTypeSuccess];
 			}
 		});
 	}];
