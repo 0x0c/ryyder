@@ -204,14 +204,12 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="hnm-s3-TVP" firstAttribute="leading" secondItem="LK5-wy-WMF" secondAttribute="trailing" constant="19" id="3wH-5U-w1J"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="hnm-s3-TVP" secondAttribute="trailing" constant="5" id="AxZ-Gw-vko"/>
+                                                <constraint firstAttribute="trailing" secondItem="hnm-s3-TVP" secondAttribute="trailing" constant="13" id="9Wv-5e-m1W"/>
                                                 <constraint firstItem="LK5-wy-WMF" firstAttribute="leading" secondItem="08u-22-TV4" secondAttribute="leadingMargin" constant="1" id="BdM-uH-NXs"/>
-                                                <constraint firstItem="hnm-s3-TVP" firstAttribute="top" secondItem="08u-22-TV4" secondAttribute="topMargin" constant="-2" id="Tay-FH-MTK"/>
-                                                <constraint firstItem="hnm-s3-TVP" firstAttribute="leading" secondItem="LK5-wy-WMF" secondAttribute="trailing" constant="19" id="a6b-Ks-B2z"/>
+                                                <constraint firstItem="hnm-s3-TVP" firstAttribute="leading" secondItem="LK5-wy-WMF" secondAttribute="trailing" constant="19" id="GtZ-Cu-qa7"/>
+                                                <constraint firstAttribute="centerY" secondItem="hnm-s3-TVP" secondAttribute="centerY" id="V9q-ND-yMV"/>
                                                 <constraint firstItem="LK5-wy-WMF" firstAttribute="top" secondItem="08u-22-TV4" secondAttribute="topMargin" constant="3" id="cUQ-fw-NJB"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="LK5-wy-WMF" secondAttribute="bottom" constant="3" id="oPu-ob-sym"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="hnm-s3-TVP" secondAttribute="bottom" constant="-2" id="yXB-lI-M1p"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -237,12 +235,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ZZk-RT-Gci" secondAttribute="bottom" constant="3" id="6NL-nE-GkV"/>
-                                                <constraint firstItem="ij3-23-eje" firstAttribute="top" secondItem="Xgz-lz-KVy" secondAttribute="topMargin" constant="-2" id="8M0-gT-zZ6"/>
                                                 <constraint firstItem="ZZk-RT-Gci" firstAttribute="leading" secondItem="Xgz-lz-KVy" secondAttribute="leadingMargin" constant="1" id="97k-Ut-rds"/>
-                                                <constraint firstItem="ij3-23-eje" firstAttribute="leading" secondItem="ZZk-RT-Gci" secondAttribute="trailing" constant="19" id="GAx-2Z-Jeb"/>
-                                                <constraint firstItem="ij3-23-eje" firstAttribute="leading" secondItem="ZZk-RT-Gci" secondAttribute="trailing" constant="19" id="ROr-bF-zYQ"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ij3-23-eje" secondAttribute="trailing" constant="5" id="TWP-hH-pHl"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ij3-23-eje" secondAttribute="bottom" constant="-2" id="d12-Ch-4bK"/>
+                                                <constraint firstAttribute="trailing" secondItem="ij3-23-eje" secondAttribute="trailing" constant="13" id="Hw5-lo-jrV"/>
+                                                <constraint firstAttribute="centerY" secondItem="ij3-23-eje" secondAttribute="centerY" id="d4T-nu-jBh"/>
+                                                <constraint firstItem="ij3-23-eje" firstAttribute="leading" secondItem="ZZk-RT-Gci" secondAttribute="trailing" constant="19" id="dMW-1Q-QF2"/>
                                                 <constraint firstItem="ZZk-RT-Gci" firstAttribute="top" secondItem="Xgz-lz-KVy" secondAttribute="topMargin" constant="3" id="s2z-Wk-5Ht"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -268,11 +264,10 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="yP6-nB-qbu" firstAttribute="top" secondItem="ETt-a2-XLI" secondAttribute="topMargin" constant="-2" id="FBC-er-hzU"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="yP6-nB-qbu" secondAttribute="trailing" constant="5" id="MbC-f2-OMd"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="yP6-nB-qbu" secondAttribute="bottom" constant="-2" id="VIW-is-40e"/>
+                                                <constraint firstAttribute="trailing" secondItem="yP6-nB-qbu" secondAttribute="trailing" constant="13" id="31E-O7-Qng"/>
+                                                <constraint firstItem="yP6-nB-qbu" firstAttribute="leading" secondItem="CkJ-DL-en2" secondAttribute="trailing" constant="19" id="5eV-3h-LsY"/>
                                                 <constraint firstAttribute="centerY" secondItem="CkJ-DL-en2" secondAttribute="centerY" id="bw3-Ko-Fe8"/>
-                                                <constraint firstItem="yP6-nB-qbu" firstAttribute="leading" secondItem="CkJ-DL-en2" secondAttribute="trailing" constant="19" id="knw-gi-1RY"/>
+                                                <constraint firstAttribute="centerY" secondItem="yP6-nB-qbu" secondAttribute="centerY" id="dfc-KE-T1B"/>
                                                 <constraint firstItem="CkJ-DL-en2" firstAttribute="leading" secondItem="ETt-a2-XLI" secondAttribute="leadingMargin" constant="1" id="yzT-Vs-WSy"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -295,12 +290,11 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Svx-Li-arN" secondAttribute="trailing" constant="13" id="AWT-zO-5eZ"/>
+                                                <constraint firstItem="Svx-Li-arN" firstAttribute="leading" secondItem="Mdw-FS-ddN" secondAttribute="trailing" constant="19" id="0OW-ni-gRy"/>
+                                                <constraint firstAttribute="trailing" secondItem="Svx-Li-arN" secondAttribute="trailing" constant="13" id="CkO-iT-qT7"/>
+                                                <constraint firstAttribute="centerY" secondItem="Svx-Li-arN" secondAttribute="centerY" id="Obe-jB-q4d"/>
                                                 <constraint firstItem="Mdw-FS-ddN" firstAttribute="leading" secondItem="aem-6c-ra2" secondAttribute="leadingMargin" constant="1" id="TS3-ZI-3L7"/>
-                                                <constraint firstAttribute="bottom" secondItem="Svx-Li-arN" secondAttribute="bottom" constant="6" id="d50-SM-peX"/>
                                                 <constraint firstAttribute="centerY" secondItem="Mdw-FS-ddN" secondAttribute="centerY" id="eqg-qU-iiU"/>
-                                                <constraint firstItem="Svx-Li-arN" firstAttribute="top" secondItem="aem-6c-ra2" secondAttribute="top" constant="6" id="kCZ-66-Hlc"/>
-                                                <constraint firstItem="Svx-Li-arN" firstAttribute="leading" secondItem="Mdw-FS-ddN" secondAttribute="trailing" constant="19" id="rze-qi-Z0L"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
