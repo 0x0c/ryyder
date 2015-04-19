@@ -35,16 +35,16 @@ static NSString *const JS_GET_TITLE = @"var elements=document.getElementsByTagNa
 	[super viewDidLoad];
 	// Do any additional setup after loading the view.
 
-	((WKWebView *)webView_).scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
+	((WKWebView *)self.webView).scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
 
 	CGFloat progressBarHeight = 3.0f;
 	CGRect navigaitonBarBounds = self.navigationController.navigationBar.bounds;
 	progressView_ = [[NJKWebViewProgressView alloc] initWithFrame:CGRectMake(0, navigaitonBarBounds.size.height - progressBarHeight, navigaitonBarBounds.size.width, progressBarHeight)];
 	[progressView_ setProgress:0];
 
-	if ([webView_ isKindOfClass:[UIWebView class]]) {
+	if ([self.webView isKindOfClass:[UIWebView class]]) {
 		progressProxy_ = [[NJKWebViewProgress alloc] init];
-		((UIWebView *)webView_).delegate = progressProxy_;
+		((UIWebView *)self.webView).delegate = progressProxy_;
 		progressProxy_.webViewProxyDelegate = self;
 		progressProxy_.progressDelegate = self;
 	}

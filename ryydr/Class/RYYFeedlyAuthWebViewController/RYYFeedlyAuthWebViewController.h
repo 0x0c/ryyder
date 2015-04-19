@@ -11,7 +11,7 @@
 
 @interface RYYFeedlyAuthWebViewController : RYYWebViewController
 
-@property (nonatomic, copy) void (^successBlocks)(RYYFeedlyAuthWebViewController *webView,NXOAuth2Account *account);
+@property (nonatomic, copy) void (^successBlocks)(RYYFeedlyAuthWebViewController *webView, NXOAuth2Account *account);
 @property (nonatomic, copy) void (^failuerBlocks)(RYYFeedlyAuthWebViewController *webView);
 
 @end

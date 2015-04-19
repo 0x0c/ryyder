@@ -62,7 +62,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	UIWebView *webView = webView_;
+	UIWebView *webView = self.webView;
 	[[NXOAuth2AccountStore sharedStore] requestAccessToAccountWithType:kOauth2ClientAccountType withPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
 		[webView loadRequest:[NSURLRequest requestWithURL:preparedURL]];
 	}];
