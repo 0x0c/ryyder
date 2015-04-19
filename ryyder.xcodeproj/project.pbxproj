@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		145440B537BD4423A57EEA92 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 704BB35AEACE4A6EA0EE13C5 /* libPods.a */; };
 		E906B6BE1AC840250063F7DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E906B6C01AC840250063F7DE /* Localizable.strings */; };
+		E90CB5B71AE401F500706DE8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90CB5B61AE401F500706DE8 /* QuartzCore.framework */; };
+		E90CB5B91AE401FA00706DE8 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90CB5B81AE401FA00706DE8 /* CoreText.framework */; };
+		E90CB5BB1AE4020200706DE8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90CB5BA1AE4020200706DE8 /* SystemConfiguration.framework */; };
+		E90CB5BD1AE4020600706DE8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90CB5BC1AE4020600706DE8 /* CoreTelephony.framework */; };
+		E90CB5BF1AE4021300706DE8 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E90CB5BE1AE4021300706DE8 /* libsqlite3.0.dylib */; };
+		E90CB5C11AE4021D00706DE8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E90CB5C01AE4021D00706DE8 /* libz.dylib */; };
+		E90CB5C31AE4022700706DE8 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90CB5C21AE4022700706DE8 /* QuickLook.framework */; };
 		E947DD8419A3E2EE00F08164 /* RYYArticleDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DD8319A3E2EE00F08164 /* RYYArticleDescriptionViewController.m */; };
 		E947DD8819A436C800F08164 /* RYYPinnedArticleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DD8719A436C800F08164 /* RYYPinnedArticleTableViewController.m */; };
 		E947DDD619A44F0A00F08164 /* EvernoteActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DD9D19A44F0A00F08164 /* EvernoteActivity.m */; };
@@ -85,7 +92,7 @@
 		E99C94FE19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = E99C94FD19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m */; };
 		E99C950219E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E99C950119E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.m */; };
 		E99C950619E30DC500BFE9E8 /* RYYFeedlyTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E99C950519E30DC500BFE9E8 /* RYYFeedlyTestViewController.m */; };
-		E9F7586219A61AF800E2BB61 /* LDRPinnedArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F7586119A61AF800E2BB61 /* LDRPinnedArticle.m */; };
+		E9C3F4611AE40BD20045DEFB /* LDRPinnedArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C3F4601AE40BD20045DEFB /* LDRPinnedArticle.m */; };
 		E9F7586719A62EF700E2BB61 /* LDRPinActiviry.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F7586619A62EF700E2BB61 /* LDRPinActiviry.m */; };
 		E9F7586A19A62EFD00E2BB61 /* LDRMarkAsReadActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F7586919A62EFD00E2BB61 /* LDRMarkAsReadActivity.m */; };
 /* End PBXBuildFile section */
@@ -111,6 +118,13 @@
 		E906B6BF1AC840250063F7DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E906B6C11AC840260063F7DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E906B6C21AC840270063F7DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E90CB5B61AE401F500706DE8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E90CB5B81AE401FA00706DE8 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		E90CB5BA1AE4020200706DE8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E90CB5BC1AE4020600706DE8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		E90CB5BE1AE4021300706DE8 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		E90CB5C01AE4021D00706DE8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		E90CB5C21AE4022700706DE8 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		E947DD8219A3E2EE00F08164 /* RYYArticleDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYArticleDescriptionViewController.h; sourceTree = "<group>"; };
 		E947DD8319A3E2EE00F08164 /* RYYArticleDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYArticleDescriptionViewController.m; sourceTree = "<group>"; };
 		E947DD8619A436C800F08164 /* RYYPinnedArticleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYPinnedArticleTableViewController.h; sourceTree = "<group>"; };
@@ -229,8 +243,8 @@
 		E99C950119E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYFeedlyAuthWebViewController.m; sourceTree = "<group>"; };
 		E99C950419E30DC500BFE9E8 /* RYYFeedlyTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYFeedlyTestViewController.h; sourceTree = "<group>"; };
 		E99C950519E30DC500BFE9E8 /* RYYFeedlyTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYFeedlyTestViewController.m; sourceTree = "<group>"; };
-		E9F7586019A61AF800E2BB61 /* LDRPinnedArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDRPinnedArticle.h; sourceTree = "<group>"; };
-		E9F7586119A61AF800E2BB61 /* LDRPinnedArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDRPinnedArticle.m; sourceTree = "<group>"; };
+		E9C3F45F1AE40BD20045DEFB /* LDRPinnedArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDRPinnedArticle.h; path = ryydr/Library/LDRGatekeeper/Model/LDRArticle/LDRPinnedArticle.h; sourceTree = SOURCE_ROOT; };
+		E9C3F4601AE40BD20045DEFB /* LDRPinnedArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDRPinnedArticle.m; path = ryydr/Library/LDRGatekeeper/Model/LDRArticle/LDRPinnedArticle.m; sourceTree = SOURCE_ROOT; };
 		E9F7586519A62EF700E2BB61 /* LDRPinActiviry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDRPinActiviry.h; sourceTree = "<group>"; };
 		E9F7586619A62EF700E2BB61 /* LDRPinActiviry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDRPinActiviry.m; sourceTree = "<group>"; };
 		E9F7586819A62EFD00E2BB61 /* LDRMarkAsReadActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDRMarkAsReadActivity.h; sourceTree = "<group>"; };
@@ -242,10 +256,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E90CB5C31AE4022700706DE8 /* QuickLook.framework in Frameworks */,
+				E947DDFE19A4532000F08164 /* Security.framework in Frameworks */,
+				E90CB5C11AE4021D00706DE8 /* libz.dylib in Frameworks */,
+				E90CB5BF1AE4021300706DE8 /* libsqlite3.0.dylib in Frameworks */,
+				E90CB5BD1AE4020600706DE8 /* CoreTelephony.framework in Frameworks */,
+				E90CB5BB1AE4020200706DE8 /* SystemConfiguration.framework in Frameworks */,
+				E90CB5B91AE401FA00706DE8 /* CoreText.framework in Frameworks */,
+				E90CB5B71AE401F500706DE8 /* QuartzCore.framework in Frameworks */,
 				E99C94F119E2EAA200BFE9E8 /* WebKit.framework in Frameworks */,
 				E947DE0219A4532E00F08164 /* libxml2.dylib in Frameworks */,
 				E947DE0019A4532800F08164 /* MobileCoreServices.framework in Frameworks */,
-				E947DDFE19A4532000F08164 /* Security.framework in Frameworks */,
 				E947DDFA19A452D600F08164 /* FacebookSDK.framework in Frameworks */,
 				E954C4C019A2D17A00F5334C /* CoreGraphics.framework in Frameworks */,
 				E97BECED19A47A850016517A /* Crashlytics.framework in Frameworks */,
@@ -459,6 +480,13 @@
 		E954C4BC19A2D17A00F5334C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E90CB5C21AE4022700706DE8 /* QuickLook.framework */,
+				E90CB5C01AE4021D00706DE8 /* libz.dylib */,
+				E90CB5BE1AE4021300706DE8 /* libsqlite3.0.dylib */,
+				E90CB5BC1AE4020600706DE8 /* CoreTelephony.framework */,
+				E90CB5BA1AE4020200706DE8 /* SystemConfiguration.framework */,
+				E90CB5B81AE401FA00706DE8 /* CoreText.framework */,
+				E90CB5B61AE401F500706DE8 /* QuartzCore.framework */,
 				E99C94F019E2EAA200BFE9E8 /* WebKit.framework */,
 				E97BECEC19A47A850016517A /* Crashlytics.framework */,
 				E947DE0119A4532E00F08164 /* libxml2.dylib */,
@@ -741,8 +769,8 @@
 		E9F7585F19A61AF800E2BB61 /* LDRPinnedArticle */ = {
 			isa = PBXGroup;
 			children = (
-				E9F7586019A61AF800E2BB61 /* LDRPinnedArticle.h */,
-				E9F7586119A61AF800E2BB61 /* LDRPinnedArticle.m */,
+				E9C3F45F1AE40BD20045DEFB /* LDRPinnedArticle.h */,
+				E9C3F4601AE40BD20045DEFB /* LDRPinnedArticle.m */,
 			);
 			path = LDRPinnedArticle;
 			sourceTree = "<group>";
@@ -839,6 +867,23 @@
 				en,
 				Base,
 				ja,
+				cs,
+				de,
+				es,
+				fr,
+				hu,
+				id,
+				it,
+				ko,
+				nl,
+				pt,
+				ru,
+				sl,
+				th,
+				tr,
+				vi,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = E954C4B119A2D17A00F5334C;
 			productRefGroup = E954C4BB19A2D17A00F5334C /* Products */;
@@ -968,10 +1013,10 @@
 				E954C50E19A2D19A00F5334C /* M2DAPIGatekeeper.m in Sources */,
 				E947DDDB19A44F0A00F08164 /* FacebookMessengerActivity.m in Sources */,
 				E947DDEE19A44F0A00F08164 /* PocketActivity.m in Sources */,
+				E9C3F4611AE40BD20045DEFB /* LDRPinnedArticle.m in Sources */,
 				E954C51019A2D19A00F5334C /* M2DURLConnectionOperation.m in Sources */,
 				E954C51119A2D19A00F5334C /* M2DNSURLConnectionExtensionConstant.m in Sources */,
 				E954C50D19A2D19A00F5334C /* LDRGatekeeper.m in Sources */,
-				E9F7586219A61AF800E2BB61 /* LDRPinnedArticle.m in Sources */,
 				E9F7586719A62EF700E2BB61 /* LDRPinActiviry.m in Sources */,
 				E947DDD619A44F0A00F08164 /* EvernoteActivity.m in Sources */,
 				E947DDF019A44F0A00F08164 /* PocketAPILogin.m in Sources */,
@@ -1146,6 +1191,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "ryydr/ryyder-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ryydr/Library/helpshift-sdk-ios-v4.10.2",
+				);
 				PRODUCT_NAME = ryyder;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1171,6 +1220,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "ryydr/ryyder-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ryydr/Library/helpshift-sdk-ios-v4.10.2",
+				);
 				PRODUCT_NAME = ryyder;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
