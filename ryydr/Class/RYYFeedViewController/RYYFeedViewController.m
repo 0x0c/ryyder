@@ -43,7 +43,7 @@ static CGFloat kIconButtonSize = 27;
 	self.refreshControl = refreshControl;
 
 	if ([LDRGatekeeper sharedInstance].username.length == 0 && [LDRGatekeeper sharedInstance].password.length == 0) {
-		UINavigationController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RYYSettingViewControllerModal"];
+		UINavigationController *viewController = [[UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil] instantiateViewControllerWithIdentifier:@"RYYSettingViewControllerModal"];
 		[self presentViewController:viewController animated:YES completion:^{
 		}];
 	}

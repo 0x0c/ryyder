@@ -89,7 +89,7 @@
 	UIViewController *visibleViewController = ((UINavigationController *)[splitViewController.viewControllers lastObject]).visibleViewController;
 	id primaryVisibleViewController = ((UINavigationController *)primaryViewController).visibleViewController;
 	if ([primaryVisibleViewController isKindOfClass:[RYYFeedViewController class]] || [primaryVisibleViewController isKindOfClass:[RYYArticleTableViewController class]]) {
-		RYYArticleDescriptionViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RYYArticleDescriptionViewController"];
+		RYYArticleDescriptionViewController *vc = [[UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil] instantiateViewControllerWithIdentifier:@"RYYArticleDescriptionViewController"];
 		UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
 		viewController = navigationController;
 	}

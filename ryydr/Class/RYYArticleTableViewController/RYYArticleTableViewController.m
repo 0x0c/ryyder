@@ -270,7 +270,7 @@ static CGFloat kIconButtonSize = 27;
 		viewController = vc;
 	}
 	else {
-		RYYArticleDescriptionViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RYYArticleDescriptionViewController"];
+		RYYArticleDescriptionViewController *vc = [[UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil] instantiateViewControllerWithIdentifier:@"RYYArticleDescriptionViewController"];
 		vc.article = item;
 		viewController = vc;
 	}
