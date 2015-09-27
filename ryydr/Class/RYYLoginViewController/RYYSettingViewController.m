@@ -14,7 +14,6 @@
 #import "LDRGatekeeper.h"
 #import "JVFloatLabeledTextField.h"
 #import "RYYFeedlyAuthWebViewController.h"
-#import "Helpshift.h"
 
 @interface RYYSettingViewController () {
 	IBOutlet UISwitch *directAccessSwitch;
@@ -100,14 +99,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (indexPath.section == 5) {
+	if (indexPath.section == 5 && indexPath.row == 0) {
 		[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-		if (indexPath.row == 0) {
-			[[Helpshift sharedInstance] showConversation:self withOptions:nil];
-		}
-		else if (indexPath.row == 1) {
-			[[Helpshift sharedInstance] showFAQs:self withOptions:nil];
-		}
+		CTFeedbackViewController *feedbackViewController = [CTFeedbackViewController controllerWithTopics:CTFeedbackViewController.defaultTopics localizedTopics:CTFeedbackViewController.defaultLocalizedTopics];
+		feedbackViewController.toRecipients = @[ @"akira.matsuda@me.com" ];
+		feedbackViewController.useHTML = YES;
+		UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:feedbackViewController];
+		[self presentViewController:navigationController animated:YES completion:^{
+			
+		}];
 	}
 }
 

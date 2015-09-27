@@ -16,16 +16,12 @@
 #import "HTBHatenaBookmarkManager.h"
 #import <Crashlytics/Crashlytics.h>
 #import "NXOAuth2.h"
-#import "Helpshift.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// Override point for customization after application launch.
-	[Helpshift installForApiKey:@"5cb8cbc864312c93af18d49da7444a08"
-				  domainName:@"akira.helpshift.com"
-					  appID:@"akira_platform_20150419152844673-2fad5e69c407ef1"];
 	
 	[self registerForRemoteNotification];
 	[MTMigration applicationUpdateBlock:^{

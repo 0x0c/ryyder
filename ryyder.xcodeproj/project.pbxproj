@@ -16,6 +16,7 @@
 		E90CB5BF1AE4021300706DE8 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E90CB5BE1AE4021300706DE8 /* libsqlite3.0.dylib */; };
 		E90CB5C11AE4021D00706DE8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E90CB5C01AE4021D00706DE8 /* libz.dylib */; };
 		E90CB5C31AE4022700706DE8 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90CB5C21AE4022700706DE8 /* QuickLook.framework */; };
+		E913CDBF1AEEB730006EC49C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E913CDBE1AEEB730006EC49C /* CoreData.framework */; };
 		E947DD8419A3E2EE00F08164 /* RYYArticleDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DD8319A3E2EE00F08164 /* RYYArticleDescriptionViewController.m */; };
 		E947DD8819A436C800F08164 /* RYYPinnedArticleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DD8719A436C800F08164 /* RYYPinnedArticleTableViewController.m */; };
 		E947DDD619A44F0A00F08164 /* EvernoteActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DD9D19A44F0A00F08164 /* EvernoteActivity.m */; };
@@ -125,6 +126,7 @@
 		E90CB5BE1AE4021300706DE8 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		E90CB5C01AE4021D00706DE8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		E90CB5C21AE4022700706DE8 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		E913CDBE1AEEB730006EC49C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E947DD8219A3E2EE00F08164 /* RYYArticleDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYArticleDescriptionViewController.h; sourceTree = "<group>"; };
 		E947DD8319A3E2EE00F08164 /* RYYArticleDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYArticleDescriptionViewController.m; sourceTree = "<group>"; };
 		E947DD8619A436C800F08164 /* RYYPinnedArticleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYPinnedArticleTableViewController.h; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E913CDBF1AEEB730006EC49C /* CoreData.framework in Frameworks */,
 				E90CB5C31AE4022700706DE8 /* QuickLook.framework in Frameworks */,
 				E947DDFE19A4532000F08164 /* Security.framework in Frameworks */,
 				E90CB5C11AE4021D00706DE8 /* libz.dylib in Frameworks */,
@@ -481,6 +484,7 @@
 		E954C4BC19A2D17A00F5334C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E913CDBE1AEEB730006EC49C /* CoreData.framework */,
 				E90CB5C21AE4022700706DE8 /* QuickLook.framework */,
 				E90CB5C01AE4021D00706DE8 /* libz.dylib */,
 				E90CB5BE1AE4021300706DE8 /* libsqlite3.0.dylib */,
@@ -842,7 +846,7 @@
 		E954C4B219A2D17A00F5334C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Akira Matsuda";
 				TargetAttributes = {
 					E954C4B919A2D17A00F5334C = {
@@ -1123,6 +1127,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1137,7 +1142,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1169,7 +1174,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1192,11 +1197,13 @@
 				GCC_PREFIX_HEADER = "ryydr/ryyder-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "ryydr/ryyder-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ryydr/Library/helpshift-sdk-ios-v4.10.2",
+					"$(PROJECT_DIR)/ryydr/Library/mobihelp_ios_v1.3.4",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.akira.matsuda.ryyder;
 				PRODUCT_NAME = ryyder;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1221,11 +1228,13 @@
 				GCC_PREFIX_HEADER = "ryydr/ryyder-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "ryydr/ryyder-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ryydr/Library/helpshift-sdk-ios-v4.10.2",
+					"$(PROJECT_DIR)/ryydr/Library/mobihelp_ios_v1.3.4",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.akira.matsuda.ryyder;
 				PRODUCT_NAME = ryyder;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1249,6 +1258,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ryydrTests/ryyderTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				PRODUCT_NAME = ryyderTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1267,6 +1277,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ryydr/ryydr-Prefix.pch";
 				INFOPLIST_FILE = "ryydrTests/ryyderTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				PRODUCT_NAME = ryyderTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
