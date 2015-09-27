@@ -88,7 +88,6 @@
 		E9630D9F1A506314004DD380 /* RYYSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9630D9E1A506314004DD380 /* RYYSplitViewController.m */; };
 		E96F01491A5055D100B2E93E /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F01471A5055D100B2E93E /* Main_iPad.storyboard */; };
 		E97BECED19A47A850016517A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E97BECEC19A47A850016517A /* Crashlytics.framework */; };
-		E98FFDAB1AE8C3C9006B89AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E98FFDA91AE8C3C9006B89AD /* Main.storyboard */; };
 		E999E4951AE41FC100262D3A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E999E4941AE41FC100262D3A /* LaunchScreen.xib */; };
 		E99C94F119E2EAA200BFE9E8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99C94F019E2EAA200BFE9E8 /* WebKit.framework */; };
 		E99C94FE19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = E99C94FD19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m */; };
@@ -237,7 +236,6 @@
 		E9630D9E1A506314004DD380 /* RYYSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYSplitViewController.m; sourceTree = "<group>"; };
 		E96F01481A5055D100B2E93E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		E97BECEC19A47A850016517A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
-		E98FFDAA1AE8C3C9006B89AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E999E4941AE41FC100262D3A /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		E99C94F019E2EAA200BFE9E8 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E99C94FC19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYFeedlyAPIGatekeeper.h; sourceTree = "<group>"; };
@@ -518,7 +516,6 @@
 				E947DD9919A44F0A00F08164 /* Extension */,
 				E954C51819A2D21300F5334C /* Class */,
 				E954C4F519A2D19A00F5334C /* Library */,
-				E98FFDA91AE8C3C9006B89AD /* Main.storyboard */,
 				E96F01471A5055D100B2E93E /* Main_iPad.storyboard */,
 				E954C4D819A2D17A00F5334C /* Images.xcassets */,
 				E954C4C419A2D17A00F5334C /* Supporting Files */,
@@ -936,7 +933,6 @@
 				E947DDDA19A44F0A00F08164 /* EvernoteActivity@2x.png in Resources */,
 				E96F01491A5055D100B2E93E /* Main_iPad.storyboard in Resources */,
 				E947DDE219A44F0A00F08164 /* InstapaperActivity~ipad.png in Resources */,
-				E98FFDAB1AE8C3C9006B89AD /* Main.storyboard in Resources */,
 				E947DDF619A44F0A00F08164 /* Readability-activity-iPhone@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1096,14 +1092,6 @@
 				E906B6B91AC8400B0063F7DE /* ja */,
 			);
 			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		E98FFDA91AE8C3C9006B89AD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E98FFDAA1AE8C3C9006B89AD /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
