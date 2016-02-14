@@ -15,7 +15,7 @@
 #import "CMPopTipView.h"
 #import "UIDeviceUtil.h"
 
-@interface RYYArticleTableViewController () {
+@interface RYYArticleTableViewController () <UIViewControllerPreviewingDelegate> {
 	UIBarButtonItem *upButtonItem;
 	UIBarButtonItem *downButtonItem;
 }
@@ -150,6 +150,10 @@ static CGFloat kIconButtonSize = 27;
 
 		UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(directAccess:)];
 		[cell.contentView addGestureRecognizer:gesture];
+		
+		if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
+			[self registerForPreviewingWithDelegate:self sourceView:cell];
+		}
 	}
 
 	cell.contentView.tag = indexPath.row;
@@ -276,6 +280,27 @@ static CGFloat kIconButtonSize = 27;
 	}
 
 	[self.navigationController pushViewController:viewController animated:YES];
+}
+
+#pragma mark - UIViewControllerPreviewingDelegate
+
+- (nullable UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
+{
+	LDRArticleItem *item = _feed.data.items[previewingContext.sourceView.tag];
+	NSURL *url = [NSURL URLWithString:item.link];
+	RYYWebViewController *webViewController = [[RYYWebViewController alloc] initWithURL:url type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
+	webViewController.article = item;
+	
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadImmediatelyKey]) {
+		item.read = YES;
+	}
+	
+	return webViewController;
+}
+
+- (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit
+{
+	[self.navigationController pushViewController:viewControllerToCommit animated:YES];
 }
 
 @end

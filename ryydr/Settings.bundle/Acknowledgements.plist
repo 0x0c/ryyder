@@ -205,14 +205,6 @@ THE SOFTWARE.</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>See http://www.helpshift.com/terms/</string>
-			<key>Title</key>
-			<string>Helpshift</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
 			<string>The MIT License (MIT)
 Copyright (c) 2012 Marius Landwehr marius.landwehr@gmail.com
 

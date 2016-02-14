@@ -23,7 +23,6 @@ PODS:
   - HatenaBookmarkSDK (1.1.1):
     - AFNetworking (~> 1.0)
     - SFHFKeychainUtils
-  - Helpshift (4.10.2)
   - HexColors (2.2.1)
   - JVFloatLabeledTextField (1.0.2)
   - LKBadgeView (1.2.0)
@@ -39,7 +38,7 @@ PODS:
   - SSKeychain (1.2.3)
   - SVProgressHUD (1.1.3)
   - TSMessages (0.9.12):
-    - HexColors
+    - HexColors (~> 2.2.0)
   - TUSafariActivity (1.0.4)
   - UICKeyChainStore (2.0.4)
   - UIDeviceUtil (1.0.3)
@@ -51,7 +50,6 @@ DEPENDENCIES:
   - FontAwesomeKit (~> 2.1.0)
   - GLDTween (~> 0.0.2)
   - HatenaBookmarkSDK
-  - Helpshift
   - JVFloatLabeledTextField
   - LKBadgeView (from `https://github.com/lakesoft/LKBadgeView.git`)
   - M2DWebViewController (from `git@github.com:0x0c/M2DWebViewController.git`, branch
@@ -88,10 +86,9 @@ SPEC CHECKSUMS:
   FontAwesomeKit: 64759fb28b5d2e74a1bd81553d7c11ca10e32179
   GLDTween: 7a605ca867af48fc984f825f3dbdb95210a0f329
   HatenaBookmarkSDK: 29410393ebece9103adff108c66317ff431d9dd4
-  Helpshift: 9c84a5e4ffd881c7e7eb395c2afc8d6a46eb2187
   HexColors: abfd172e329dab59888614ccba6f216cec59289d
   JVFloatLabeledTextField: 58a3a32cfb800e5b224f676987e7c13abf50a14d
-  LKBadgeView: 12032158bf46b641e4a88205084654183b27cd8d
+  LKBadgeView: 1f7359077f12fc6e1870d3de188b77e5b39d6180
   M2DWebViewController: ccdbbe41b792a4111672b8ad7e85b04500e6df30
   MTMigration: 725315e6469c8fd7d13966887f59e65eb8aecb2e
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
@@ -99,9 +96,9 @@ SPEC CHECKSUMS:
   SFHFKeychainUtils: 9576b411a79a058f4d5381ace6f3242b9a62e664
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
-  TSMessages: 2a52642128d7ab15b46930c810b9c9403a2b58f3
+  TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
   UICKeyChainStore: 69eb0c3a6f669bccf16ba88de3b9069b71501361
   UIDeviceUtil: eb899ca766dde91cc05fcb9881fced256d8e1ba9
 
-COCOAPODS: 0.36.4
+COCOAPODS: 0.39.0

@@ -1,4 +1,4 @@
-platform :ios, '7.0'
+platform :ios, '9.0'
 pod 'FontAwesomeKit', '~> 2.1.0'
 pod 'UICKeyChainStore'
 pod 'LKBadgeView', :git => 'https://github.com/lakesoft/LKBadgeView.git'
@@ -19,5 +19,5 @@ pod 'UIDeviceUtil', '~> 1.0.2'
 
 post_install do | installer |
   require 'fileutils'
-  FileUtils.cp_r('Pods/Target Support Files/Pods/Pods-Acknowledgements.plist', 'ryydr/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
+  FileUtils.cp_r('Pods/Target Support Files/Pods/Pods-acknowledgements.plist', 'ryydr/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
 end

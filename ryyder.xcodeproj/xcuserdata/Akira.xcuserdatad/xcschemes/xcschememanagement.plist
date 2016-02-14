@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ryydr_updates.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>25</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>E954C4DD19A2D17A00F5334C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E980FA0F1C35345800B72766</key>
 		<dict>
 			<key>primary</key>
 			<true/>
