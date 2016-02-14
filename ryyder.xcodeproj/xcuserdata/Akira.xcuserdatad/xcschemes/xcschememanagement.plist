@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>a.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>26</integer>
+		</dict>
 		<key>ryyder.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -28,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>E980FA0F1C35345800B72766</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E99A11E21C70C19800990026</key>
 		<dict>
 			<key>primary</key>
 			<true/>

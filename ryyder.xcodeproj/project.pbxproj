@@ -92,7 +92,6 @@
 		E980FA121C35345800B72766 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E980FA111C35345800B72766 /* NotificationCenter.framework */; };
 		E980FA161C35345800B72766 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E980FA151C35345800B72766 /* TodayViewController.m */; };
 		E980FA191C35345800B72766 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E980FA171C35345800B72766 /* MainInterface.storyboard */; };
-		E980FA1D1C35345800B72766 /* ryydr_updates.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E980FA101C35345800B72766 /* ryydr_updates.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E999E4951AE41FC100262D3A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E999E4941AE41FC100262D3A /* LaunchScreen.xib */; };
 		E99C94F119E2EAA200BFE9E8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99C94F019E2EAA200BFE9E8 /* WebKit.framework */; };
 		E99C94FE19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = E99C94FD19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m */; };
@@ -112,28 +111,7 @@
 			remoteGlobalIDString = E954C4B919A2D17A00F5334C;
 			remoteInfo = ryydr;
 		};
-		E980FA1B1C35345800B72766 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E954C4B219A2D17A00F5334C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E980FA0F1C35345800B72766;
-			remoteInfo = ryydr_updates;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		E980FA211C35345900B72766 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				E980FA1D1C35345800B72766 /* ryydr_updates.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		09DF257F97C0A06B75F23287 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -870,12 +848,10 @@
 				84C559878BA041D2B323C3DD /* Copy Pods Resources */,
 				E9BB15BB19A479E30024F1F4 /* Run Script */,
 				9CB59F6AE2364C4CAA3DA7F2 /* Embed Pods Frameworks */,
-				E980FA211C35345900B72766 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E980FA1C1C35345800B72766 /* PBXTargetDependency */,
 			);
 			name = ryyder;
 			productName = ryydr;
@@ -1170,11 +1146,6 @@
 			isa = PBXTargetDependency;
 			target = E954C4B919A2D17A00F5334C /* ryyder */;
 			targetProxy = E954C4E319A2D17A00F5334C /* PBXContainerItemProxy */;
-		};
-		E980FA1C1C35345800B72766 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E980FA0F1C35345800B72766 /* ryydr_updates */;
-			targetProxy = E980FA1B1C35345800B72766 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1480,6 +1451,7 @@
 				E980FA1F1C35345900B72766 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
