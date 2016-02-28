@@ -156,6 +156,7 @@ static CGFloat kIconButtonSize = 27;
 		}
 	}
 
+	cell.tag = indexPath.row;
 	cell.contentView.tag = indexPath.row;
 
 	LDRArticleItem *item = _feed.data.items[indexPath.row];
@@ -286,16 +287,25 @@ static CGFloat kIconButtonSize = 27;
 
 - (nullable UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
 {
+	id viewController = nil;
 	LDRArticleItem *item = _feed.data.items[previewingContext.sourceView.tag];
-	NSURL *url = [NSURL URLWithString:item.link];
-	RYYWebViewController *webViewController = [[RYYWebViewController alloc] initWithURL:url type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
-	webViewController.article = item;
-	
-	if ([[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadImmediatelyKey]) {
-		item.read = YES;
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:BrowseWith3DTouchKey] == NO) {
+		RYYArticleDescriptionViewController *vc = [[UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil] instantiateViewControllerWithIdentifier:@"RYYArticleDescriptionViewController"];
+		vc.article = item;
+		viewController = vc;
+	}
+	else {
+		NSURL *url = [NSURL URLWithString:item.link];
+		RYYWebViewController *webViewController = [[RYYWebViewController alloc] initWithURL:url type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
+		webViewController.article = item;
+		
+		if ([[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadImmediatelyKey]) {
+			item.read = YES;
+		}
+		viewController = webViewController;
 	}
 	
-	return webViewController;
+	return viewController;
 }
 
 - (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit

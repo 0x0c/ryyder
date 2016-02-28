@@ -48,6 +48,10 @@ static NSString *const JS_GET_TITLE = @"var elements=document.getElementsByTagNa
 		progressProxy_.webViewProxyDelegate = self;
 		progressProxy_.progressDelegate = self;
 	}
+	else if ([self.webView isKindOfClass:[WKWebView class]]) {
+		WKWebView *wv = (WKWebView *)self.webView;
+		wv.UIDelegate = self;
+	}
 
 	__weak typeof(self) bself = self;
 	self.actionButtonPressedHandler = ^(NSString *pageTitle, NSURL *url) {
@@ -109,27 +113,12 @@ static NSString *const JS_GET_TITLE = @"var elements=document.getElementsByTagNa
 		HTBHatenaBookmarkActivity *hateaBookmarkActivity = [[HTBHatenaBookmarkActivity alloc] init];
 		[activities addObject:hateaBookmarkActivity];
 		
-		FacebookMessengerActivity *messengerActivity = [[FacebookMessengerActivity alloc] initWithCompletionHandler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
-			f(error);
-		}];
-		[activities addObject:messengerActivity];
-		
-		//	EvernoteActivity *evernote = [[EvernoteActivity alloc] initWithHost:EVERNOTE_HOST consumerKey:EVERNOTE_CONSUMER_KEY secret:EVERNOTE_CONSUMER_SECRET];
-		//	[evernote setCreateNoteHanderBlocks:^(BOOL completion, EDAMNote *note, NSError *error) {
-		//		if (completion) {
-		//			f(error);
-		//		}
-		//	}];
-		//	evernote.delegate = self;
-		//	[activities addObject:evernote];
-		
 		[activities addObject:[TUSafariActivity new]];
 		UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[pageTitle, url] applicationActivities:activities];
 		if ([[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] != NSOrderedAscending) {
 			activityViewController.popoverPresentationController.barButtonItem = bself.toolbarItems[bself.toolbarItems.count - 2];
 		}
-		[bself presentViewController:activityViewController animated:YES completion:^{
-		}];
+		[bself presentViewController:activityViewController animated:YES completion:nil];
 	};
 }
 
@@ -185,6 +174,17 @@ static NSString *const JS_GET_TITLE = @"var elements=document.getElementsByTagNa
 	[super webView:webView didFinishNavigation:navigation];
 	self.title = webView.title;
 	[progressView_ setProgress:webView.estimatedProgress animated:YES];
+}
+
+#pragma mark - WKUIDelegate
+
+- (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures
+{
+	if (!navigationAction.targetFrame.isMainFrame) {
+		[webView loadRequest:navigationAction.request];
+	}
+	
+	return nil;
 }
 
 #pragma mark - UIWebViewDelegate

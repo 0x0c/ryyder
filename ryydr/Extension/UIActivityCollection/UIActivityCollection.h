@@ -15,7 +15,6 @@
 #import "InstapaperActivity.h"
 #import "HTBHatenaBookmarkActivity.h"
 #import "EvernoteActivity.h"
-#import "FacebookMessengerActivity.h"
 #import "LDRPinActiviry.h"
 #import "LDRMarkAsReadActivity.h"
 #import "TUSafariActivity.h"

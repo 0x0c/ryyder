@@ -32,13 +32,7 @@
 			[TSMessage showNotificationInViewController:self.window.rootViewController title:NSLocalizedString(@"ryyder is updated", nil) subtitle:[NSString stringWithFormat:@"New version %@", [NSString stringWithFormat:@"Version %@(%@)", versionNum, buildNum]] type:TSMessageNotificationTypeSuccess duration:10 canBeDismissedByUser:YES];
 		}
 	}];
-	[MTMigration migrateToVersion:@"1.0.0" block:^{
-		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:SyncAtLaunchKey];
-	}];
-	[MTMigration migrateToVersion:@"1.0.4" block:^{
-		[[NSUserDefaults standardUserDefaults] setInteger:1 forKey:UserInterfaceAlignmentKey];
-		[[NSUserDefaults standardUserDefaults] synchronize];
-	}];
+	[self migrateApplicationUpdate];
 	application.applicationIconBadgeNumber = 0;
 
 	[Crashlytics startWithAPIKey:(NSString *)CrashlyticsAPIKey];
@@ -149,6 +143,21 @@
 			}
 			completionHandler(count);
 		});
+	}];
+}
+
+- (void)migrateApplicationUpdate
+{
+	[MTMigration migrateToVersion:@"1.0.0" block:^{
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:SyncAtLaunchKey];
+	}];
+	[MTMigration migrateToVersion:@"1.0.4" block:^{
+		[[NSUserDefaults standardUserDefaults] setInteger:1 forKey:UserInterfaceAlignmentKey];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+	}];
+	[MTMigration migrateToVersion:@"1.0.9" block:^{
+		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:BrowseWith3DTouchKey];
+		[[NSUserDefaults standardUserDefaults] synchronize];
 	}];
 }
 

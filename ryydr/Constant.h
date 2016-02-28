@@ -13,6 +13,7 @@ static NSString *const ServiceIdentifier = @"ryyder";
 
 static NSString *const UserInterfaceAlignmentKey = @"UserInterfaceAlignmentKey";
 static NSString *const DirectAccessKey = @"DirectAccessKey";
+static NSString *const BrowseWith3DTouchKey = @"BrowseWith3DTouchKey";
 static NSString *const ShowBadgeKey = @"ShowBadgeKey";
 static NSString *const SyncAtLaunchKey = @"SyncAtLaunchKey";
 static NSString *const MarkAsReadImmediatelyKey = @"MarkAsReadImmediatelyKey";

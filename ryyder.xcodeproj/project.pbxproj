@@ -25,11 +25,6 @@
 		E947DDD819A44F0A00F08164 /* EvernoteActivity.png in Resources */ = {isa = PBXBuildFile; fileRef = E947DDA019A44F0A00F08164 /* EvernoteActivity.png */; };
 		E947DDD919A44F0A00F08164 /* EvernoteActivity@2x-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E947DDA119A44F0A00F08164 /* EvernoteActivity@2x-ipad.png */; };
 		E947DDDA19A44F0A00F08164 /* EvernoteActivity@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E947DDA219A44F0A00F08164 /* EvernoteActivity@2x.png */; };
-		E947DDDB19A44F0A00F08164 /* FacebookMessengerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E947DDA519A44F0A00F08164 /* FacebookMessengerActivity.m */; };
-		E947DDDC19A44F0A00F08164 /* FacebookMessenger.png in Resources */ = {isa = PBXBuildFile; fileRef = E947DDA719A44F0A00F08164 /* FacebookMessenger.png */; };
-		E947DDDD19A44F0A00F08164 /* FacebookMessenger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E947DDA819A44F0A00F08164 /* FacebookMessenger@2x.png */; };
-		E947DDDE19A44F0A00F08164 /* FacebookMessenger@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E947DDA919A44F0A00F08164 /* FacebookMessenger@2x~ipad.png */; };
-		E947DDDF19A44F0A00F08164 /* FacebookMessenger~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E947DDAA19A44F0A00F08164 /* FacebookMessenger~ipad.png */; };
 		E947DDE019A44F0A00F08164 /* InstapaperActivity@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E947DDAD19A44F0A00F08164 /* InstapaperActivity@2x~ipad.png */; };
 		E947DDE119A44F0A00F08164 /* InstapaperActivity@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = E947DDAE19A44F0A00F08164 /* InstapaperActivity@2x~iphone.png */; };
 		E947DDE219A44F0A00F08164 /* InstapaperActivity~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E947DDAF19A44F0A00F08164 /* InstapaperActivity~ipad.png */; };
@@ -89,9 +84,6 @@
 		E9630D9F1A506314004DD380 /* RYYSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9630D9E1A506314004DD380 /* RYYSplitViewController.m */; };
 		E96F01491A5055D100B2E93E /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F01471A5055D100B2E93E /* Main_iPad.storyboard */; };
 		E97BECED19A47A850016517A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E97BECEC19A47A850016517A /* Crashlytics.framework */; };
-		E980FA121C35345800B72766 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E980FA111C35345800B72766 /* NotificationCenter.framework */; };
-		E980FA161C35345800B72766 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E980FA151C35345800B72766 /* TodayViewController.m */; };
-		E980FA191C35345800B72766 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E980FA171C35345800B72766 /* MainInterface.storyboard */; };
 		E999E4951AE41FC100262D3A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E999E4941AE41FC100262D3A /* LaunchScreen.xib */; };
 		E99C94F119E2EAA200BFE9E8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99C94F019E2EAA200BFE9E8 /* WebKit.framework */; };
 		E99C94FE19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = E99C94FD19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m */; };
@@ -143,12 +135,6 @@
 		E947DDA019A44F0A00F08164 /* EvernoteActivity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EvernoteActivity.png; sourceTree = "<group>"; };
 		E947DDA119A44F0A00F08164 /* EvernoteActivity@2x-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EvernoteActivity@2x-ipad.png"; sourceTree = "<group>"; };
 		E947DDA219A44F0A00F08164 /* EvernoteActivity@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EvernoteActivity@2x.png"; sourceTree = "<group>"; };
-		E947DDA419A44F0A00F08164 /* FacebookMessengerActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookMessengerActivity.h; sourceTree = "<group>"; };
-		E947DDA519A44F0A00F08164 /* FacebookMessengerActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookMessengerActivity.m; sourceTree = "<group>"; };
-		E947DDA719A44F0A00F08164 /* FacebookMessenger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FacebookMessenger.png; sourceTree = "<group>"; };
-		E947DDA819A44F0A00F08164 /* FacebookMessenger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FacebookMessenger@2x.png"; sourceTree = "<group>"; };
-		E947DDA919A44F0A00F08164 /* FacebookMessenger@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FacebookMessenger@2x~ipad.png"; sourceTree = "<group>"; };
-		E947DDAA19A44F0A00F08164 /* FacebookMessenger~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FacebookMessenger~ipad.png"; sourceTree = "<group>"; };
 		E947DDAD19A44F0A00F08164 /* InstapaperActivity@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InstapaperActivity@2x~ipad.png"; sourceTree = "<group>"; };
 		E947DDAE19A44F0A00F08164 /* InstapaperActivity@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InstapaperActivity@2x~iphone.png"; sourceTree = "<group>"; };
 		E947DDAF19A44F0A00F08164 /* InstapaperActivity~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InstapaperActivity~ipad.png"; sourceTree = "<group>"; };
@@ -242,7 +228,6 @@
 		E9630D9E1A506314004DD380 /* RYYSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYSplitViewController.m; sourceTree = "<group>"; };
 		E96F01481A5055D100B2E93E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		E97BECEC19A47A850016517A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
-		E980FA101C35345800B72766 /* ryydr_updates.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ryydr_updates.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E980FA111C35345800B72766 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		E980FA141C35345800B72766 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		E980FA151C35345800B72766 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
@@ -302,14 +287,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E980FA0D1C35345800B72766 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E980FA121C35345800B72766 /* NotificationCenter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -345,7 +322,6 @@
 				E9F7586319A62EE800E2BB61 /* LDRMarkAsReadActivity */,
 				E9F7586419A62EE800E2BB61 /* LDRPinActiviry */,
 				E947DD9B19A44F0A00F08164 /* EvernoteActivity */,
-				E947DDA319A44F0A00F08164 /* FacebookMessengerActivity */,
 				E947DDAB19A44F0A00F08164 /* InstapaperActivity */,
 				E947DDB319A44F0A00F08164 /* LINEActivity */,
 				E947DDBA19A44F0A00F08164 /* PocketActivity */,
@@ -372,27 +348,6 @@
 				E947DDA019A44F0A00F08164 /* EvernoteActivity.png */,
 				E947DDA119A44F0A00F08164 /* EvernoteActivity@2x-ipad.png */,
 				E947DDA219A44F0A00F08164 /* EvernoteActivity@2x.png */,
-			);
-			path = img;
-			sourceTree = "<group>";
-		};
-		E947DDA319A44F0A00F08164 /* FacebookMessengerActivity */ = {
-			isa = PBXGroup;
-			children = (
-				E947DDA419A44F0A00F08164 /* FacebookMessengerActivity.h */,
-				E947DDA519A44F0A00F08164 /* FacebookMessengerActivity.m */,
-				E947DDA619A44F0A00F08164 /* img */,
-			);
-			path = FacebookMessengerActivity;
-			sourceTree = "<group>";
-		};
-		E947DDA619A44F0A00F08164 /* img */ = {
-			isa = PBXGroup;
-			children = (
-				E947DDA719A44F0A00F08164 /* FacebookMessenger.png */,
-				E947DDA819A44F0A00F08164 /* FacebookMessenger@2x.png */,
-				E947DDA919A44F0A00F08164 /* FacebookMessenger@2x~ipad.png */,
-				E947DDAA19A44F0A00F08164 /* FacebookMessenger~ipad.png */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -498,7 +453,6 @@
 			children = (
 				E954C4BA19A2D17A00F5334C /* ryyder.app */,
 				E954C4DE19A2D17A00F5334C /* ryyderTests.xctest */,
-				E980FA101C35345800B72766 /* ryydr_updates.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -876,23 +830,6 @@
 			productReference = E954C4DE19A2D17A00F5334C /* ryyderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E980FA0F1C35345800B72766 /* ryydr_updates */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E980FA201C35345900B72766 /* Build configuration list for PBXNativeTarget "ryydr_updates" */;
-			buildPhases = (
-				E980FA0C1C35345800B72766 /* Sources */,
-				E980FA0D1C35345800B72766 /* Frameworks */,
-				E980FA0E1C35345800B72766 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ryydr_updates;
-			productName = ryydr_updates;
-			productReference = E980FA101C35345800B72766 /* ryydr_updates.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -915,10 +852,6 @@
 					};
 					E954C4DD19A2D17A00F5334C = {
 						TestTargetID = E954C4B919A2D17A00F5334C;
-					};
-					E980FA0F1C35345800B72766 = {
-						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 3VC35JGS33;
 					};
 				};
 			};
@@ -955,7 +888,6 @@
 			targets = (
 				E954C4B919A2D17A00F5334C /* ryyder */,
 				E954C4DD19A2D17A00F5334C /* ryyderTests */,
-				E980FA0F1C35345800B72766 /* ryydr_updates */,
 			);
 		};
 /* End PBXProject section */
@@ -966,7 +898,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E954C71F19A3DC3100F5334C /* Settings.bundle in Resources */,
-				E947DDDE19A44F0A00F08164 /* FacebookMessenger@2x~ipad.png in Resources */,
 				E954C4D919A2D17A00F5334C /* Images.xcassets in Resources */,
 				E947DDD719A44F0A00F08164 /* EvernoteActivity-ipad.png in Resources */,
 				E947DDE119A44F0A00F08164 /* InstapaperActivity@2x~iphone.png in Resources */,
@@ -979,14 +910,11 @@
 				E947DDE819A44F0A00F08164 /* LINEActivityIcon@2x~ipad.png in Resources */,
 				E947DDED19A44F0A00F08164 /* PocketActivity~iphone.png in Resources */,
 				E947DDE019A44F0A00F08164 /* InstapaperActivity@2x~ipad.png in Resources */,
-				E947DDDD19A44F0A00F08164 /* FacebookMessenger@2x.png in Resources */,
 				E954C4C819A2D17A00F5334C /* InfoPlist.strings in Resources */,
 				E947DDD819A44F0A00F08164 /* EvernoteActivity.png in Resources */,
 				E947DDEB19A44F0A00F08164 /* PocketActivity@2x~iphone.png in Resources */,
 				E947DDF419A44F0A00F08164 /* Readability-activity-iPad@2x.png in Resources */,
-				E947DDDF19A44F0A00F08164 /* FacebookMessenger~ipad.png in Resources */,
 				E947DDE619A44F0A00F08164 /* LINEActivityIcon.png in Resources */,
-				E947DDDC19A44F0A00F08164 /* FacebookMessenger.png in Resources */,
 				E947DDEA19A44F0A00F08164 /* PocketActivity@2x~ipad.png in Resources */,
 				E947DDF319A44F0A00F08164 /* Readability-activity-iPad.png in Resources */,
 				E947DDE319A44F0A00F08164 /* InstapaperActivity~iphone.png in Resources */,
@@ -1004,14 +932,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E954C4EA19A2D17A00F5334C /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E980FA0E1C35345800B72766 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E980FA191C35345800B72766 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1099,7 +1019,6 @@
 				E947DD8419A3E2EE00F08164 /* RYYArticleDescriptionViewController.m in Sources */,
 				E954C70F19A3388300F5334C /* RYYArticleTableViewController.m in Sources */,
 				E954C50E19A2D19A00F5334C /* M2DAPIGatekeeper.m in Sources */,
-				E947DDDB19A44F0A00F08164 /* FacebookMessengerActivity.m in Sources */,
 				E947DDEE19A44F0A00F08164 /* PocketActivity.m in Sources */,
 				E9C3F4611AE40BD20045DEFB /* LDRPinnedArticle.m in Sources */,
 				E954C51019A2D19A00F5334C /* M2DURLConnectionOperation.m in Sources */,
@@ -1128,14 +1047,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E954C4EC19A2D17A00F5334C /* ryydrTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E980FA0C1C35345800B72766 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E980FA161C35345800B72766 /* TodayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1283,7 +1194,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Akira Matsuda (F7D88ZNBFM)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1311,8 +1222,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Akira Matsuda (3VC35JGS33)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1375,45 +1286,6 @@
 			};
 			name = Release;
 		};
-		E980FA1E1C35345900B72766 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = ryydr_updates/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.akira.matsuda.ryyder.ryydr-updates";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		E980FA1F1C35345900B72766 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = ryydr_updates/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.akira.matsuda.ryyder.ryydr-updates";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1440,15 +1312,6 @@
 			buildConfigurations = (
 				E954C4F319A2D17A00F5334C /* Debug */,
 				E954C4F419A2D17A00F5334C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E980FA201C35345900B72766 /* Build configuration list for PBXNativeTarget "ryydr_updates" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E980FA1E1C35345900B72766 /* Debug */,
-				E980FA1F1C35345900B72766 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

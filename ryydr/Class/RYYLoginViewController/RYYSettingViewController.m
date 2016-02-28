@@ -23,6 +23,7 @@
 	IBOutlet UISwitch *syncSwitch;
 	IBOutlet UISwitch *notificationSwitch;
 
+	IBOutlet UISwitch *showBrowserWith3DTouchSwitch;
 	IBOutlet UIButton *loginButton;
 	IBOutlet JVFloatLabeledTextField *usernameTextField;
 	IBOutlet JVFloatLabeledTextField *passwordTextField;
@@ -53,13 +54,14 @@
 	self.navigationItem.rightBarButtonItem = doneButton;
 
 	directAccessSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:DirectAccessKey];
+	showBrowserWith3DTouchSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:BrowseWith3DTouchKey];
 	showBadgeSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:ShowBadgeKey];
 	//	syncSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:SyncAtLaunchKey];
 	showTipsSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:ShowTipsKey];
 	markAsReadImmediatelySwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadImmediatelyKey];
 	//	notificationSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:ShowNotificationKey];
 
-	[@[ directAccessSwitch, showBadgeSwitch, showTipsSwitch, markAsReadImmediatelySwitch ] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+	[@[ directAccessSwitch, showBrowserWith3DTouchSwitch, showBadgeSwitch, showTipsSwitch, markAsReadImmediatelySwitch ] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 		UISwitch *sw = obj;
 		sw.tag = idx;
 		[sw addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -167,8 +169,9 @@
 
 	[activeTextField resignFirstResponder];
 	if (usernameTextField.text.length == 0 || passwordTextField.text.length == 0) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"Please input your account information.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
-		[alert show];
+		UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"Please input your account information.", nil) preferredStyle:UIAlertControllerStyleAlert];
+		[alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
+		[alert presentViewController:self animated:YES completion:nil];
 		return;
 	}
 	[[LDRGatekeeper sharedInstance] initializeBlock:^(M2DAPIRequest *request, NSDictionary *params) {
@@ -209,13 +212,13 @@
 {
 	UISwitch *sw = sender;
 
-	NSArray *array = @[ DirectAccessKey, ShowBadgeKey, ShowTipsKey, MarkAsReadImmediatelyKey ];
+	NSArray *array = @[ DirectAccessKey, BrowseWith3DTouchKey, ShowBadgeKey, ShowTipsKey, MarkAsReadImmediatelyKey ];
 	[[NSUserDefaults standardUserDefaults] setBool:sw.on forKey:(NSString *)array[sw.tag]];
 	[[NSUserDefaults standardUserDefaults] synchronize];
-	if (sw.tag == 1 && sw.on == NO) {
+	if (sw.tag == 2 && sw.on == NO) {
 		[UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 	}
-	else if (sw.tag == 2) {
+	else if (sw.tag == 3) {
 		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:MarkAsReadTipsAlreadyShowKey];
 		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:PinnedListTipsAlreadyShowKey];
 	}
