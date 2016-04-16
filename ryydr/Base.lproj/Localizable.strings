@@ -67,3 +67,6 @@
 /* No comment provided by engineer. */
 "There is %ld unread content available." = "%ld件の未読記事があります。";
 
+/* No comment provided by engineer. */
+"Mark all as read and sync." = "すべて既読にして同期する";
+

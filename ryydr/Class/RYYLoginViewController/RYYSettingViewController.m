@@ -219,6 +219,7 @@
 		[UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 	}
 	else if (sw.tag == 3) {
+		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:MarkAsReadAllTipsAlreadyShowKey];
 		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:MarkAsReadTipsAlreadyShowKey];
 		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:PinnedListTipsAlreadyShowKey];
 	}

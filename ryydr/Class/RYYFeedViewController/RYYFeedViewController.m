@@ -65,6 +65,9 @@ static CGFloat kIconButtonSize = 27;
 		}];
 	}
 
+	FAKFontAwesome *mark = [FAKFontAwesome circleThinIconWithSize:20];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[mark imageWithSize:CGSizeMake(30, 30)] landscapeImagePhone:[mark imageWithSize:CGSizeMake(20, 20)] style:UIBarButtonItemStylePlain target:self action:@selector(markAsReadAll:)];
+	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sync) name:RYYFeedViewControllerNeedToRefreshNotification object:nil];
 }
 
@@ -84,7 +87,7 @@ static CGFloat kIconButtonSize = 27;
 			pop.has3DStyle = NO;
 			pop.borderColor = self.view.tintColor;
 			pop.backgroundColor = self.view.tintColor;
-			[pop autoDismissAnimated:YES atTimeInterval:2];
+			[pop autoDismissAnimated:YES atTimeInterval:5];
 			[pop presentPointingAtBarButtonItem:pinButtonItem animated:YES];
 		});
 	}
@@ -109,6 +112,20 @@ static CGFloat kIconButtonSize = 27;
 		[toolbarItems insertObject:flexibleSpace atIndex:0];
 	}
 	self.toolbarItems = toolbarItems;
+	
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadAllTipsAlreadyShowKey] == NO) {
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:MarkAsReadAllTipsAlreadyShowKey];
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+			CMPopTipView *pop = [[CMPopTipView alloc] initWithMessage:NSLocalizedString(@"Mark all as read and sync.", nil)];
+			pop.hasShadow = NO;
+			pop.hasGradientBackground = NO;
+			pop.has3DStyle = NO;
+			pop.borderColor = self.view.tintColor;
+			pop.backgroundColor = self.view.tintColor;
+			[pop autoDismissAnimated:YES atTimeInterval:5];
+			[pop presentPointingAtBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
+		});
+	}
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -328,6 +345,22 @@ static CGFloat kIconButtonSize = 27;
 		badgeView.badgeColor = [UIColor lightGrayColor];
 	}
 	badgeView.text = [info[@"count"] stringValue];
+}
+
+- (void)markAsReadAll:(id)sender
+{
+	UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Mark all as read", nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+	[alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Mark", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+		for (LDRFeed *feed in feeds) {
+			[feed.data.items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+				LDRArticleItem *item = obj;
+				item.read = YES;
+			}];
+		}
+		[self sync];
+	}]];
+	[alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+	[self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

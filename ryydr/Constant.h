@@ -19,6 +19,7 @@ static NSString *const SyncAtLaunchKey = @"SyncAtLaunchKey";
 static NSString *const MarkAsReadImmediatelyKey = @"MarkAsReadImmediatelyKey";
 static NSString *const ShowTipsKey = @"ShowTipsKey";
 static NSString *const MarkAsReadTipsAlreadyShowKey = @"MarkAsReadTipsAlreadyShowKey";
+static NSString *const MarkAsReadAllTipsAlreadyShowKey = @"MarkAsReadAllTipsAlreadyShowKey";
 static NSString *const PinnedListTipsAlreadyShowKey = @"PinnedListTipsAlreadyShowKey";
 static NSString *const ShowNotificationKey = @"ShowNotificationKey";
 

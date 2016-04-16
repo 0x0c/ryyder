@@ -1,7 +1,6 @@
 PODS:
-  - AFNetworking (1.3.4)
-  - CMPopTipView (2.2.0)
-  - CTFeedback (1.0.17)
+  - CMPopTipView (2.3.0)
+  - CTFeedback (1.0.23)
   - Evernote-SDK-iOS (1.3.1):
     - SSKeychain (~> 1.2.2)
   - FontAwesomeKit (2.1.8):
@@ -20,11 +19,10 @@ PODS:
   - FontAwesomeKit/Zocial (2.1.8):
     - FontAwesomeKit/Core
   - GLDTween (0.0.2)
-  - HatenaBookmarkSDK (1.1.1):
-    - AFNetworking (~> 1.0)
+  - HatenaBookmarkSDK (1.2):
     - SFHFKeychainUtils
   - HexColors (2.2.1)
-  - JVFloatLabeledTextField (1.0.2)
+  - JVFloatLabeledTextField (1.1.0)
   - LKBadgeView (1.2.0)
   - M2DWebViewController (0.1.11)
   - MTMigration (0.0.5)
@@ -40,7 +38,7 @@ PODS:
   - TSMessages (0.9.12):
     - HexColors (~> 2.2.0)
   - TUSafariActivity (1.0.4)
-  - UICKeyChainStore (2.0.4)
+  - UICKeyChainStore (2.1.0)
   - UIDeviceUtil (1.0.3)
 
 DEPENDENCIES:
@@ -75,19 +73,18 @@ CHECKOUT OPTIONS:
     :commit: 4113212ceba6453bfb78ff96b815f58079c4e8ee
     :git: https://github.com/lakesoft/LKBadgeView.git
   M2DWebViewController:
-    :commit: 5f87f58d1dffd818fd5897b69392cdef1353f58d
+    :commit: 02b51c9baa082132f64124973c67ef11883ce215
     :git: git@github.com:0x0c/M2DWebViewController.git
 
 SPEC CHECKSUMS:
-  AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018
-  CMPopTipView: a0a88404b9f46a5cfc16ce54bdb1b9bf9acb9aff
-  CTFeedback: 8706fc51355f04646262441193983f6d10702d0c
+  CMPopTipView: 774e0230b5c73abb3c39051da6d8a383373c4f7f
+  CTFeedback: 145ffb449fea2e5076f57056e3dee2999349ed98
   Evernote-SDK-iOS: beab0882c4bcdc05117ea0b56119da12cff47fbb
   FontAwesomeKit: 64759fb28b5d2e74a1bd81553d7c11ca10e32179
   GLDTween: 7a605ca867af48fc984f825f3dbdb95210a0f329
-  HatenaBookmarkSDK: 29410393ebece9103adff108c66317ff431d9dd4
+  HatenaBookmarkSDK: 832cad8358ab6cf246ca1aa3e3ca6e6df7e78eb4
   HexColors: abfd172e329dab59888614ccba6f216cec59289d
-  JVFloatLabeledTextField: 58a3a32cfb800e5b224f676987e7c13abf50a14d
+  JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
   LKBadgeView: 1f7359077f12fc6e1870d3de188b77e5b39d6180
   M2DWebViewController: ccdbbe41b792a4111672b8ad7e85b04500e6df30
   MTMigration: 725315e6469c8fd7d13966887f59e65eb8aecb2e
@@ -98,7 +95,7 @@ SPEC CHECKSUMS:
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
-  UICKeyChainStore: 69eb0c3a6f669bccf16ba88de3b9069b71501361
+  UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
   UIDeviceUtil: eb899ca766dde91cc05fcb9881fced256d8e1ba9
 
 COCOAPODS: 0.39.0

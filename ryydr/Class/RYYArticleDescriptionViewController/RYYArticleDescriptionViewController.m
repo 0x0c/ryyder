@@ -196,7 +196,7 @@ static CGFloat kIconButtonSize = 27;
 	if (self.article.previous) {
 		self.article = self.article.previous;
 	}
-
+	
 	RYYSplitViewController *splitViewController = (RYYSplitViewController *)[[UIApplication sharedApplication].delegate window].rootViewController;
 	UINavigationController *masterViewController = [splitViewController performSelector:@selector(masterViewController)];
 	if ([masterViewController.visibleViewController isKindOfClass:[RYYArticleTableViewController class]] || [masterViewController.visibleViewController isKindOfClass:[RYYFeedViewController class]]) {

@@ -18,9 +18,9 @@
 		NSInteger cnt = [params count];
 		NSInteger i = 0;
 		for (NSString *key in params) {
-			NSString *appendString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,(CFStringRef)key, NULL, CFSTR (";,/?:@&=+$#"), kCFStringEncodingUTF8));
+			NSString *appendString = [key stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
 			NSString *p1 = [NSString stringWithFormat:@"%@=",appendString];
-			appendString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,(CFStringRef)([params[key] respondsToSelector:@selector(stringValue)] ? [params[key] stringValue] : params[key]), NULL, CFSTR (";,/?:@&=+$#"), kCFStringEncodingUTF8));
+			appendString = [[params[key] respondsToSelector:@selector(stringValue)] ? [params[key] stringValue] : params[key] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
 			NSString *p2 = [NSString stringWithString:appendString];
 			[data appendData:[p1 dataUsingEncoding:NSUTF8StringEncoding]];
 			[data appendData:[p2 dataUsingEncoding:NSUTF8StringEncoding]];
@@ -46,7 +46,7 @@
 			}
 		}
 		
-		[self setURL:[NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+		[self setURL:[NSURL URLWithString:[url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]]]];
 	}
 }
 
