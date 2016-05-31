@@ -71,7 +71,7 @@ static NSString *const LDRPassword = @"Password";
 		[self parseBlock:^id(NSData *data, NSError *__autoreleasing *error) {
 			return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:error];
 		}];
-		[self resultConditionBlock:^BOOL(NSURLResponse *response, id parsedObject, NSError *__autoreleasing *error) {
+		[self resultConditionBlock:^BOOL(M2DAPIRequest *request, NSURLResponse *response, id parsedObject, NSError *__autoreleasing *error) {
 			if ([[response.URL path] containsString:@"login"]) {
 				return YES;
 			}
@@ -114,9 +114,10 @@ static NSString *const LDRPassword = @"Password";
 	[self setPassword:password];
 	__weak typeof(self) bself = self;
 	M2DAPIRequest *r = [[M2DAPIRequest POSTRequest:[NSURL URLWithString:LoginAPI]] parametors:@{@"livedoor_id":username,@"password":password}];
-	[[[r whenSucceeded:^(M2DAPIRequest *request, id parsedObject) {
+	
+	[[[r whenSucceeded:^(M2DAPIRequest *request, NSDictionary *httpHeaderFields, id parsedObject) {
 		M2DAPIRequest *r2 = [[M2DAPIRequest POSTRequest:[NSURL URLWithString:(NSString *)GetAPIKeyAPI]] parametors:@{}];
-		[[r2 whenSucceeded:^(M2DAPIRequest *request, id parsedObject) {
+		[[r2 whenSucceeded:^(M2DAPIRequest *request, NSDictionary *httpHeaderFields, id parsedObject) {
 			NSHTTPCookieStorage *s = [NSHTTPCookieStorage sharedHTTPCookieStorage];
 			NSString *apiKey = [s m2d_valueForName:@"ucd" domain:@".livedoor.com"];
 			NSString *ldsuid = [s m2d_valueForName:@"ldsuid" domain:@"member.livedoor.com"];
@@ -124,7 +125,9 @@ static NSString *const LDRPassword = @"Password";
 			NSString *LH = [s m2d_valueForName:@".LH" domain:@".livedoor.com"];
 			NSString *LL = [s m2d_valueForName:@".LL" domain:@".livedoor.com"];
 			if (ldsuid && LRC && LH && LL && apiKey) {
-				bself.baseParameter = @{LDRAPIKey:apiKey};
+				[bself setBaseParameterBlock:^(M2DAPIRequest *r, NSMutableDictionary *param) {
+					param[LDRAPIKey] = apiKey;
+				}];
 				handler(nil);
 			}
 			else {
@@ -133,12 +136,10 @@ static NSString *const LDRPassword = @"Password";
 			}
 		}] asynchronousRequest];
 		[self sendRequest:r2];
-	}] whenFailed:^(M2DAPIRequest *request, NSError *error) {
-//		dispatch_async(dispatch_get_main_queue(), ^{
-//			handler(error);
-//		});
+	}] whenFailed:^(M2DAPIRequest *request, NSDictionary *httpHeaderFields, id parsedObject, NSError *error) {
+		
 	}] asynchronousRequest];
-	[r setResultConditionBlock:^BOOL(NSURLResponse *response, id parsedObject, NSError *__autoreleasing *error) {
+	[r setResultConditionBlock:^BOOL(M2DAPIRequest *r, NSURLResponse *response, id parsedObject, NSError *__autoreleasing *e) {
 		return YES;
 	}];
 	[self sendRequest:r];
@@ -172,7 +173,7 @@ static NSString *const LDRPassword = @"Password";
 - (void)getFeedsWithUnreadArticle:(BOOL)unread completionHandler:(void (^)(id result, NSError *error))completionHandler
 {
 	M2DAPIRequest *r = [[M2DAPIRequest POSTRequest:[NSURL URLWithString:GetFeedsAPI]] parametors:@{@"unread":@(unread)}];
-	[[r whenSucceeded:^(M2DAPIRequest *request, id parsedObject) {
+	[[r whenSucceeded:^(M2DAPIRequest *request, NSDictionary *httpHeaderFields, id parsedObject) {
 		NSMutableArray *array = [NSMutableArray new];
 		LDRFeed *p = nil;
 		for (NSDictionary *f in parsedObject) {
@@ -192,7 +193,7 @@ static NSString *const LDRPassword = @"Password";
 - (void)getUnreadArticlesWithSubsucribeId:(NSString *)subscribeIdentifier completionHandler:(void (^)(id result, NSError *error))completionHandler
 {
 	M2DAPIRequest *r = [[M2DAPIRequest POSTRequest:[NSURL URLWithString:GetUnreadArticlesAPI]] parametors:@{@"subscribe_id":subscribeIdentifier}];
-	[[r whenSucceeded:^(M2DAPIRequest *request, id parsedObject) {
+	[[r whenSucceeded:^(M2DAPIRequest *request, NSDictionary *httpHeaderFields, id parsedObject) {
 		dispatch_async(dispatch_get_main_queue(), ^{
 			LDRArticleData *articles = [LDRArticleData modelObjectWithDictionary:parsedObject];
 			completionHandler(articles, nil);
@@ -204,7 +205,7 @@ static NSString *const LDRPassword = @"Password";
 - (void)getPinnedArticlesWithCompletionHandler:(void (^)(id result, NSError *error))completionHandler
 {
 	M2DAPIRequest *r = [[M2DAPIRequest POSTRequest:[NSURL URLWithString:GetPinnedArticlesAPI]] parametors:@{}];
-	[[r whenSucceeded:^(M2DAPIRequest *request, id parsedObject) {
+	[[r whenSucceeded:^(M2DAPIRequest *request, NSDictionary *httpHeaderFields, id parsedObject) {
 		NSMutableArray *result = [NSMutableArray new];
 		[parsedObject enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 			[result addObject:[LDRPinnedArticle modelObjectWithDictionary:obj]];
@@ -246,7 +247,7 @@ static NSString *const LDRPassword = @"Password";
 - (void)addPinnedArticle:(LDRPinnedArticle *)article completionHandler:(void (^)(NSError *error))handler
 {
 	M2DAPIRequest *r = [[M2DAPIRequest POSTRequest:[NSURL URLWithString:AddPinnedArticleAPI]] parametors:@{@"title":article.title, @"link":article.link}];
-	[[r whenSucceeded:^(M2DAPIRequest *request, id parsedObject) {
+	[[r whenSucceeded:^(M2DAPIRequest *request, NSDictionary *httpHeaderFields, id parsedObject) {
 		dispatch_async(dispatch_get_main_queue(), ^{
 			handler(nil);
 		});
@@ -259,7 +260,7 @@ static NSString *const LDRPassword = @"Password";
 - (void)deletePinnedArticle:(LDRPinnedArticle *)article completionHandler:(void (^)(NSError *error))handler
 {
 	M2DAPIRequest *r = [[M2DAPIRequest POSTRequest:[NSURL URLWithString:DeletePinnedArticleAPI]] parametors:@{@"link":article.link}];
-	[[r whenSucceeded:^(M2DAPIRequest *request, id parsedObject) {
+	[[r whenSucceeded:^(M2DAPIRequest *request, NSDictionary *httpHeaderFields, id parsedObject) {
 		handler(nil);
 	}] asynchronousRequest];
 	[self sendRequest:r completionHandler:^(id result, NSError *error) {
@@ -272,14 +273,14 @@ static NSString *const LDRPassword = @"Password";
 	NSString *username = [UICKeyChainStore stringForKey:LDRUsername service:LDRServiceIdentifier];
 	if (username) {
 		M2DAPIRequest *r = [[[M2DAPIRequest POSTRequest:[NSURL URLWithString:NotifyAPI]] parametors:@{@"user":username}] asynchronousRequest];
-		[r whenSucceeded:^(M2DAPIRequest *request, id parsedObject) {
+		[r whenSucceeded:^(M2DAPIRequest *request, NSDictionary *httpHeaderFields, id parsedObject) {
 			handler(parsedObject, nil);
 		}];
 		[r parseAlgorithm:^id(NSData *data, NSError *__autoreleasing *error) {
 			NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 			return [result stringByReplacingOccurrencesOfString:@"|" withString:@""];
 		}];
-		[r resultCondition:^BOOL(NSURLResponse *response, id parsedObject, NSError *__autoreleasing *error) {
+		[r setResultConditionBlock:^BOOL(M2DAPIRequest *r, NSURLResponse *response, id parsedObject, NSError *__autoreleasing *e) {
 			return [(NSHTTPURLResponse *)response statusCode] == 200;
 		}];
 		[self sendRequest:r completionHandler:^(id result, NSError *error) {
@@ -292,7 +293,7 @@ static NSString *const LDRPassword = @"Password";
 
 - (void)sendRequest:(M2DAPIRequest *)request completionHandler:(void (^)(id result, NSError *error))completionHandler
 {
-	[request whenFailed:^(M2DAPIRequest *request, NSError *error) {
+	[request whenFailed:^(M2DAPIRequest *request, NSDictionary *httpHeaderFields, id parsedObject, NSError *error) {
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[self loginWithCompetionHandler:^(NSError *error) {
 			}];

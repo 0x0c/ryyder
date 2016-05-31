@@ -56,7 +56,7 @@
 			[SVProgressHUD show];
 		});
 	}];
-	[gatekeeper finalizeBlock:^(M2DAPIRequest *request) {
+	[gatekeeper finalizeBlock:^(M2DAPIRequest *request, NSDictionary *httpHeaderFields, id parsedObject) {
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[SVProgressHUD dismiss];
 		});

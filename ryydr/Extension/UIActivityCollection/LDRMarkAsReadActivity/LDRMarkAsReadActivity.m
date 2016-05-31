@@ -50,7 +50,7 @@
 	return YES;
 }
 
-- (void)prepareWithActivityItems:(NSArray *)activityItems
+- (void)performActivity
 {
 	self.article.read = YES;
 }

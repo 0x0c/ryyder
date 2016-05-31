@@ -61,7 +61,7 @@
 	return YES;
 }
 
-- (void)prepareWithActivityItems:(NSArray *)activityItems
+- (void)performActivity
 {
 	LDRPinnedArticle *article = [LDRPinnedArticle new];
 	article.title = self.title;

@@ -15,15 +15,15 @@
 
 @implementation RYYFeedlyAuthWebViewController
 
-- (instancetype)init
-{
-	self = [super initWithURL:[NSURL URLWithString:@""] type:M2DWebViewTypeUIKit];
-	if (self) {
-		
-	}
-	
-	return self;
-}
+//- (instancetype)init
+//{
+//	self = [super initWithURL:[NSURL URLWithString:@""] type:M2DWebViewTypeUIKit];
+//	if (self) {
+//		
+//	}
+//	
+//	return self;
+//}
 
 - (void)viewDidLoad
 {
@@ -62,10 +62,10 @@
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	UIWebView *webView = self.webView;
-	[[NXOAuth2AccountStore sharedStore] requestAccessToAccountWithType:kOauth2ClientAccountType withPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
-		[webView loadRequest:[NSURLRequest requestWithURL:preparedURL]];
-	}];
+//	UIWebView *webView = self.webView;
+//	[[NXOAuth2AccountStore sharedStore] requestAccessToAccountWithType:kOauth2ClientAccountType withPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
+//		[webView loadRequest:[NSURLRequest requestWithURL:preparedURL]];
+//	}];
 }
 
 #pragma mark - UIWebViewDelegate

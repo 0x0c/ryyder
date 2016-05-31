@@ -155,9 +155,9 @@ static CGFloat kIconButtonSize = 27;
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
 	if (navigationType == UIWebViewNavigationTypeLinkClicked) {
-		RYYWebViewController *viewController = [[RYYWebViewController alloc] initWithURL:request.URL type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
+		RYYWebViewController *viewController = [[RYYWebViewController alloc] initWithURL:request.URL];
 		viewController.article = self.article;
-		[self.navigationController pushViewController:viewController animated:YES];
+		[self presentViewController:viewController animated:YES completion:nil];
 		return NO;
 	}
 
@@ -186,9 +186,9 @@ static CGFloat kIconButtonSize = 27;
 
 - (void)openLink
 {
-	RYYWebViewController *viewController = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:self.article.link] type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
+	RYYWebViewController *viewController = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:self.article.link]];
 	viewController.article = self.article;
-	[self.navigationController pushViewController:viewController animated:YES];
+	[self presentViewController:viewController animated:YES completion:nil];
 }
 
 - (void)up

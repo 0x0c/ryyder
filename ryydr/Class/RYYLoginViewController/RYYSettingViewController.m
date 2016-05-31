@@ -13,7 +13,6 @@
 #import "SVProgressHUD.h"
 #import "LDRGatekeeper.h"
 #import "JVFloatLabeledTextField.h"
-#import "RYYFeedlyAuthWebViewController.h"
 
 @interface RYYSettingViewController () {
 	IBOutlet UISwitch *directAccessSwitch;
@@ -179,7 +178,7 @@
 			[SVProgressHUD show];
 		});
 	}];
-	[[LDRGatekeeper sharedInstance] finalizeBlock:^(M2DAPIRequest *request) {
+	[[LDRGatekeeper sharedInstance] finalizeBlock:^(M2DAPIRequest *request, NSDictionary *httpHeaderFields, id parsedObject) {
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[SVProgressHUD dismiss];
 		});

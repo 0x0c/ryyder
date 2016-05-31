@@ -229,7 +229,7 @@ static CGFloat kIconButtonSize = 27;
 		UIView *view = gesture.view;
 		LDRArticleItem *item = _feed.data.items[view.tag];
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-			if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]) || IS_IPHONE_6_PLUS == NO) {
+			if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]) || IPHONE_6_PLUS == NO) {
 				[self showArticleInPushedViewController:item withDirectAccess:YES];
 			}
 			else {
@@ -255,9 +255,9 @@ static CGFloat kIconButtonSize = 27;
 	RYYArticleDescriptionViewController *articleDescriptionViewController = (RYYArticleDescriptionViewController *)[[splitViewController.viewControllers lastObject] topViewController];
 	articleDescriptionViewController.article = item;
 	if (directAccess) {
-		RYYWebViewController *webViewController = [[RYYWebViewController alloc] initWithURL:url type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
+		RYYWebViewController *webViewController = [[RYYWebViewController alloc] initWithURL:url];
 		webViewController.article = item;
-		[articleDescriptionViewController.navigationController pushViewController:webViewController animated:NO];
+		[articleDescriptionViewController presentViewController:webViewController animated:YES completion:nil];
 	}
 	[self.tableView reloadData];
 }
@@ -265,22 +265,19 @@ static CGFloat kIconButtonSize = 27;
 - (void)showArticleInPushedViewController:(LDRArticleItem *)item withDirectAccess:(BOOL)directAccess
 {
 	NSURL *url = [NSURL URLWithString:item.link];
-	id viewController = nil;
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadImmediatelyKey]) {
 		item.read = YES;
 	}
 	if (directAccess == YES) {
-		RYYWebViewController *vc = [[RYYWebViewController alloc] initWithURL:url type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
+		RYYWebViewController *vc = [[RYYWebViewController alloc] initWithURL:url];
 		vc.article = item;
-		viewController = vc;
+		[self presentViewController:vc animated:YES completion:nil];
 	}
 	else {
 		RYYArticleDescriptionViewController *vc = [[UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil] instantiateViewControllerWithIdentifier:@"RYYArticleDescriptionViewController"];
 		vc.article = item;
-		viewController = vc;
+		[self.navigationController pushViewController:vc animated:YES];
 	}
-
-	[self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark - UIViewControllerPreviewingDelegate
@@ -296,7 +293,7 @@ static CGFloat kIconButtonSize = 27;
 	}
 	else {
 		NSURL *url = [NSURL URLWithString:item.link];
-		RYYWebViewController *webViewController = [[RYYWebViewController alloc] initWithURL:url type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
+		RYYWebViewController *webViewController = [[RYYWebViewController alloc] initWithURL:url];
 		webViewController.article = item;
 		
 		if ([[NSUserDefaults standardUserDefaults] boolForKey:MarkAsReadImmediatelyKey]) {
@@ -310,7 +307,12 @@ static CGFloat kIconButtonSize = 27;
 
 - (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit
 {
-	[self.navigationController pushViewController:viewControllerToCommit animated:YES];
+	if ([viewControllerToCommit isKindOfClass:[RYYArticleDescriptionViewController class]]) {
+		[self.navigationController pushViewController:viewControllerToCommit animated:YES];
+	}
+	else {
+		[self presentViewController:viewControllerToCommit animated:YES completion:nil];
+	}
 }
 
 @end

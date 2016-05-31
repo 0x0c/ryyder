@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		145440B537BD4423A57EEA92 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 704BB35AEACE4A6EA0EE13C5 /* libPods.a */; };
+		74E548617EB3BDA012C1F4F2 /* libPods-ryyder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 020D7628902D7BB7C2A46B3C /* libPods-ryyder.a */; };
 		E906B6BE1AC840250063F7DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E906B6C01AC840250063F7DE /* Localizable.strings */; };
 		E90CB5B71AE401F500706DE8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90CB5B61AE401F500706DE8 /* QuartzCore.framework */; };
 		E90CB5B91AE401FA00706DE8 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90CB5B81AE401FA00706DE8 /* CoreText.framework */; };
@@ -65,12 +65,6 @@
 		E954C4EA19A2D17A00F5334C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E954C4E819A2D17A00F5334C /* InfoPlist.strings */; };
 		E954C4EC19A2D17A00F5334C /* ryydrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C4EB19A2D17A00F5334C /* ryydrTests.m */; };
 		E954C50D19A2D19A00F5334C /* LDRGatekeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C4F919A2D19A00F5334C /* LDRGatekeeper.m */; };
-		E954C50E19A2D19A00F5334C /* M2DAPIGatekeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C4FC19A2D19A00F5334C /* M2DAPIGatekeeper.m */; };
-		E954C50F19A2D19A00F5334C /* M2DAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C4FF19A2D19A00F5334C /* M2DAPIRequest.m */; };
-		E954C51019A2D19A00F5334C /* M2DURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C50219A2D19A00F5334C /* M2DURLConnectionOperation.m */; };
-		E954C51119A2D19A00F5334C /* M2DNSURLConnectionExtensionConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C50619A2D19A00F5334C /* M2DNSURLConnectionExtensionConstant.m */; };
-		E954C51219A2D19A00F5334C /* NSMutableURLRequest+M2DFileUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C50919A2D19A00F5334C /* NSMutableURLRequest+M2DFileUpload.m */; };
-		E954C51319A2D19A00F5334C /* NSMutableURLRequest+M2DHTTPMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C50C19A2D19A00F5334C /* NSMutableURLRequest+M2DHTTPMethod.m */; };
 		E954C52019A2D6B400F5334C /* RYYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C51F19A2D6B400F5334C /* RYYSettingViewController.m */; };
 		E954C52419A2E06300F5334C /* RYYFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C52319A2E06300F5334C /* RYYFeedViewController.m */; };
 		E954C52A19A2F9CE00F5334C /* LDRFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C52919A2F9CE00F5334C /* LDRFeed.m */; };
@@ -87,9 +81,8 @@
 		E999E4951AE41FC100262D3A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E999E4941AE41FC100262D3A /* LaunchScreen.xib */; };
 		E99C94F119E2EAA200BFE9E8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99C94F019E2EAA200BFE9E8 /* WebKit.framework */; };
 		E99C94FE19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = E99C94FD19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m */; };
-		E99C950219E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E99C950119E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.m */; };
-		E99C950619E30DC500BFE9E8 /* RYYFeedlyTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E99C950519E30DC500BFE9E8 /* RYYFeedlyTestViewController.m */; };
 		E99EABD31BB81A42009EE112 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99EABD21BB81A42009EE112 /* Fabric.framework */; };
+		E9B39D151CFC9AA0004A6345 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B39D141CFC9AA0004A6345 /* SafariServices.framework */; };
 		E9C3F4611AE40BD20045DEFB /* LDRPinnedArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C3F4601AE40BD20045DEFB /* LDRPinnedArticle.m */; };
 		E9F7586719A62EF700E2BB61 /* LDRPinActiviry.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F7586619A62EF700E2BB61 /* LDRPinActiviry.m */; };
 		E9F7586A19A62EFD00E2BB61 /* LDRMarkAsReadActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F7586919A62EFD00E2BB61 /* LDRMarkAsReadActivity.m */; };
@@ -106,9 +99,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09DF257F97C0A06B75F23287 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		704BB35AEACE4A6EA0EE13C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		ACB7823C77C55E96F1B11794 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		020D7628902D7BB7C2A46B3C /* libPods-ryyder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ryyder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		38A42A7E32DD53EC825C7ACD /* Pods-ryyder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ryyder.release.xcconfig"; path = "Pods/Target Support Files/Pods-ryyder/Pods-ryyder.release.xcconfig"; sourceTree = "<group>"; };
+		A58964FB2FE662701CCD3D45 /* Pods-ryyder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ryyder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ryyder/Pods-ryyder.debug.xcconfig"; sourceTree = "<group>"; };
 		E906B6B91AC8400B0063F7DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main_iPad.strings; sourceTree = "<group>"; };
 		E906B6BA1AC8400C0063F7DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E906B6BB1AC8400C0063F7DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -190,19 +183,6 @@
 		E954C4EB19A2D17A00F5334C /* ryydrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ryydrTests.m; sourceTree = "<group>"; };
 		E954C4F819A2D19A00F5334C /* LDRGatekeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDRGatekeeper.h; sourceTree = "<group>"; };
 		E954C4F919A2D19A00F5334C /* LDRGatekeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDRGatekeeper.m; sourceTree = "<group>"; };
-		E954C4FB19A2D19A00F5334C /* M2DAPIGatekeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M2DAPIGatekeeper.h; sourceTree = "<group>"; };
-		E954C4FC19A2D19A00F5334C /* M2DAPIGatekeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M2DAPIGatekeeper.m; sourceTree = "<group>"; };
-		E954C4FE19A2D19A00F5334C /* M2DAPIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M2DAPIRequest.h; sourceTree = "<group>"; };
-		E954C4FF19A2D19A00F5334C /* M2DAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M2DAPIRequest.m; sourceTree = "<group>"; };
-		E954C50119A2D19A00F5334C /* M2DURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M2DURLConnectionOperation.h; sourceTree = "<group>"; };
-		E954C50219A2D19A00F5334C /* M2DURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M2DURLConnectionOperation.m; sourceTree = "<group>"; };
-		E954C50419A2D19A00F5334C /* M2DNSURLConnectionExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M2DNSURLConnectionExtension.h; sourceTree = "<group>"; };
-		E954C50519A2D19A00F5334C /* M2DNSURLConnectionExtensionConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M2DNSURLConnectionExtensionConstant.h; sourceTree = "<group>"; };
-		E954C50619A2D19A00F5334C /* M2DNSURLConnectionExtensionConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M2DNSURLConnectionExtensionConstant.m; sourceTree = "<group>"; };
-		E954C50819A2D19A00F5334C /* NSMutableURLRequest+M2DFileUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+M2DFileUpload.h"; sourceTree = "<group>"; };
-		E954C50919A2D19A00F5334C /* NSMutableURLRequest+M2DFileUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+M2DFileUpload.m"; sourceTree = "<group>"; };
-		E954C50B19A2D19A00F5334C /* NSMutableURLRequest+M2DHTTPMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+M2DHTTPMethod.h"; sourceTree = "<group>"; };
-		E954C50C19A2D19A00F5334C /* NSMutableURLRequest+M2DHTTPMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+M2DHTTPMethod.m"; sourceTree = "<group>"; };
 		E954C51E19A2D6B400F5334C /* RYYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYSettingViewController.h; sourceTree = "<group>"; };
 		E954C51F19A2D6B400F5334C /* RYYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYSettingViewController.m; sourceTree = "<group>"; };
 		E954C52119A2D7A500F5334C /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
@@ -237,11 +217,8 @@
 		E99C94F019E2EAA200BFE9E8 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E99C94FC19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYFeedlyAPIGatekeeper.h; sourceTree = "<group>"; };
 		E99C94FD19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYFeedlyAPIGatekeeper.m; sourceTree = "<group>"; };
-		E99C950019E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYFeedlyAuthWebViewController.h; sourceTree = "<group>"; };
-		E99C950119E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYFeedlyAuthWebViewController.m; sourceTree = "<group>"; };
-		E99C950419E30DC500BFE9E8 /* RYYFeedlyTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYYFeedlyTestViewController.h; sourceTree = "<group>"; };
-		E99C950519E30DC500BFE9E8 /* RYYFeedlyTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYYFeedlyTestViewController.m; sourceTree = "<group>"; };
 		E99EABD21BB81A42009EE112 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		E9B39D141CFC9AA0004A6345 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		E9C3F45F1AE40BD20045DEFB /* LDRPinnedArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDRPinnedArticle.h; path = ryydr/Library/LDRGatekeeper/Model/LDRArticle/LDRPinnedArticle.h; sourceTree = SOURCE_ROOT; };
 		E9C3F4601AE40BD20045DEFB /* LDRPinnedArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDRPinnedArticle.m; path = ryydr/Library/LDRGatekeeper/Model/LDRArticle/LDRPinnedArticle.m; sourceTree = SOURCE_ROOT; };
 		E9F7586519A62EF700E2BB61 /* LDRPinActiviry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDRPinActiviry.h; sourceTree = "<group>"; };
@@ -255,6 +232,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9B39D151CFC9AA0004A6345 /* SafariServices.framework in Frameworks */,
 				E913CDBF1AEEB730006EC49C /* CoreData.framework in Frameworks */,
 				E90CB5C31AE4022700706DE8 /* QuickLook.framework in Frameworks */,
 				E947DDFE19A4532000F08164 /* Security.framework in Frameworks */,
@@ -273,7 +251,7 @@
 				E97BECED19A47A850016517A /* Crashlytics.framework in Frameworks */,
 				E954C4C219A2D17A00F5334C /* UIKit.framework in Frameworks */,
 				E954C4BE19A2D17A00F5334C /* Foundation.framework in Frameworks */,
-				145440B537BD4423A57EEA92 /* libPods.a in Frameworks */,
+				74E548617EB3BDA012C1F4F2 /* libPods-ryyder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,11 +268,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D530B36A9A339C8E970C9236 /* Pods */ = {
+		D8966BBE03EA494DAD749FAF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				ACB7823C77C55E96F1B11794 /* Pods.debug.xcconfig */,
-				09DF257F97C0A06B75F23287 /* Pods.release.xcconfig */,
+				A58964FB2FE662701CCD3D45 /* Pods-ryyder.debug.xcconfig */,
+				38A42A7E32DD53EC825C7ACD /* Pods-ryyder.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -444,7 +422,7 @@
 				E980FA131C35345800B72766 /* ryydr_updates */,
 				E954C4BC19A2D17A00F5334C /* Frameworks */,
 				E954C4BB19A2D17A00F5334C /* Products */,
-				D530B36A9A339C8E970C9236 /* Pods */,
+				D8966BBE03EA494DAD749FAF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -460,6 +438,7 @@
 		E954C4BC19A2D17A00F5334C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9B39D141CFC9AA0004A6345 /* SafariServices.framework */,
 				E99EABD21BB81A42009EE112 /* Fabric.framework */,
 				E913CDBE1AEEB730006EC49C /* CoreData.framework */,
 				E90CB5C21AE4022700706DE8 /* QuickLook.framework */,
@@ -479,8 +458,8 @@
 				E954C4BF19A2D17A00F5334C /* CoreGraphics.framework */,
 				E954C4C119A2D17A00F5334C /* UIKit.framework */,
 				E954C4DF19A2D17A00F5334C /* XCTest.framework */,
-				704BB35AEACE4A6EA0EE13C5 /* libPods.a */,
 				E980FA111C35345800B72766 /* NotificationCenter.framework */,
+				020D7628902D7BB7C2A46B3C /* libPods-ryyder.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -542,10 +521,6 @@
 			children = (
 				E99C94FB19E300F500BFE9E8 /* RYYFeedlyAPIGatekeeper */,
 				E954C4F619A2D19A00F5334C /* LDRGatekeeper */,
-				E954C4FA19A2D19A00F5334C /* M2DAPIGatekeeper */,
-				E954C4FD19A2D19A00F5334C /* M2DAPIRequest */,
-				E954C50019A2D19A00F5334C /* M2DURLConnectionOperation */,
-				E954C50319A2D19A00F5334C /* NSURLConnectionExtension */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -560,69 +535,10 @@
 			path = LDRGatekeeper;
 			sourceTree = "<group>";
 		};
-		E954C4FA19A2D19A00F5334C /* M2DAPIGatekeeper */ = {
-			isa = PBXGroup;
-			children = (
-				E954C4FB19A2D19A00F5334C /* M2DAPIGatekeeper.h */,
-				E954C4FC19A2D19A00F5334C /* M2DAPIGatekeeper.m */,
-			);
-			path = M2DAPIGatekeeper;
-			sourceTree = "<group>";
-		};
-		E954C4FD19A2D19A00F5334C /* M2DAPIRequest */ = {
-			isa = PBXGroup;
-			children = (
-				E954C4FE19A2D19A00F5334C /* M2DAPIRequest.h */,
-				E954C4FF19A2D19A00F5334C /* M2DAPIRequest.m */,
-			);
-			path = M2DAPIRequest;
-			sourceTree = "<group>";
-		};
-		E954C50019A2D19A00F5334C /* M2DURLConnectionOperation */ = {
-			isa = PBXGroup;
-			children = (
-				E954C50119A2D19A00F5334C /* M2DURLConnectionOperation.h */,
-				E954C50219A2D19A00F5334C /* M2DURLConnectionOperation.m */,
-			);
-			path = M2DURLConnectionOperation;
-			sourceTree = "<group>";
-		};
-		E954C50319A2D19A00F5334C /* NSURLConnectionExtension */ = {
-			isa = PBXGroup;
-			children = (
-				E954C50419A2D19A00F5334C /* M2DNSURLConnectionExtension.h */,
-				E954C50519A2D19A00F5334C /* M2DNSURLConnectionExtensionConstant.h */,
-				E954C50619A2D19A00F5334C /* M2DNSURLConnectionExtensionConstant.m */,
-				E954C50719A2D19A00F5334C /* NSMutableURLRequest+FileUpload */,
-				E954C50A19A2D19A00F5334C /* NSMutableURLRequest+HTTPMethod */,
-			);
-			path = NSURLConnectionExtension;
-			sourceTree = "<group>";
-		};
-		E954C50719A2D19A00F5334C /* NSMutableURLRequest+FileUpload */ = {
-			isa = PBXGroup;
-			children = (
-				E954C50819A2D19A00F5334C /* NSMutableURLRequest+M2DFileUpload.h */,
-				E954C50919A2D19A00F5334C /* NSMutableURLRequest+M2DFileUpload.m */,
-			);
-			path = "NSMutableURLRequest+FileUpload";
-			sourceTree = "<group>";
-		};
-		E954C50A19A2D19A00F5334C /* NSMutableURLRequest+HTTPMethod */ = {
-			isa = PBXGroup;
-			children = (
-				E954C50B19A2D19A00F5334C /* NSMutableURLRequest+M2DHTTPMethod.h */,
-				E954C50C19A2D19A00F5334C /* NSMutableURLRequest+M2DHTTPMethod.m */,
-			);
-			path = "NSMutableURLRequest+HTTPMethod";
-			sourceTree = "<group>";
-		};
 		E954C51819A2D21300F5334C /* Class */ = {
 			isa = PBXGroup;
 			children = (
 				E9630D9C1A50630B004DD380 /* RYYSplitViewController */,
-				E99C950319E30DBC00BFE9E8 /* RYYFeedlyTestViewController */,
-				E99C94FF19E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController */,
 				E954C7C919A44A9300F5334C /* RYYWebViewController */,
 				E947DD8519A436BA00F08164 /* RYYPinnedArticleTableViewController */,
 				E954C51919A2D3D500F5334C /* RYYArticleDescriptionViewController */,
@@ -743,24 +659,6 @@
 			path = RYYFeedlyAPIGatekeeper;
 			sourceTree = "<group>";
 		};
-		E99C94FF19E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E99C950019E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.h */,
-				E99C950119E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.m */,
-			);
-			path = RYYFeedlyAuthWebViewController;
-			sourceTree = "<group>";
-		};
-		E99C950319E30DBC00BFE9E8 /* RYYFeedlyTestViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E99C950419E30DC500BFE9E8 /* RYYFeedlyTestViewController.h */,
-				E99C950519E30DC500BFE9E8 /* RYYFeedlyTestViewController.m */,
-			);
-			path = RYYFeedlyTestViewController;
-			sourceTree = "<group>";
-		};
 		E9F7585F19A61AF800E2BB61 /* LDRPinnedArticle */ = {
 			isa = PBXGroup;
 			children = (
@@ -795,13 +693,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E954C4EF19A2D17A00F5334C /* Build configuration list for PBXNativeTarget "ryyder" */;
 			buildPhases = (
-				6BD6A0CB76CE408DAEA1A365 /* Check Pods Manifest.lock */,
+				23EB26A3A9020EDCD612B47A /* 📦 Check Pods Manifest.lock */,
 				E954C4B619A2D17A00F5334C /* Sources */,
 				E954C4B719A2D17A00F5334C /* Frameworks */,
 				E954C4B819A2D17A00F5334C /* Resources */,
-				84C559878BA041D2B323C3DD /* Copy Pods Resources */,
 				E9BB15BB19A479E30024F1F4 /* Run Script */,
-				9CB59F6AE2364C4CAA3DA7F2 /* Embed Pods Frameworks */,
+				C55D4E9DCB4A22AE5E26F9E5 /* 📦 Embed Pods Frameworks */,
+				832B02D5E7262A40DD389AE6 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -938,14 +836,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6BD6A0CB76CE408DAEA1A365 /* Check Pods Manifest.lock */ = {
+		23EB26A3A9020EDCD612B47A /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -953,34 +851,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		84C559878BA041D2B323C3DD /* Copy Pods Resources */ = {
+		832B02D5E7262A40DD389AE6 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ryyder/Pods-ryyder-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9CB59F6AE2364C4CAA3DA7F2 /* Embed Pods Frameworks */ = {
+		C55D4E9DCB4A22AE5E26F9E5 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ryyder/Pods-ryyder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E9BB15BB19A479E30024F1F4 /* Run Script */ = {
@@ -1005,24 +903,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9F7586A19A62EFD00E2BB61 /* LDRMarkAsReadActivity.m in Sources */,
-				E954C50F19A2D19A00F5334C /* M2DAPIRequest.m in Sources */,
 				E9630D9F1A506314004DD380 /* RYYSplitViewController.m in Sources */,
 				E947DDF119A44F0A00F08164 /* PocketAPIOperation.m in Sources */,
 				E947DDEF19A44F0A00F08164 /* PocketAPI.m in Sources */,
 				E947DDF719A44F0A00F08164 /* ReadabilityActivity.m in Sources */,
 				E954C4CE19A2D17A00F5334C /* AppDelegate.m in Sources */,
 				E954C71B19A33BCE00F5334C /* LDRChannel.m in Sources */,
-				E954C51319A2D19A00F5334C /* NSMutableURLRequest+M2DHTTPMethod.m in Sources */,
 				E947DD8819A436C800F08164 /* RYYPinnedArticleTableViewController.m in Sources */,
 				E954C52019A2D6B400F5334C /* RYYSettingViewController.m in Sources */,
-				E99C950219E30DA900BFE9E8 /* RYYFeedlyAuthWebViewController.m in Sources */,
 				E947DD8419A3E2EE00F08164 /* RYYArticleDescriptionViewController.m in Sources */,
 				E954C70F19A3388300F5334C /* RYYArticleTableViewController.m in Sources */,
-				E954C50E19A2D19A00F5334C /* M2DAPIGatekeeper.m in Sources */,
 				E947DDEE19A44F0A00F08164 /* PocketActivity.m in Sources */,
 				E9C3F4611AE40BD20045DEFB /* LDRPinnedArticle.m in Sources */,
-				E954C51019A2D19A00F5334C /* M2DURLConnectionOperation.m in Sources */,
-				E954C51119A2D19A00F5334C /* M2DNSURLConnectionExtensionConstant.m in Sources */,
 				E954C50D19A2D19A00F5334C /* LDRGatekeeper.m in Sources */,
 				E9F7586719A62EF700E2BB61 /* LDRPinActiviry.m in Sources */,
 				E947DDD619A44F0A00F08164 /* EvernoteActivity.m in Sources */,
@@ -1030,10 +922,8 @@
 				E954C7CC19A44A9F00F5334C /* RYYWebViewController.m in Sources */,
 				E954C71919A33BCE00F5334C /* LDRAds.m in Sources */,
 				E954C52419A2E06300F5334C /* RYYFeedViewController.m in Sources */,
-				E954C51219A2D19A00F5334C /* NSMutableURLRequest+M2DFileUpload.m in Sources */,
 				E947DDE419A44F0A00F08164 /* InstapaperActivity.m in Sources */,
 				E954C71A19A33BCE00F5334C /* LDRArticleData.m in Sources */,
-				E99C950619E30DC500BFE9E8 /* RYYFeedlyTestViewController.m in Sources */,
 				E99C94FE19E300FC00BFE9E8 /* RYYFeedlyAPIGatekeeper.m in Sources */,
 				E954C52A19A2F9CE00F5334C /* LDRFeed.m in Sources */,
 				E947DDE519A44F0A00F08164 /* LINEActivity.m in Sources */,
@@ -1190,7 +1080,7 @@
 		};
 		E954C4F019A2D17A00F5334C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ACB7823C77C55E96F1B11794 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A58964FB2FE662701CCD3D45 /* Pods-ryyder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1218,7 +1108,7 @@
 		};
 		E954C4F119A2D17A00F5334C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 09DF257F97C0A06B75F23287 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 38A42A7E32DD53EC825C7ACD /* Pods-ryyder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

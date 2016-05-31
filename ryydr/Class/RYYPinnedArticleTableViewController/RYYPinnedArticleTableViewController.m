@@ -89,8 +89,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	LDRPinnedArticle *item = items[indexPath.row];
-	RYYWebViewController *viewController = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:item.link] type:M2DWebViewTypeWebKit backArrowImage:[[FAKFontAwesome angleLeftIconWithSize:25] imageWithSize:CGSizeMake(25, 25)] forwardArrowImage:[[FAKFontAwesome angleRightIconWithSize:25] imageWithSize:CGSizeMake(25, 25)]];
-	[self.navigationController pushViewController:viewController animated:YES];
+	RYYWebViewController *viewController = [[RYYWebViewController alloc] initWithURL:[NSURL URLWithString:item.link]];
+	[self presentViewController:viewController animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

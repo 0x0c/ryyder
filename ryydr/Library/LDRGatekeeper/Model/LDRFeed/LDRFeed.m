@@ -197,7 +197,7 @@ NSString *const kLDRFeedPublic = @"public";
 #endif
 			[gatekeeper resultConditionBlock:sharedGatekeeper.resultConditionBlock];
 			[gatekeeper parseBlock:sharedGatekeeper.parseBlock];
-			[gatekeeper setBaseParameter:sharedGatekeeper.baseParameter];
+//			[gatekeeper setBaseParameter:sharedGatekeeper.baseParameter];
 			[gatekeeper getUnreadArticlesWithSubsucribeId:[self.subscribeIdentifier stringValue] completionHandler:^(id result, NSError *error) {
 				self.data = result;
 				self.data.parent = self;

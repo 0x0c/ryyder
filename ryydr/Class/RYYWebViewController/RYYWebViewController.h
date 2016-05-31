@@ -8,8 +8,9 @@
 
 #import "M2DWebViewController.h"
 #import "LDRGatekeeper.h"
+#import <SafariServices/SafariServices.h>
 
-@interface RYYWebViewController : M2DWebViewController
+@interface RYYWebViewController : SFSafariViewController
 
 @property (nonatomic, strong) LDRArticleItem *article;
 
