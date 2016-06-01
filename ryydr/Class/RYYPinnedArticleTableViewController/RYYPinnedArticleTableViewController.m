@@ -108,13 +108,15 @@
 	__weak typeof(tableView) btableView = tableView;
 	LDRPinnedArticle *article = items[indexPath.row];
 	[[LDRGatekeeper sharedInstance] deletePinnedArticle:article completionHandler:^(NSError *error) {
-		if (error) {
-			[TSMessage showNotificationWithTitle:NSLocalizedString(@"Error", nil) subtitle:[NSString stringWithFormat:NSLocalizedString(@"Could not delete pinned article.(%@)", nil), error.localizedDescription] type:TSMessageNotificationTypeError];
-		}
-		else {
-			[items removeObjectAtIndex:indexPath.row];
-			[btableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-		}
+		dispatch_async(dispatch_get_main_queue(), ^{
+			if (error) {
+				[TSMessage showNotificationWithTitle:NSLocalizedString(@"Error", nil) subtitle:[NSString stringWithFormat:NSLocalizedString(@"Could not delete pinned article.(%@)", nil), error.localizedDescription] type:TSMessageNotificationTypeError];
+			}
+			else {
+				[items removeObjectAtIndex:indexPath.row];
+				[btableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+			}
+		});
 	}];
 }
 
